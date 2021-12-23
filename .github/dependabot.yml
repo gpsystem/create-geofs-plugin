@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  # Dependabot will pick up the lerna config and do updates to its packages
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/packages/template-typescript/template"
+    schedule:
+      interval: "daily"

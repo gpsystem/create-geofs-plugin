@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node"
+  },
+  "include": ["*"]
+}

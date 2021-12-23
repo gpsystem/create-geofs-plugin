@@ -1,0 +1,42 @@
+{
+  "name": "@geps/template-typescript",
+  "version": "0.0.0",
+  "description": "A template used to create a typescript plugin for GeoFS Plugin System.",
+  "keywords": [
+    "geofs",
+    "gps"
+  ],
+  "contributors": [
+    "Nicolas Rodriguez (https://github.com/nicolas377)"
+  ],
+  "author": "GeoFS Plugin System",
+  "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
+  "license": "MIT",
+  "main": "lib/template-typescript.js",
+  "types": "lib/template-typescript.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git",
+    "directory": "packages/template-typescript"
+  },
+  "scripts": {
+    "build": "ts-node scripts/build.ts",
+    "test": "eslint . && tsc --noEmit && prettier . --check"
+  },
+  "bugs": {
+    "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
+  },
+  "devDependencies": {
+    "@types/archiver": "^5.1.1",
+    "archiver": "^5.3.0"
+  }
+}

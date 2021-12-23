@@ -1,0 +1,29 @@
+{
+  "name": "plugin-name",
+  "version": "1.0.0",
+  "description": "The general layout of a GeoFS Plugin working with the GeoFS Plugins extension, used to add functionalities to the online flight simulator GeoFS",
+  "private": "true",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prettier": "prettier --write .",
+    "test": "eslint . && tsc --noEmit && prettier --check ."
+  },
+  "keywords": [
+    "geofs"
+  ],
+  "contributors": [
+    "Guy Adler (https://github.com/Guy-Adler)",
+    "Nicolas Rodriguez (https://github.com/nicolas377)"
+  ],
+  "devDependencies": {
+    "@geps/geofs-types": "^0.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "yargs": "^17.3.0"
+  }
+}

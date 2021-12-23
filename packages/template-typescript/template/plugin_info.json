@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "Example Plugin Name",
+  "version": "0.1.0",
+  "scriptLink": "https://raw.githubusercontent.com/gpsystem/example/main/source/dist.js"
+}

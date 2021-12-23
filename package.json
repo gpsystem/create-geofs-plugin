@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "lerna run build",
-    "prettier": "prettier . --write",
+    "prettier": "prettier . --write --ignore-path .gitignore",
     "prepare": "husky install",
     "test": "lerna run test"
   }

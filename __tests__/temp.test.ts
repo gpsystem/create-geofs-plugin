@@ -1,1 +1,3 @@
-// TODO: add tests
+describe("TODO", () => {
+  test.todo("TODO: add a test suite");
+});

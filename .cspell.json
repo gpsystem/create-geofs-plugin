@@ -1,0 +1,25 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "ignorePaths": [
+    ".cspell.json",
+    "jest.config.js",
+    "package*.json",
+    ".github/workflows/**",
+    ".vscode/*.json",
+    "**/*.{json,snap}",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**"
+  ],
+  "words": ["geofs"],
+  "dictionaries": [
+    "typescript",
+    "softwareTerms",
+    "node",
+    "en_US",
+    "npm",
+    "misc",
+    "filetypes"
+  ]
+}

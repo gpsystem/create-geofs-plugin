@@ -1,20 +1,47 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "create-geofs-plugin",
+  "version": "0.0.0",
+  "description": "Creates a plugin ready for use by GeoFS Plugin System.",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git"
+  },
+  "keywords": [
+    "geofs",
+    "gps"
+  ],
+  "contributors": [
+    "Nicolas Rodriguez (https://github.com/nicolas377)"
+  ],
+  "author": "GeoFS Plugin System",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
+  },
+  "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "devDependencies": {
+    "@types/jest": "^27.0.3",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "cspell": "^5.13.4",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0",
+    "jest": "^27.4.5",
     "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "scripts": {
-    "build": "lerna run build",
+    "build": "ts-node scripts/build.ts",
+    "ci-test": "eslint . --ignore-path .gitignore && tsc --noEmit && prettier . --check --ignore-path .gitignore",
+    "check-format": "prettier . --check --ignore-path .gitignore",
+    "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "prettier": "prettier . --write --ignore-path .gitignore",
     "prepare": "husky install",
-    "test": "lerna run test"
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests"
   }
 }

@@ -4,12 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-  # Dependabot will pick up the lerna config and do updates to its packages
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
   - package-ecosystem: "npm"
-    directory: "/packages/template-typescript/template"
+    directory: "/templates/typescript/"
     schedule:
       interval: "daily"

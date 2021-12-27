@@ -16,7 +16,7 @@
     "Nicolas Rodriguez (https://github.com/nicolas377)"
   ],
   "devDependencies": {
-    "@geps/geofs-types": "^0.1.0",
+    "@geps/geofs-types": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",

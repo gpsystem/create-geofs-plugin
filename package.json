@@ -36,12 +36,12 @@
   },
   "scripts": {
     "build": "ts-node scripts/build.ts",
-    "ci-test": "eslint . --ignore-path .gitignore && tsc --noEmit && prettier . --check --ignore-path .gitignore",
     "check-format": "prettier . --check --ignore-path .gitignore",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "prettier": "prettier . --write --ignore-path .gitignore",
     "prepare": "husky install",
-    "lint": "eslint .",
-    "test": "jest --passWithNoTests"
+    "precommit": "npm run test && npm run lint && tsc --noEmit && npm run check-format && npm run check-spelling",
+    "lint": "eslint . --ignore-path .gitignore",
+    "test": "jest"
   }
 }

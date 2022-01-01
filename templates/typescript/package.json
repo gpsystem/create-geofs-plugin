@@ -16,15 +16,15 @@
     "Nicolas Rodriguez (https://github.com/nicolas377)"
   ],
   "devDependencies": {
-    "@geps/geofs-types": "^0.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "prettier": "^2.5.1",
-    "ts-loader": "^9.2.6",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4",
-    "webpack": "^5.65.0",
-    "yargs": "^17.3.1"
+    "@geps/geofs-types": "~0.2.0",
+    "@typescript-eslint/eslint-plugin": "~5.8.1",
+    "eslint": "~8.6.0",
+    "eslint-config-prettier": "~8.3.0",
+    "prettier": "~2.5.1",
+    "ts-loader": "~9.2.6",
+    "ts-node": "~10.4.0",
+    "typescript": "~4.5.4",
+    "webpack": "~5.65.0",
+    "yargs": "~17.3.1"
   }
 }

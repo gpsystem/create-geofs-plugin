@@ -5,61 +5,67 @@ import * as yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 const mainDir = join(__dirname, "..");
-const argv = yargs(hideBin(process.argv)).argv;
+const argv = yargs(hideBin(process.argv)).option("dev", {
+  type: "boolean",
+  default: false,
+}).argv;
 
 chdir(mainDir);
-const compiler = webpack({
-  entry: join(mainDir, "src", "init.ts"),
-  mode: argv.dev ? "development" : "production",
-  output: {
-    path: join(mainDir, "dist"),
-    filename: `main.js`,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  optimization: {
-    moduleIds: "named",
-    mangleExports: false,
-    concatenateModules: false,
-  },
-});
 
-new Promise<void>((resolve, reject) => {
-  try {
-    compiler.run((err, stats) => {
-      if (err) {
-        reject(err);
-        return;
-      }
+(async function () {
+  const compiler = webpack({
+    entry: join(mainDir, "src", "init.ts"),
+    mode: (await argv).dev ? "development" : "production",
+    output: {
+      path: join(mainDir, "dist"),
+      filename: `main.js`,
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"],
+    },
+    optimization: {
+      moduleIds: "named",
+      mangleExports: false,
+      concatenateModules: false,
+    },
+  });
 
-      const info = stats.toJson();
-
-      if (stats.hasWarnings()) {
-        console.warn(info.warnings);
-      }
-
-      if (stats.hasErrors()) {
-        reject(info.errors);
-      }
-
-      compiler.close((closeErr) => {
-        if (closeErr) {
-          reject(closeErr);
+  await new Promise<void>((resolve, reject) => {
+    try {
+      compiler.run((err, stats) => {
+        if (err) {
+          reject(err);
+          return;
         }
-        resolve();
+
+        const info = stats.toJson();
+
+        if (stats.hasWarnings()) {
+          console.warn(info.warnings);
+        }
+
+        if (stats.hasErrors()) {
+          reject(info.errors);
+        }
+
+        compiler.close((closeErr) => {
+          if (closeErr) {
+            reject(closeErr);
+          }
+          resolve();
+        });
       });
-    });
-  } catch (err) {
-    reject(err);
-  }
-});
+    } catch (err) {
+      reject(err);
+    }
+  });
+})();

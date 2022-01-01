@@ -1,9 +1,6 @@
-/*
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+import type { Config } from "@jest/types";
 
-module.exports = {
+const config: Config.InitialOptions = {
   preset: "ts-jest/presets/default-esm",
 
   globals: {
@@ -205,3 +202,5 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+
+export default config;

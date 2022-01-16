@@ -5,15 +5,21 @@
   "private": true,
   "bin": "bin/index.js",
   "scripts": {
-    "build": "ts-node script/clearBin.ts && tsc && ts-node script/makeExecutables.ts",
+    "build": "ts-node scripts/clearBin.ts && tsc && ts-node scripts/makeExecutables.ts",
+    "check-format": "prettier --check --ignore-path=.gitignore .",
+    "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore",
     "prepare": "husky install",
-    "prettier": "prettier --write --ignore-path=.gitignore ."
+    "prettier": "prettier --write --ignore-path=.gitignore .",
+    "test": "npm run lint"
   },
   "files": [
     "bin",
     "templates"
   ],
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gpsystem/create-geofs-plugin.git"

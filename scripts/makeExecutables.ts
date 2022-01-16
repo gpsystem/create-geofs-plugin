@@ -10,21 +10,16 @@ import { bin } from "../package.json";
  * When a developer is modifying the application, they won't be able to run the
  * compiled scripts from the CLI.
  *
- * This utility  function applies executable permissions to the compiled binary script.
- *
- * @param name the name of the built JS file, e.g. 'create-geofs-app'
+ * This utility function applies executable permissions to the compiled binary script.
  */
-function chBinMod(name: string): void {
+function chBinMod(): void {
   const distributableBinary = join(__dirname, "..", bin);
 
   try {
-    if (existsSync(distributableBinary)) {
-      chmod("+x", distributableBinary);
-      console.log(`Converted ${name} to an executable binary.`);
-    }
+    if (existsSync(distributableBinary)) chmod("+x", distributableBinary);
   } catch (err) {
     console.error(err);
   }
 }
 
-chBinMod("index");
+chBinMod();

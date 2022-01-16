@@ -1,0 +1,24 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    ".cspell.json",
+    "package*.json",
+    ".github/workflows/**",
+    ".vscode/*.json",
+    "**/*.{json,snap}",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**"
+  ],
+  "words": ["eqeqeq", "geofs"],
+  "dictionaries": [
+    "typescript",
+    "softwareTerms",
+    "node",
+    "en_US",
+    "npm",
+    "misc",
+    "filetypes"
+  ]
+}

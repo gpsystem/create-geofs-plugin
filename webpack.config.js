@@ -4,6 +4,7 @@ const { join } = require("path");
 const { existsSync, rmSync } = require("fs-extra");
 const { chmod } = require("shelljs");
 const { BannerPlugin } = require("webpack");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const { bin } = require("./package.json");
 
 /**
@@ -11,13 +12,12 @@ const { bin } = require("./package.json");
  */
 class CustomBuildPlugin {
   constructor() {
-    const distributableBinary = join(__dirname, bin);
-
     this.name = "CustomBuildPlugin";
     this.preCompilationCallback = () => {
       rmSync(join(__dirname, "bin"), { recursive: true, force: true });
     };
     this.afterCompilationCallback = () => {
+      const distributableBinary = join(__dirname, bin);
       if (existsSync(distributableBinary)) chmod(755, distributableBinary);
     };
   }
@@ -38,20 +38,24 @@ const config = {
   target: "node",
   plugins: [
     new CustomBuildPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new BannerPlugin({ banner: "#!/usr/bin/env node", raw: true }),
   ],
   module: {
     rules: [
       {
         test: /\.ts$/,
+        loader: "ts-loader",
         exclude: /(node_modules)/,
-        use: [
-          {
-            loader: "ts-loader",
-          },
-        ],
+        options: {
+          // disable type checker - we will use it in fork plugin
+          transpileOnly: true,
+        },
       },
     ],
+  },
+  externalsPresets: {
+    node: true,
   },
   resolve: {
     extensions: [".ts", ".js"],

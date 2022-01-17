@@ -26,23 +26,6 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
-  test_on_primary_node_version:
-    name: Primary tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.PRIMARY_NODE_VERSION }}
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run unit tests
-        run: npm test
-
   linting_and_style:
     name: Code style and lint
     runs-on: ubuntu-latest
@@ -65,24 +48,3 @@ jobs:
 
       - name: Check spelling
         run: npm run check-spelling
-
-  unit_tests_on_other_node_versions:
-    name: Run tests on other Node.js versions
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [12, 14, 17]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run unit tests
-        run: npm test

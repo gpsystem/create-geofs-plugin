@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Create a plugin for GeoFS Plugin System.",
   "private": true,
-  "bin": "bin/index.js",
+  "bin": "bin/create-geofs-plugin.js",
   "scripts": {
-    "build": "ts-node scripts/clearBin.ts && tsc && ts-node scripts/makeExecutables.ts",
+    "build": "webpack",
     "check-format": "prettier --check --ignore-path=.gitignore .",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
+    "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.8",
     "@types/shelljs": "^0.8.11",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
@@ -46,9 +47,13 @@
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.4",
+    "lodash": "^4.17.21",
     "prettier": "^2.5.1",
     "shelljs": "^0.8.5",
+    "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1"
   }
 }

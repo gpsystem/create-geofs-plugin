@@ -1,1 +1,3 @@
-throw new Error("TODO: implement");
+import camelCase from "lodash/camelCase";
+
+console.log(camelCase("hello world!"));

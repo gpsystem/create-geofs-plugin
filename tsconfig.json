@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "allowJs": false,
     "module": "commonjs",
     "target": "es2021",
     "moduleResolution": "node",
     "strict": true,
     "resolveJsonModule": true,
-    "outDir": "bin"
+    "esModuleInterop": true,
+    "noEmit": true
   },
-  "include": ["src/**/*"]
+  "include": ["**/*"]
 }

@@ -19,7 +19,6 @@ export interface DirectConfig {
   /** Author's email address. */
   email?: string;
   /** Repository name. */
-  // this must be defined even if gitInit is off.
   repo?: string;
   /** The template to use for the plugin. */
   template?: string;

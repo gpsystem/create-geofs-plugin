@@ -3,6 +3,7 @@
 const { join } = require("path");
 const { BannerPlugin } = require("webpack");
 
+// TODO output esm and externalize everything
 /** @type {import("webpack").Configuration} */
 const config = {
   entry: join(__dirname, "src", "index.ts"),

@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  PRIMARY_NODE_VERSION: 16.13.2
+
+jobs:
+  publish:
+    name: GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Extract release notes
+        run: npx extract-changelog-release > RELEASE_BODY.md
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          bodyFile: "RELEASE_BODY.md"
+          token: ${{ secrets.GITHUB_TOKEN }}

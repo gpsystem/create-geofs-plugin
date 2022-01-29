@@ -4,8 +4,8 @@ import type {
   OnlyOptionalConfigOptions,
 } from "../../types";
 import getQuestions from "./getQuestions";
+import isNil from "lodash/isNil";
 import { prompt } from "inquirer";
-import { isNil } from "lodash";
 
 export default async function getMissingOptions(
   config: DirectConfig

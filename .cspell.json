@@ -10,7 +10,7 @@
     "**/bin/**",
     "**/node_modules/**"
   ],
-  "words": ["eqeqeq", "geofs"],
+  "words": ["eqeqeq", "geofs", "klaw"],
   "dictionaries": [
     "typescript",
     "softwareTerms",

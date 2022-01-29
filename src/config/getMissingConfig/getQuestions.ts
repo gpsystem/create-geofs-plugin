@@ -1,10 +1,13 @@
-import type { Answers } from "inquirer";
-import type { DirectConfig, QuestionI, Template } from "../../types";
-import validatePackageName from "validate-npm-package-name";
-import getTemplates from "../../getTemplates";
-import { basename } from "path";
-import { isEmpty, isNil, kebabCase } from "lodash";
 import { blue, red } from "../../chalkTypes";
+import type { DirectConfig, QuestionI, Template } from "../../types";
+import type { Answers } from "inquirer";
+import { basename } from "path";
+import getTemplates from "../../getTemplates";
+import isNil from "lodash/isNil";
+import kebabCase from "lodash/kebabCase";
+import validatePackageName from "validate-npm-package-name";
+
+export const templateLiteralString = " => ";
 
 function validateThereIsInput(input: unknown): boolean {
   const testRegex = /^.{1}/i;
@@ -81,7 +84,8 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       type: "list",
       name: "template",
       choices: templates.map(
-        ({ name, description }: Template) => `${name} => ${description}`
+        ({ name, description }: Template) =>
+          `${name}${templateLiteralString}${description}`
       ),
       message: "Which template would you like to use?",
       when(): boolean {

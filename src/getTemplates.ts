@@ -1,11 +1,11 @@
-import { join } from "path";
 import { readdirSync, readFileSync } from "fs-extra";
+import { join } from "path";
+import mainDir from "./mainDir";
 import type { Template } from "./types";
 
-export default function getTemplates(): Template[] {
-  // it should be ../../, but the join call is executed from inside the bin/ directory
-  const templatesSourcePath = join(__dirname, "../templates/");
+export const templatesSourcePath = join(mainDir, "templates/");
 
+export default function getTemplates(): Template[] {
   return readdirSync(templatesSourcePath)
     .filter((path) => path.substring(0, 2) !== "__")
     .map((template) => {

@@ -1,6 +1,6 @@
-import { Command } from "commander";
-import { isAbsolute, resolve } from "path";
 import type { Config, InitialConfig } from "../types";
+import { isAbsolute, resolve } from "path";
+import { Command } from "commander";
 import getMissingConfig from "./getMissingConfig";
 import getTemplates from "../getTemplates";
 import handlePotentialString from "./handlePotentialString";
@@ -28,7 +28,8 @@ export default async function getConfig(): Promise<Config> {
     .option("--overwrite", "Overwrite existing files", false)
     .option("-t, --template <template>", "Name of use case template")
     .option("--show-templates", "Print list of available templates and exit")
-    .option("--no-git-init", "Skip Git repository initialization", false)
+    // the default gets piped directly to the config
+    .option("--no-git-init", "Skip Git repository initialization", true)
     .version(`Create GeoFS Plugin v${version}`);
 
   const directOptions = program.parse().opts<InitialConfig>();

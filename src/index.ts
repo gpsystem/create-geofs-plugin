@@ -1,17 +1,18 @@
 import getConfig from "./config";
 import printSuccess from "./printSuccess";
 import { red } from "./chalkTypes";
+import scaffold from "./scaffolding";
 
 async function main(): Promise<void> {
   try {
     const config = await getConfig();
-    // merge the common template and the specific template into a temp folder, then copy to the target folder
+    await scaffold(config);
     // initialize git
     // run npm i, then npm run build
     printSuccess(config.appName, config.destination);
-  } catch (err) {
+  } catch (err: unknown) {
     console.log(red("Creation failed, see error below:"));
-    console.error(err);
+    throw err;
   }
 }
 

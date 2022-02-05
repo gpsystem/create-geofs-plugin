@@ -9,7 +9,7 @@ async function main(): Promise<void> {
   try {
     const config = await getConfig();
     await scaffold(config);
-    await gitInit(config);
+    if (config.gitInit) await gitInit(config.destination);
     await installPackages(config);
     printSuccess(config.appName, config.destination);
   } catch (err: unknown) {

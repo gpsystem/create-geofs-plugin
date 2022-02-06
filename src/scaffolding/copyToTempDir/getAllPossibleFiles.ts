@@ -1,6 +1,7 @@
 import type FileInfo from "./FileInfo";
 import getRelativePathOfFileWhenCopied from "./getRelativePathOfFileWhenCopied";
 import klaw from "klaw";
+import { relative } from "path";
 
 export default async function getAllPossibleFiles(
   templatePath: string,
@@ -11,7 +12,11 @@ export default async function getAllPossibleFiles(
   await Promise.all(
     [templatePath, commonTemplatePath].map(async (path) => {
       for await (const file of klaw(path)) {
-        if (!file.stats.isFile()) continue;
+        if (
+          !file.stats.isFile() ||
+          relative(__dirname, file.path).indexOf("node_modules") !== -1
+        )
+          continue;
         allPossiblePaths.push(file.path);
       }
     })

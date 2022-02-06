@@ -1,6 +1,6 @@
 import { blue, green } from "./chalkTypes";
-import { join, relative } from "path";
-import { cwd } from "process";
+import { join, relative } from "node:path";
+import { cwd } from "node:process";
 
 export default function printSuccess(appName: string, destination: string) {
   console.log(`

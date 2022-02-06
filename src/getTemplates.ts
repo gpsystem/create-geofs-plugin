@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync } from "fs-extra";
-import { join } from "path";
+import { join } from "node:path";
 import mainDir from "./mainDir";
 import type { Template } from "./types";
 

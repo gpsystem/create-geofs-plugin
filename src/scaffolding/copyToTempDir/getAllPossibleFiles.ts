@@ -1,7 +1,7 @@
 import type FileInfo from "./FileInfo";
 import getRelativePathOfFileWhenCopied from "./getRelativePathOfFileWhenCopied";
 import klaw from "klaw";
-import { relative } from "path";
+import { relative } from "node:path";
 
 export default async function getAllPossibleFiles(
   templatePath: string,

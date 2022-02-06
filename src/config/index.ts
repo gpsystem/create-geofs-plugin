@@ -1,5 +1,5 @@
 import type { Config, InitialConfig } from "../types";
-import { isAbsolute, resolve } from "path";
+import { isAbsolute, resolve } from "node:path";
 import { Command } from "commander";
 import getMissingConfig from "./getMissingConfig";
 import getTemplates from "../getTemplates";

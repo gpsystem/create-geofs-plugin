@@ -1,5 +1,5 @@
 import { copySync, existsSync } from "fs-extra";
-import { join } from "path";
+import { join } from "node:path";
 import type { Results } from "./Results";
 
 export default function handleSingleFile(

@@ -3,8 +3,8 @@ import { mkdtemp, rmSync } from "fs-extra";
 import type { Config } from "../types";
 import copyToFinalDir from "./copyToFinalDir";
 import copyToTempDir from "./copyToTempDir";
-import { join } from "path";
-import { tmpdir } from "os";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 
 export default async function scaffold(config: Config): Promise<void> {
   const tempDirPath = await mkdtemp(join(tmpdir(), "__create_geofs_plugin__"));

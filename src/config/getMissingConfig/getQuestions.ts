@@ -1,10 +1,9 @@
 import { blue, red } from "../../chalkTypes";
 import type { DirectConfig, QuestionI, Template } from "../../types";
+import { isNil, kebabCase } from "lodash";
 import type { Answers } from "inquirer";
-import { basename } from "path";
+import { basename } from "node:path";
 import getTemplates from "../../getTemplates";
-import isNil from "lodash/isNil";
-import kebabCase from "lodash/kebabCase";
 import validatePackageName from "validate-npm-package-name";
 
 export const templateLiteralString = " => ";

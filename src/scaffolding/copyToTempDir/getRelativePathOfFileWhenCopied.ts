@@ -1,4 +1,4 @@
-import { join, relative, sep } from "path";
+import { join, relative, sep } from "node:path";
 import { templatesSourcePath } from "../../getTemplates";
 
 export default function getRelativePathOfFileWhenCopied(

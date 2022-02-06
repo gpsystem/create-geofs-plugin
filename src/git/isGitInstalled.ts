@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { exec } from "node:child_process";
 import { yellow } from "../chalkTypes";
 
 export default function isGitInstalled(): Promise<boolean> {

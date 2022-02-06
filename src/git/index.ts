@@ -1,7 +1,7 @@
 import { green, red, yellow } from "../chalkTypes";
 import isGitInstalled from "./isGitInstalled";
 import isInGitRepo from "./isInGitRepo";
-import { join } from "path";
+import { join } from "node:path";
 import { removeSync } from "fs-extra";
 import simpleGit from "simple-git";
 

@@ -1,5 +1,5 @@
 import handleSingleFile from "./handleSingleFile";
-import { relative } from "path";
+import { relative } from "node:path";
 import type { Results } from "./Results";
 
 export default async function copyToFinalDir(

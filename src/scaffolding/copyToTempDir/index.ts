@@ -1,4 +1,4 @@
-import { basename, dirname, join } from "path";
+import { basename, dirname, join } from "node:path";
 import { mkdir, readFileSync, writeFile } from "fs-extra";
 import type { Config } from "../../types";
 import getAllPossibleFiles from "./getAllPossibleFiles";

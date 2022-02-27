@@ -21,15 +21,9 @@ export default async function copyToTempDir(
 
   await Promise.all(
     filesToCopy.map(async (file) => {
+      const fileName = basename(file);
       // handle description files
-      if (basename(file) === "__description__.txt") return;
-
-      // handle gitignore files
-      if (basename(file).endsWith("gitignore")) {
-        copiedFiles.push(
-          join(dirname(file), basename(file).replace("gitignore", ".gitignore"))
-        );
-      }
+      if (fileName === "__description__.txt") return;
 
       let contents = readFileSync(file, "utf-8");
       if (/{{ .+ }}/gm.test(contents)) {
@@ -37,9 +31,9 @@ export default async function copyToTempDir(
       }
       const fileLocation = join(
         tempDirPath,
-        getRelativePathOfFileWhenCopied(file)
+        getRelativePathOfFileWhenCopied(file, true)
       );
-      mkdir(dirname(fileLocation), (err) => {
+      mkdir(dirname(fileLocation), { recursive: true }, (err) => {
         if (err) {
           // swallow errors where the directory already exists
           if (err.code === "EEXIST") return;

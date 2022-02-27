@@ -1,15 +1,27 @@
 {
-  "name": "basic",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "{{ appName }}",
+  "version": "0.0.0",
+  "description": "{{ description }}",
+  "private": true,
   "scripts": {
-    "build": "echo \"hello world\""
+    "build": "webpack",
+    "check-format": "prettier --check --ignore-path=.gitignore .",
+    "lint": "eslint --ignore-path=.gitignore .",
+    "prettier": "prettier --write --ignore-path=.gitignore .",
+    "test": "npm run lint"
   },
   "keywords": [],
-  "author": "",
+  "author": "{{ author }} (https://github.com/{{ user }})",
   "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.21"
+  "devDependencies": {
+    "@babel/core": "~7.17.5",
+    "@babel/preset-env": "~7.16.11",
+    "@geps/geofs-types": "~1.0.0",
+    "babel-loader": "~8.2.3",
+    "eslint": "~8.10.0",
+    "eslint-config-prettier": "~8.4.0",
+    "prettier": "~2.5.1",
+    "webpack": "~5.69.1",
+    "webpack-cli": "~4.9.2"
   }
 }

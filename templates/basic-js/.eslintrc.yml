@@ -1,0 +1,18 @@
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - eslint:recommended
+  - prettier
+globals:
+  geofs: true
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  sort-imports:
+    - error
+    - ignoreCase: true

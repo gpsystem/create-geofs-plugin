@@ -9,3 +9,8 @@ updates:
     schedule:
       interval: "daily"
     versioning-strategy: increase
+  - package-ecosystem: "npm"
+    directory: "/templates/basic-js"
+    schedule:
+      interval: "daily"
+    versioning-strategy: increase

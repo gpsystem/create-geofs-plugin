@@ -2,7 +2,6 @@
   "name": "create-geofs-plugin",
   "version": "0.1.0",
   "description": "Create a plugin for GeoFS Plugin System.",
-  "private": true,
   "bin": "dist/create-geofs-plugin.js",
   "scripts": {
     "build": "rollup --config",

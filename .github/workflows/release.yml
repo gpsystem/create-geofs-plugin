@@ -32,11 +32,12 @@ jobs:
         run: npx extract-changelog-release > RELEASE_BODY.md
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
+        if: always()
         uses: ncipollo/release-action@v1
         with:
           bodyFile: "RELEASE_BODY.md"

@@ -1,20 +1,25 @@
 import { green, red, yellow } from "../chalkTypes";
 import isGitInstalled from "./isGitInstalled";
-import isInGitRepo from "./isInGitRepo";
 import { join } from "node:path";
 import { removeSync } from "fs-extra";
 import simpleGit from "simple-git";
 
 export default async function gitInit(destination: string): Promise<void> {
-  // if git isn't installed, or there is already a git repo here, exit
-  if (!(await isGitInstalled()) || (await isInGitRepo(destination))) {
+  // if git isn't installed, exit
+  if (!(await isGitInstalled())) {
     console.log(yellow("Skipping Git initialization"));
     return;
   }
 
   const git = simpleGit(destination);
-  let initializedGit = false;
 
+  // if there is already a git repo here, exit
+  if (await git.checkIsRepo()) {
+    console.log(yellow("Skipping Git initialization"));
+    return;
+  }
+
+  let initializedGit = false;
   try {
     await git.init();
     initializedGit = true;

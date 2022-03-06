@@ -1,4 +1,4 @@
-import type { Answers, Question } from "inquirer";
+import type { Question } from "inquirer";
 
 /**
  * The configuration that is guaranteed to exist after the initial input parsing.
@@ -26,8 +26,11 @@ export interface DirectConfig {
   user?: string;
 }
 
-export interface InitialConfig extends DirectConfig {
-  showTemplates: unknown;
+/**
+ * The configuration that exists immediately after commander parses arguments.
+ */
+export interface InitialConfig extends Omit<DirectConfig, "destination"> {
+  showTemplates?: boolean;
 }
 
 /**
@@ -35,16 +38,24 @@ export interface InitialConfig extends DirectConfig {
  */
 export type Config = Required<DirectConfig>;
 
+/**
+ * A question to be passed to inquirer.
+ */
 export interface QuestionI extends Question {
-  default?(answers: Answers): string | boolean;
   choices?: string[];
 }
 
+/**
+ * Information about a template.
+ */
 export interface Template {
   name: string;
   description: string;
 }
 
+/**
+ * The configuration options that may not exist after initial input parsing.
+ */
 export type OnlyOptionalConfigOptions = Omit<
   DirectConfig,
   "destination" | "gitInit" | "overwrite"

@@ -4,9 +4,11 @@ import type {
   OnlyOptionalConfigOptions,
 } from "../../types";
 import getQuestions from "./getQuestions";
-import { isNil } from "lodash";
 import { prompt } from "inquirer";
 
+/**
+ * Acquires the missing configuration using inquirer.
+ */
 export default async function getMissingOptions(
   config: DirectConfig
 ): Promise<Config> {
@@ -19,10 +21,6 @@ Hit enter to accept the suggestion.
     getQuestions(config)
   );
   const mergedConfig: Config = { ...config, ...answers };
-  (Object.keys(mergedConfig) as Array<keyof Config>).forEach((key) => {
-    // all the properties that could be undefined are all strings, so we're safe to make this assertion
-    isNil(mergedConfig[key]) ? (mergedConfig[key] = "" as never) : void 0;
-  });
 
   return mergedConfig;
 }

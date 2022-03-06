@@ -6,13 +6,17 @@ import { basename } from "node:path";
 import getTemplates from "../../getTemplates";
 import validatePackageName from "validate-npm-package-name";
 
+/** The string that separates the template names from their descriptions. */
 export const templateLiteralString = " => ";
 
+/** Makes sure there is input. */
 function validateThereIsInput(input: unknown): boolean {
+  // TODO: is checking String(input).length faster?
   const testRegex = /^.{1}/i;
   return input ? testRegex.test(String(input)) : false;
 }
 
+/** Gets and returns the questions to be passed to inquirer. */
 export default function getQuestions(config: DirectConfig): QuestionI[] {
   const templates = getTemplates();
 
@@ -58,8 +62,10 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       suffix: " (used for documentation purposes only):",
       when: config.gitInit && isNil(config.email),
       validate(email: unknown): boolean {
-        const emailTester = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim;
-        return email ? emailTester.test(String(email)) : false;
+        const emailTester =
+          // regex taken from https://stackoverflow.com/a/46181
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return isNil(email) ? emailTester.test(String(email)) : false;
       },
     },
     {
@@ -87,16 +93,23 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
           `${name}${templateLiteralString}${description}`
       ),
       message: "Which template would you like to use?",
+      // validate the specified template if one is specified
       when(): boolean {
         if (config.template) {
           if (templates.find((template) => template.name === config.template)) {
             return false;
           }
           console.log(
-            red(`The template ${blue(config.template)} does not exist.`)
+            red(
+              `The specified template ${blue(config.template)} does not exist.`
+            )
           );
         }
         return true;
+      },
+      // remove the description from the chosen option before passing it on
+      filter(template: string): string {
+        return template.substring(0, template.indexOf(templateLiteralString));
       },
       validate: validateThereIsInput,
     },

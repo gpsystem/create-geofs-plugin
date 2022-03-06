@@ -4,6 +4,9 @@ import type { Template } from "./types";
 
 export const templatesSourcePath = join(__dirname, "..", "templates/");
 
+/**
+ * @returns A list of all the templates and their descriptions.
+ */
 export default function getTemplates(): Template[] {
   return readdirSync(templatesSourcePath)
     .filter((path) => path.substring(0, 2) !== "__")
@@ -15,7 +18,7 @@ export default function getTemplates(): Template[] {
       );
       return {
         name: template,
-        description: readFileSync(descFile, "utf-8").toString().trimEnd(),
+        description: readFileSync(descFile, "utf-8").trimEnd(),
       };
     });
 }

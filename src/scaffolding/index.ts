@@ -4,15 +4,32 @@ import type { Config } from "../types";
 import copyToFinalDir from "./copyToFinalDir";
 import copyToTempDir from "./copyToTempDir";
 import { join } from "node:path";
+import type { Results } from "./copyToFinalDir";
 import { tmpdir } from "node:os";
 
+/**
+ * Scaffold out the files from the templates.
+ *
+ * The scaffolding process merges the default template and the user-specified, "specific" template.
+ * It does so with preference to the specific template.
+ *
+ * The scaffolding process contains a replacement step.
+ * The step replaces the syntax `{{ config-option-name }}` with the value of the specified config option.
+ *
+ * @param config The configuration to use while replacing file contents.
+ * Also used for folder names when creating the final directory.
+ */
 export default async function scaffold(config: Config): Promise<void> {
-  const tempDirPath = await mkdtemp(join(tmpdir(), "__create_geofs_plugin__"));
+  /** The temporary directory for temporary holding of scaffolded files. */
+  const tempDirPath: string = await mkdtemp(
+    join(tmpdir(), "__create_geofs_plugin__")
+  );
 
-  const tempDirFilePaths = await copyToTempDir(config, tempDirPath);
+  /** The paths to the files scaffolded in the temporary directory. */
+  const tempDirFilePaths: string[] = await copyToTempDir(config, tempDirPath);
 
   // copy to the final directory
-  const results = await copyToFinalDir(
+  const results: Results[] = copyToFinalDir(
     tempDirFilePaths,
     tempDirPath,
     config.destination,
@@ -20,7 +37,7 @@ export default async function scaffold(config: Config): Promise<void> {
   );
 
   // output results of copying
-  results.forEach((fileInfo) => {
+  results.forEach((fileInfo: Results) => {
     console.log(
       `${
         fileInfo.skipped

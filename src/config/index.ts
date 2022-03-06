@@ -1,22 +1,23 @@
-import type { Config, InitialConfig } from "../types";
+import { blue, yellow } from "../chalkTypes";
+import type { Config, InitialConfig, Template } from "../types";
 import { isAbsolute, resolve } from "node:path";
 import { Command } from "commander";
 import getMissingConfig from "./getMissingConfig";
 import getTemplates from "../getTemplates";
-import handlePotentialString from "./handlePotentialString";
+import pieceTogetherDirectConfig from "./pieceTogetherDirectConfig";
+import { templateLiteralString } from "./getMissingConfig/getQuestions";
 import { version } from "../version.json";
 
 /**
  * Parses, sanitizes, and acquires all configuration.
  */
-export default async function getConfig(): Promise<Config> {
+export default function getConfig(): Promise<Config> {
   let destination = "";
 
   const program = new Command("create-geofs-plugin")
     .argument("<destination>")
-    .action((dest: string | undefined) => {
-      if (dest) destination = isAbsolute(dest) ? dest : resolve(dest);
-      else destination = resolve("./geofs-plugin");
+    .action((dest: string) => {
+      destination = isAbsolute(dest) ? dest : resolve(dest);
     })
     .usage("[options] <destination>")
     .option("-n, --pluginName <plugin-name>", "Plugin name")
@@ -32,23 +33,27 @@ export default async function getConfig(): Promise<Config> {
     .option("--no-git-init", "Skip Git repository initialization", true)
     .version(`Create GeoFS Plugin v${version}`);
 
-  const directOptions = program.parse().opts<InitialConfig>();
+  const directOptions: InitialConfig = program.parse().opts<InitialConfig>();
 
   if (directOptions.showTemplates) {
-    getTemplates().forEach(({ name }) => console.log(name));
+    console.log(
+      getTemplates()
+        .reduce<string>(
+          (currentlyAccumulatedValue, { name, description }: Template) => {
+            return (
+              currentlyAccumulatedValue +
+              `${blue(name)}${templateLiteralString}${yellow(description)}` +
+              "\n"
+            );
+          },
+          ""
+        )
+        .trimEnd()
+    );
     process.exit(0);
   }
 
-  return await getMissingConfig({
-    destination,
-    gitInit: directOptions.gitInit,
-    overwrite: directOptions.overwrite,
-    appName: handlePotentialString(directOptions.appName),
-    author: handlePotentialString(directOptions.author),
-    description: handlePotentialString(directOptions.description),
-    email: handlePotentialString(directOptions.email),
-    repo: handlePotentialString(directOptions.repo),
-    template: handlePotentialString(directOptions.template),
-    user: handlePotentialString(directOptions.user),
-  });
+  return getMissingConfig(
+    pieceTogetherDirectConfig(destination, directOptions)
+  );
 }

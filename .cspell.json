@@ -10,7 +10,15 @@
     "**/bin/**",
     "**/node_modules/**"
   ],
-  "words": ["commitlint", "eqeqeq", "geofs", "geps", "klaw", "socio"],
+  "words": [
+    "commitlint",
+    "eqeqeq",
+    "geofs",
+    "geps",
+    "klaw",
+    "promisified",
+    "socio"
+  ],
   "dictionaries": [
     "typescript",
     "softwareTerms",

@@ -1,9 +1,8 @@
 import { readdirSync, readFileSync } from "fs-extra";
 import { join } from "node:path";
-import mainDir from "./mainDir";
 import type { Template } from "./types";
 
-export const templatesSourcePath = join(mainDir, "templates/");
+export const templatesSourcePath = join(__dirname, "..", "templates/");
 
 export default function getTemplates(): Template[] {
   return readdirSync(templatesSourcePath)

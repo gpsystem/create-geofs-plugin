@@ -42,7 +42,7 @@
     "chalk": "~4.1.2",
     "commander": "~9.0.0",
     "fs-extra": "~10.0.1",
-    "inquirer": "~8.2.0",
+    "inquirer": "~8.2.1",
     "klaw": "~4.0.1",
     "lodash": "~4.17.21",
     "simple-git": "~3.2.6",

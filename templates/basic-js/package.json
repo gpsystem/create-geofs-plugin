@@ -14,13 +14,13 @@
   "author": "{{ author }} (https://github.com/{{ user }})",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "~7.17.5",
+    "@babel/core": "~7.17.8",
     "@babel/preset-env": "~7.16.11",
     "@geps/geofs-types": "~1.0.0",
     "babel-loader": "~8.2.3",
-    "eslint": "~8.10.0",
+    "eslint": "~8.11.0",
     "eslint-config-prettier": "~8.5.0",
-    "prettier": "~2.5.1",
+    "prettier": "~2.6.0",
     "webpack": "~5.70.0",
     "webpack-cli": "~4.9.2"
   }

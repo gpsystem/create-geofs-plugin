@@ -1,6 +1,6 @@
 {
   "name": "create-geofs-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a plugin for GeoFS Plugin System.",
   "bin": "dist/create-geofs-plugin.js",
   "scripts": {

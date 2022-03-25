@@ -6,7 +6,41 @@ extends:
   - eslint:recommended
   - prettier
 globals:
-  geofs: true
+  PAGE_PATH: readonly
+  geofs: readonly
+  ui: readonly
+  flight: readonly
+  objects: readonly
+  controls: readonly
+  weather: readonly
+  audio: readonly
+  multiplayer: readonly
+  instruments: readonly
+  absMin: readonly
+  span: readonly
+  boundHours24: readonly
+  fixAngle: readonly
+  fixAngle360: readonly
+  fixAngles360: readonly
+  fixAngles: readonly
+  exponentialSmoothingV3: readonly
+  exponentialSmoothing: readonly
+  getBuildingCollision: readonly
+  xyz2lla: readonly
+  xy2ll: readonly
+  lla2xyz: readonly
+  ll2xy: readonly
+  clamp: readonly
+  geoDecodeLocation: readonly
+  lookAt: readonly
+  getURLParameters: readonly
+  clone: readonly
+  PID: readonly
+  Overlay: readonly
+  rigidBody: readonly
+  Object3D: readonly
+  Indicator: readonly
+  GlassPanel: readonly
 parserOptions:
   ecmaVersion: latest
   sourceType: module

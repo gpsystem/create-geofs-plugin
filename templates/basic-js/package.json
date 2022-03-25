@@ -17,7 +17,7 @@
     "@babel/core": "~7.17.8",
     "@babel/preset-env": "~7.16.11",
     "@geps/geofs-types": "~1.0.1",
-    "babel-loader": "~8.2.3",
+    "babel-loader": "~8.2.4",
     "eslint": "~8.11.0",
     "eslint-config-prettier": "~8.5.0",
     "prettier": "~2.6.0",

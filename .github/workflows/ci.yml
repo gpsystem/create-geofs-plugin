@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 env:
-  PRIMARY_NODE_VERSION: 16.13.2
+  PRIMARY_NODE_VERSION: 16.x
 
 jobs:
   running-test:

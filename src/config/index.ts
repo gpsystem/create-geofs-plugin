@@ -9,7 +9,7 @@ import { version } from "../version.json";
 /**
  * Parses, sanitizes, and acquires all configuration.
  */
-export default async function getConfig(): Promise<Config> {
+export default async function getConfig(argv: string[]): Promise<Config> {
   let destination = "";
 
   const program = new Command("create-geofs-plugin")
@@ -32,7 +32,9 @@ export default async function getConfig(): Promise<Config> {
     .option("--no-git-init", "Skip Git repository initialization", true)
     .version(`Create GeoFS Plugin v${version}`);
 
-  const directOptions = program.parse().opts<InitialConfig>();
+  const directOptions: InitialConfig = program
+    .parse(argv)
+    .opts<InitialConfig>();
 
   if (directOptions.showTemplates) {
     getTemplates().forEach(({ name }) => console.log(name));

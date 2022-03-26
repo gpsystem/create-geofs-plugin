@@ -6,7 +6,7 @@ import typescript from "@rollup/plugin-typescript";
 const config = {
   input: "src/index.ts",
   output: {
-    file: "dist/create-geofs-plugin.js",
+    file: "bin/create-geofs-plugin.js",
     format: "cjs",
   },
   plugins: [typescript(), json()],

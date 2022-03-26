@@ -6,9 +6,9 @@ import printSuccess from "./printSuccess";
 import { red } from "./chalkTypes";
 import scaffold from "./scaffolding";
 
-async function main(): Promise<void> {
+export async function start(argv: string[]): Promise<void> {
   try {
-    const config: Config = await getConfig();
+    const config: Config = await getConfig(argv);
     await scaffold(config);
     if (config.gitInit) await gitInit(config.destination);
     await installPackages(config.destination);
@@ -18,5 +18,3 @@ async function main(): Promise<void> {
     throw err;
   }
 }
-
-main();

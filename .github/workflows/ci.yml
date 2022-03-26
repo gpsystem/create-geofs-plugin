@@ -9,6 +9,40 @@ env:
   PRIMARY_NODE_VERSION: 16.13.2
 
 jobs:
+  running-test:
+    name: Check for proper startup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Test node direct
+        # credit to https://stackoverflow.com/a/63643845 for the timeout code (adapted for the shell command i want to run)
+        run: timeout 100 node dist/create-geofs-plugin.js ./test || code=$?; if [[ $code -ne 130 && $code -ne 0 ]]; then exit $code; fi
+
+      # Run these steps even if the previous ones fail, but mark as failed after everything's done
+      - name: Link for the linked tests
+        if: always()
+        run: npm link
+
+      - name: Test linked direct
+        if: always()
+        run: timeout 100 create-geofs-plugin ./test || code=$?; if [[ $code -ne 130 && $code -ne 0 ]]; then exit $code; fi
+
+      - name: Test linked npx
+        if: always()
+        run: timeout 100 npx create-geofs-plugin ./test || code=$?; if [[ $code -ne 130 && $code -ne 0 ]]; then exit $code; fi
+
   typecheck:
     name: Typecheck
     runs-on: ubuntu-latest

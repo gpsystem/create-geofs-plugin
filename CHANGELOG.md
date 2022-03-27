@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/gpsystem/create-geofs-plugin/compare/v0.1.3...v0.1.4) (2022-03-27)
+
+### Bug Fixes
+
+- **questions:** :bug: Cherry-pick commit 83b6d8aad53c558e6d123e09c00840f729832826 into release-0.1 ([f106a75](https://github.com/gpsystem/create-geofs-plugin/commit/f106a756ea3fe900ee1e30e8681e118a57d0e40d))
+
 ### [0.1.3](https://github.com/gpsystem/create-geofs-plugin/compare/v0.1.2...v0.1.3) (2022-03-27)
 
 ### Bug Fixes

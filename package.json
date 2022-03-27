@@ -39,7 +39,6 @@
   },
   "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "dependencies": {
-    "chalk": "~4.1.2",
     "commander": "~9.1.0",
     "fs-extra": "~10.0.1",
     "inquirer": "~8.2.2",

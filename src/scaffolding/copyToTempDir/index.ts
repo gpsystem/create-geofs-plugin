@@ -1,5 +1,5 @@
-import { basename, dirname, join } from "node:path";
-import { mkdir, readFileSync, writeFile } from "fs-extra";
+import { basename, join } from "node:path";
+import { outputFile, readFileSync } from "fs-extra";
 import type { Config } from "../../types";
 import getAllPossibleFiles from "./getAllPossibleFiles";
 import getFilesToCopy from "./getFilesToCopy";
@@ -33,14 +33,9 @@ export default async function copyToTempDir(
         tempDirPath,
         getRelativePathOfFileWhenCopied(file, true)
       );
-      mkdir(dirname(fileLocation), { recursive: true }, (err) => {
-        if (err) {
-          // swallow errors where the directory already exists
-          if (err.code === "EEXIST") return;
-          throw err;
-        }
-      });
-      await writeFile(fileLocation, contents, "utf-8");
+
+      // write the rendered data to its new location (see fileLocation)
+      await outputFile(fileLocation, contents, "utf-8");
       copiedFiles.push(fileLocation);
     })
   );

@@ -57,9 +57,11 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       message: "Author's email address",
       suffix: " (used for documentation purposes only):",
       when: config.gitInit && isNil(config.email),
-      validate(email: unknown): boolean {
-        const emailTester = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim;
-        return email ? emailTester.test(String(email)) : false;
+      validate(email: string): boolean {
+        const emailTester =
+          // regex taken from https://stackoverflow.com/a/46181
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return emailTester.test(String(email));
       },
     },
     {

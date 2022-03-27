@@ -3,7 +3,7 @@ import getConfig from "./config";
 import gitInit from "./git";
 import installPackages from "./npmHandlers";
 import printSuccess from "./printSuccess";
-import { red } from "./chalkTypes";
+import { red } from "@colors/colors/safe";
 import scaffold from "./scaffolding";
 
 export async function start(argv: string[]): Promise<void> {

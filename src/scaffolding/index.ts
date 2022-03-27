@@ -1,4 +1,4 @@
-import { green, yellow } from "../chalkTypes";
+import { green, yellow } from "@colors/colors/safe";
 import { mkdtemp, rmSync } from "fs-extra";
 import type { Config } from "../types";
 import copyToFinalDir from "./copyToFinalDir";

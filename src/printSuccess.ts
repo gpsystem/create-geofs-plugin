@@ -1,4 +1,4 @@
-import { blue, green } from "./chalkTypes";
+import { blue, green } from "@colors/colors/safe";
 import { join, relative } from "node:path";
 import type { Config } from "./types";
 import { cwd } from "node:process";

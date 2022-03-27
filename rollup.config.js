@@ -11,7 +11,7 @@ const config = {
   },
   plugins: [typescript(), json()],
   external: [
-    "chalk",
+    "@colors/colors/safe",
     "commander",
     "fs-extra",
     "inquirer",

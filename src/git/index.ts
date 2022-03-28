@@ -1,4 +1,4 @@
-import { green, red, yellow } from "../chalkTypes";
+import { green, red, yellow } from "@colors/colors/safe";
 import isGitInstalled from "./isGitInstalled";
 import { join } from "node:path";
 import { rm } from "node:fs/promises";

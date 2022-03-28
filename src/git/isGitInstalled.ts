@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { yellow } from "../chalkTypes";
+import { yellow } from "@colors/colors/safe";
 
 /**
  * Checks if git is installed and accessible by `git` in the shell.

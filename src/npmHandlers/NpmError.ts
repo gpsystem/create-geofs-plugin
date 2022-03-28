@@ -1,4 +1,4 @@
-import { bold } from "../chalkTypes";
+import { bold } from "@colors/colors/safe";
 
 export default function NpmError(msg: string, command: string): Error {
   return new Error(`

@@ -1,4 +1,4 @@
-import { blue, red } from "../../chalkTypes";
+import { blue, red } from "@colors/colors/safe";
 import type { DirectConfig, QuestionI, Template } from "../../types";
 import { isNil, kebabCase } from "lodash";
 import type { Answers } from "inquirer";

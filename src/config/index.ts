@@ -1,4 +1,4 @@
-import { blue, yellow } from "../chalkTypes";
+import { blue, yellow } from "@colors/colors/safe";
 import type { Config, InitialConfig, Template } from "../types";
 import { isAbsolute, resolve } from "node:path";
 import { Command } from "commander";

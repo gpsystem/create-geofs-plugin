@@ -60,7 +60,7 @@
     "@types/lodash": "~4.14.181",
     "@types/node": "~17.0.23",
     "@types/validate-npm-package-name": "~3.0.3",
-    "@typescript-eslint/eslint-plugin": "~5.16.0",
+    "@typescript-eslint/eslint-plugin": "~5.17.0",
     "cspell": "~5.19.4",
     "eslint": "~8.12.0",
     "eslint-config-prettier": "~8.5.0",

@@ -46,7 +46,7 @@
     "klaw": "~4.0.1",
     "lodash": "~4.17.21",
     "simple-git": "~3.5.0",
-    "validate-npm-package-name": "~3.0.0"
+    "validate-npm-package-name": "~4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "~16.2.3",

@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/gpsystem/create-geofs-plugin/compare/v0.1.1...v0.2.0) (2022-04-25)
+
+### Features
+
+- **npm:** inform user during npm install ([ddaa7db](https://github.com/gpsystem/create-geofs-plugin/commit/ddaa7dbee3007f6388b16dd18eb3c40393634944)), closes [#128](https://github.com/gpsystem/create-geofs-plugin/issues/128)
+- **templates:** :sparkles: create basic-ts template ([#127](https://github.com/gpsystem/create-geofs-plugin/issues/127)) ([a0dd931](https://github.com/gpsystem/create-geofs-plugin/commit/a0dd9319d5075b84af4c0678f2efe465add5965a))
+
+### Bug Fixes
+
+- **config:** :adhesive_bandage: pass argv to start function ([1bcb2e3](https://github.com/gpsystem/create-geofs-plugin/commit/1bcb2e369d9b836ca8646455b4c9ea1de4517d95))
+- **config:** add `year` to config ([6ed2e45](https://github.com/gpsystem/create-geofs-plugin/commit/6ed2e455205283582107ea46c52313a732a1e076)), closes [#129](https://github.com/gpsystem/create-geofs-plugin/issues/129)
+- **templates:** remove one pair of braces from LICENSE files ([a1576ab](https://github.com/gpsystem/create-geofs-plugin/commit/a1576ab4526a0ffa1429a60db8faabf7cd9f63f7)), closes [#130](https://github.com/gpsystem/create-geofs-plugin/issues/130)
+
 ### [0.1.5](https://github.com/gpsystem/create-geofs-plugin/compare/v0.1.4...v0.1.5) (2022-03-28)
 
 ### Bug Fixes

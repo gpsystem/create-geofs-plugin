@@ -9,8 +9,8 @@ env:
   PRIMARY_NODE_VERSION: 16.x
 
 jobs:
-  publish:
-    name: GitHub Release
+  npm:
+    name: NPM Release
     runs-on: ubuntu-latest
     steps:
       - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
@@ -28,13 +28,28 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Extract release notes
-        run: npx extract-changelog-release > RELEASE_BODY.md
-
       - name: Publish to NPM
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  github:
+    name: GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Packages
+        run: npm ci
+
+      - name: Extract release notes
+        run: npx extract-changelog-release > RELEASE_BODY.md
 
       - name: Create GitHub Release
         if: always()

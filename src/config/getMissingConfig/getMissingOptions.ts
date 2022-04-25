@@ -20,7 +20,9 @@ Hit enter to accept the suggestion.
   const answers = await prompt<Required<OnlyOptionalConfigOptions>>(
     getQuestions(config)
   );
-  const mergedConfig: Config = { ...config, ...answers };
+  const year = String(new Date(Date.now()).getFullYear());
+
+  const mergedConfig: Config = { ...config, ...answers, year };
 
   return mergedConfig;
 }

@@ -36,7 +36,9 @@ export interface InitialConfig extends Omit<DirectConfig, "destination"> {
 /**
  * All configuration after sanitization and acquiring unspecified configuration.
  */
-export type Config = Required<DirectConfig>;
+export type Config = Required<DirectConfig> & {
+  year: string;
+};
 
 /**
  * A question to be passed to inquirer.

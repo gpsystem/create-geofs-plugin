@@ -45,7 +45,7 @@
     "inquirer": "~8.2.2",
     "klaw": "~4.0.1",
     "lodash": "~4.17.21",
-    "simple-git": "~3.6.0",
+    "simple-git": "~3.7.1",
     "validate-npm-package-name": "~4.0.0"
   },
   "devDependencies": {

@@ -63,7 +63,7 @@
     "cspell": "~5.20.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "~8.5.0",
-    "husky": "~7.0.4",
+    "husky": "~8.0.0",
     "prettier": "~2.6.2",
     "rollup": "~2.72.0",
     "standard-version": "~9.3.2",

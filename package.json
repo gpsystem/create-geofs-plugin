@@ -57,7 +57,7 @@
     "@types/inquirer": "~8.2.1",
     "@types/klaw": "~3.0.3",
     "@types/lodash": "~4.14.182",
-    "@types/node": "~17.0.31",
+    "@types/node": "~17.0.32",
     "@types/validate-npm-package-name": "~3.0.3",
     "@typescript-eslint/eslint-plugin": "~5.22.0",
     "cspell": "~5.20.0",

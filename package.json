@@ -22,7 +22,7 @@
     "templates"
   ],
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+    "node": ">=14"
   },
   "repository": {
     "type": "git",

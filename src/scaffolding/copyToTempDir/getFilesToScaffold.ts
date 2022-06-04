@@ -5,9 +5,10 @@ import separatePossibleFiles from "./separatePossibleFiles";
  * @param possibleFiles The result from getAllPossibleFiles().
  * @returns An array of all the paths of the files to scaffold.
  */
-// TODO: should this be renamed to getFilesToScaffold?
-export default function getFilesToCopy(possibleFiles: FileInfo[]): string[] {
-  const filesToCopy: string[] = [];
+export default function getFilesToScaffold(
+  possibleFiles: FileInfo[]
+): string[] {
+  const filesToScaffold: string[] = [];
 
   const [separatedFileInfo, separatedRelativePathStrings] =
     separatePossibleFiles(possibleFiles);
@@ -26,9 +27,9 @@ export default function getFilesToCopy(possibleFiles: FileInfo[]): string[] {
         )
       )
         // add the absolute path of the file to the list of files to scaffold into the temporary directory
-        filesToCopy.push(file.fullPath);
+        filesToScaffold.push(file.fullPath);
     });
   }
 
-  return filesToCopy;
+  return filesToScaffold;
 }

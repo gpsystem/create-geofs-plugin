@@ -2,7 +2,7 @@ import { basename, join } from "node:path";
 import { outputFile, readFileSync } from "fs-extra";
 import type { Config } from "../../types";
 import getAllPossibleFiles from "./getAllPossibleFiles";
-import getFilesToCopy from "./getFilesToCopy";
+import getFilesToScaffold from "./getFilesToScaffold";
 import getRelativePathOfFileWhenCopied from "./getRelativePathOfFileWhenCopied";
 import renderFile from "./renderFile";
 import { templatesSourcePath } from "../../getTemplates";
@@ -25,12 +25,12 @@ export default async function copyToTempDir(
   const commonTemplatePath: string = join(templatesSourcePath, "__common__");
 
   // Merge files from the common and specific templates, preferring files from the specific template.
-  const filesToCopy: string[] = getFilesToCopy(
+  const filesToScaffold: string[] = getFilesToScaffold(
     await getAllPossibleFiles(templatePath, commonTemplatePath)
   );
 
   await Promise.all(
-    filesToCopy.map(async (file: string) => {
+    filesToScaffold.map(async (file: string) => {
       // handle description files
       if (basename(file) === "__description__.txt") return;
 

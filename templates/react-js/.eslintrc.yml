@@ -4,6 +4,7 @@ env:
   node: true
 extends:
   - eslint:recommended
+  - plugin:react/recommended
   - prettier
 globals:
   PAGE_PATH: readonly
@@ -41,7 +42,11 @@ globals:
   Object3D: readonly
   Indicator: readonly
   GlassPanel: readonly
+plugins:
+  - react
 parserOptions:
+  ecmaFeatures:
+    jsx: true
   ecmaVersion: latest
   sourceType: module
 rules:

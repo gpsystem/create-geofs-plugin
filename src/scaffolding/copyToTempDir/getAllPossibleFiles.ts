@@ -41,9 +41,7 @@ export default async function getAllPossibleFiles(
     (path): FileInfo => ({
       fullPath: path,
       relativePath: getRelativePathOfFileWhenCopied(path),
-      // TODO: edge case: the entire npm package is located in a directory that includes the string "__common__"
-      // in that case, this will always be true
-      isPartOfCommonTemplate: path.indexOf("__common__") !== -1,
+      isPartOfCommonTemplate: path.startsWith(commonTemplatePath),
     })
   );
 }

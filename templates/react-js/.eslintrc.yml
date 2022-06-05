@@ -52,6 +52,6 @@ parserOptions:
 rules:
   eqeqeq:
     - error
-  sort-imports:
-    - error
-    - ignoreCase: true
+settings:
+  react:
+    version: detect

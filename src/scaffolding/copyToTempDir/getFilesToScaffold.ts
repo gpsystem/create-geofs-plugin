@@ -20,8 +20,7 @@ export default function getFilesToScaffold(
       if (
         !(
           file.isPartOfCommonTemplate &&
-          // TODO: do we need the g flag since we're only looking for one match?
-          new RegExp(separatedRelativePathStrings[0].join("|"), "gi").test(
+          new RegExp(separatedRelativePathStrings[0].join("|"), "i").test(
             file.relativePath
           )
         )

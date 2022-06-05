@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { join } = require("node:path");
 
 /** @type {import("webpack").Configuration} */

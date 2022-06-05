@@ -8,11 +8,21 @@ import { cwd } from "node:process";
  * @param config The configuration to destructure `appName` and `destination` from.
  */
 export default function printSuccess({ appName, destination }: Config) {
-  // TODO: make this more readable
-  console.log(`
-Successfully created ${blue(appName)}.
-See your README (located at ${blue(
-    relative(cwd(), join(destination, "README.md"))
-  )}) for more usage instructions.
-${green("Enjoy building your plugin!")}`);
+  const newLine = "\n";
+  /** The relative path from where create-geofs-plugin was called to the new README */
+  const readmeLocation: string = relative(
+    cwd(),
+    join(destination, "README.md")
+  );
+  // prettier-ignore
+  const successMessage: string =
+    `Successfully created ${blue(appName)}.` +
+    newLine +
+    `See your README (located at ${blue(readmeLocation)}) for more usage instructions.` +
+    newLine +
+    green("Enjoy building your plugin!");
+
+  // separates the success message from the status updates
+  console.log(newLine);
+  console.log(successMessage);
 }

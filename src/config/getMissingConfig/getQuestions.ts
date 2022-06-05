@@ -9,12 +9,8 @@ import validatePackageName from "validate-npm-package-name";
 /** The string that separates the template names from their descriptions. */
 export const templateLiteralString = " => ";
 
-/** Makes sure there is input. */
-function validateThereIsInput(input: unknown): boolean {
-  // TODO: is checking String(input).length faster?
-  const testRegex = /^.{1}/i;
-  return input ? testRegex.test(String(input)) : false;
-}
+/** Asserts that the inputted string is non-empty. */
+const validateNonEmptyString = (input: string) => Boolean(input);
 
 /** Gets and returns the questions to be passed to inquirer. */
 export default function getQuestions(config: DirectConfig): QuestionI[] {
@@ -46,14 +42,14 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       },
       message: "Description of app:",
       when: isNil(config.description),
-      validate: validateThereIsInput,
+      validate: validateNonEmptyString,
     },
     {
       type: "input",
       name: "author",
       message: "Author's full name:",
       when: isNil(config.author),
-      validate: validateThereIsInput,
+      validate: validateNonEmptyString,
     },
     {
       type: "input",
@@ -73,7 +69,7 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       name: "user",
       message: "GitHub user or org name:",
       when: config.gitInit && isNil(config.user),
-      validate: validateThereIsInput,
+      validate: validateNonEmptyString,
     },
     {
       type: "input",
@@ -83,7 +79,7 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       },
       message: "Repository name:",
       when: config.gitInit && isNil(config.repo),
-      validate: validateThereIsInput,
+      validate: validateNonEmptyString,
     },
     {
       type: "list",
@@ -111,7 +107,7 @@ export default function getQuestions(config: DirectConfig): QuestionI[] {
       filter(template: string): string {
         return template.substring(0, template.indexOf(templateLiteralString));
       },
-      validate: validateThereIsInput,
+      validate: validateNonEmptyString,
     },
   ];
 

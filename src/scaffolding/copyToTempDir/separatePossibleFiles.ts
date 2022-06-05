@@ -25,7 +25,6 @@ export default function separatePossibleFiles(
   const separatedRelativePathStrings: [string[], string[]] = [[], []];
 
   possibleFiles.forEach((file) => {
-    /** 1 is the current file is in the common template, 0 otherwise. */
     const arrayToPushIndex = file.isPartOfCommonTemplate ? 1 : 0;
 
     separatedFileInfo[arrayToPushIndex].push(file);

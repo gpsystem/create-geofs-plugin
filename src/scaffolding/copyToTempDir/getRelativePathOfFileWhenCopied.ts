@@ -17,7 +17,5 @@ export default function getRelativePathOfFileWhenCopied(
   }
 
   // remove the first element (the template name) and return
-  // could be replaced with this:
-  // return relativePath.replace(new RegExp(`^[^\\${sep}]*\\${sep}`), "");
   return relativePath.split(sep).slice(1).join(sep);
 }

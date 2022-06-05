@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/gpsystem/create-geofs-plugin/compare/v0.3.0...v0.3.1) (2022-06-05)
+
+### Bug Fixes
+
+- **getAllPossibleFiles:** :adhesive_bandage: avoid edge-case when checking files for common template ([ed20832](https://github.com/gpsystem/create-geofs-plugin/commit/ed208325ee45bb07a53e3dd8b8b6455be000154d))
+
 ## [0.3.0](https://github.com/gpsystem/create-geofs-plugin/compare/v0.2.0...v0.3.0) (2022-06-03)
 
 ### ⚠ BREAKING CHANGES

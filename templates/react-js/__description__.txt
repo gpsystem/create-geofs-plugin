@@ -1,1 +1,0 @@
-The template for React and JSX.

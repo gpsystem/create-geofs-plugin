@@ -7,7 +7,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "removeComments": true
+    "removeComments": true,
+    "skipLibCheck": true
   },
   "include": ["**/*"]
 }

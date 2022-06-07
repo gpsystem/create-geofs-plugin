@@ -1,0 +1,397 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get the eslint config requires one config name 1`] = `"must provide at least one config name"`;
+
+exports[`get the eslint config returns consistent values: config for base run 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+  },
+  "extends": Array [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "prettier",
+  ],
+  "globals": Object {
+    "GlassPanel": "readonly",
+    "Indicator": "readonly",
+    "Object3D": "readonly",
+    "Overlay": "readonly",
+    "PAGE_PATH": "readonly",
+    "PID": "readonly",
+    "absMin": "readonly",
+    "audio": "readonly",
+    "boundHours24": "readonly",
+    "clamp": "readonly",
+    "clone": "readonly",
+    "controls": "readonly",
+    "exponentialSmoothing": "readonly",
+    "exponentialSmoothingV3": "readonly",
+    "fixAngle": "readonly",
+    "fixAngle360": "readonly",
+    "fixAngles": "readonly",
+    "fixAngles360": "readonly",
+    "flight": "readonly",
+    "geoDecodeLocation": "readonly",
+    "geofs": "readonly",
+    "getBuildingCollision": "readonly",
+    "getURLParameters": "readonly",
+    "instruments": "readonly",
+    "ll2xy": "readonly",
+    "lla2xyz": "readonly",
+    "lookAt": "readonly",
+    "multiplayer": "readonly",
+    "objects": "readonly",
+    "rigidBody": "readonly",
+    "span": "readonly",
+    "ui": "readonly",
+    "weather": "readonly",
+    "xy2ll": "readonly",
+    "xyz2lla": "readonly",
+  },
+  "parserOptions": Object {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "root": true,
+  "rules": Object {
+    "eqeqeq": Array [
+      "error",
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+      },
+    ],
+  },
+}
+`;
+
+exports[`get the eslint config returns consistent values: config for base-react run 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+  },
+  "extends": Array [
+    "plugin:react/recommended",
+    "plugin:import/recommended",
+    "prettier",
+  ],
+  "globals": Object {
+    "GlassPanel": "readonly",
+    "Indicator": "readonly",
+    "Object3D": "readonly",
+    "Overlay": "readonly",
+    "PAGE_PATH": "readonly",
+    "PID": "readonly",
+    "absMin": "readonly",
+    "audio": "readonly",
+    "boundHours24": "readonly",
+    "clamp": "readonly",
+    "clone": "readonly",
+    "controls": "readonly",
+    "exponentialSmoothing": "readonly",
+    "exponentialSmoothingV3": "readonly",
+    "fixAngle": "readonly",
+    "fixAngle360": "readonly",
+    "fixAngles": "readonly",
+    "fixAngles360": "readonly",
+    "flight": "readonly",
+    "geoDecodeLocation": "readonly",
+    "geofs": "readonly",
+    "getBuildingCollision": "readonly",
+    "getURLParameters": "readonly",
+    "instruments": "readonly",
+    "ll2xy": "readonly",
+    "lla2xyz": "readonly",
+    "lookAt": "readonly",
+    "multiplayer": "readonly",
+    "objects": "readonly",
+    "rigidBody": "readonly",
+    "span": "readonly",
+    "ui": "readonly",
+    "weather": "readonly",
+    "xy2ll": "readonly",
+    "xyz2lla": "readonly",
+  },
+  "parserOptions": Object {
+    "ecmaFeatures": Object {
+      "jsx": true,
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": Array [
+    "react",
+  ],
+  "root": true,
+  "rules": Object {
+    "eqeqeq": Array [
+      "error",
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+      },
+    ],
+  },
+  "settings": Object {
+    "react": Object {
+      "version": "detect",
+    },
+  },
+}
+`;
+
+exports[`get the eslint config returns consistent values: config for base-react-ts run 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+  },
+  "extends": Array [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "prettier",
+  ],
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/*.js",
+      ],
+      "rules": Object {
+        "@typescript-eslint/no-var-requires": Array [
+          "off",
+        ],
+      },
+    },
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "ecmaFeatures": Object {
+      "jsx": true,
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": Array [
+    "@typescript-eslint",
+  ],
+  "root": true,
+  "rules": Object {
+    "eqeqeq": Array [
+      "error",
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+      },
+    ],
+  },
+  "settings": Object {
+    "import/parsers": Object {
+      "@typescript-eslint/parser": Array [
+        ".ts",
+        ".tsx",
+      ],
+    },
+    "react": Object {
+      "version": "detect",
+    },
+  },
+}
+`;
+
+exports[`get the eslint config returns consistent values: config for base-ts run 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+  },
+  "extends": Array [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "prettier",
+  ],
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/*.js",
+      ],
+      "rules": Object {
+        "@typescript-eslint/no-var-requires": Array [
+          "off",
+        ],
+      },
+    },
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "ecmaFeatures": Object {
+      "jsx": true,
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": Array [
+    "@typescript-eslint",
+  ],
+  "root": true,
+  "rules": Object {
+    "eqeqeq": Array [
+      "error",
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+      },
+    ],
+  },
+  "settings": Object {
+    "import/parsers": Object {
+      "@typescript-eslint/parser": Array [
+        ".ts",
+        ".tsx",
+      ],
+    },
+    "react": Object {
+      "version": "detect",
+    },
+  },
+}
+`;
+
+exports[`get the eslint config returns consistent values: config for base-ts-react run 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+  },
+  "extends": Array [
+    "plugin:react/recommended",
+    "plugin:import/typescript",
+    "prettier",
+  ],
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/*.js",
+      ],
+      "rules": Object {
+        "@typescript-eslint/no-var-requires": Array [
+          "off",
+        ],
+      },
+    },
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "ecmaFeatures": Object {
+      "jsx": true,
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": Array [
+    "react",
+  ],
+  "root": true,
+  "rules": Object {
+    "eqeqeq": Array [
+      "error",
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+      },
+    ],
+  },
+  "settings": Object {
+    "import/parsers": Object {
+      "@typescript-eslint/parser": Array [
+        ".ts",
+        ".tsx",
+      ],
+    },
+    "react": Object {
+      "version": "detect",
+    },
+  },
+}
+`;
+
+exports[`get the eslint config returns consistent values: dependencies for base run 1`] = `
+Array [
+  "eslint@v8",
+  "eslint-config-prettier@v8",
+  "eslint-plugin-import@v2",
+]
+`;
+
+exports[`get the eslint config returns consistent values: dependencies for base-react run 1`] = `
+Array [
+  "eslint@v8",
+  "eslint-config-prettier@v8",
+  "eslint-plugin-import@v2",
+  "eslint-plugin-react@v7",
+]
+`;
+
+exports[`get the eslint config returns consistent values: dependencies for base-react-ts run 1`] = `
+Array [
+  "eslint@v8",
+  "eslint-config-prettier@v8",
+  "eslint-plugin-import@v2",
+  "eslint-plugin-react@v7",
+  "@typescript-eslint/eslint-plugin@v5",
+  "eslint-import-resolver-typescript@v2",
+]
+`;
+
+exports[`get the eslint config returns consistent values: dependencies for base-ts run 1`] = `
+Array [
+  "eslint@v8",
+  "eslint-config-prettier@v8",
+  "eslint-plugin-import@v2",
+  "@typescript-eslint/eslint-plugin@v5",
+  "eslint-import-resolver-typescript@v2",
+]
+`;
+
+exports[`get the eslint config returns consistent values: dependencies for base-ts-react run 1`] = `
+Array [
+  "eslint@v8",
+  "eslint-config-prettier@v8",
+  "eslint-plugin-import@v2",
+  "@typescript-eslint/eslint-plugin@v5",
+  "eslint-import-resolver-typescript@v2",
+  "eslint-plugin-react@v7",
+]
+`;

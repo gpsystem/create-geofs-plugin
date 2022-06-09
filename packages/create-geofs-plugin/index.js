@@ -41,4 +41,4 @@ if (Number(major) < 14) {
 
 const { start } = require("./bin/create-geofs-plugin");
 
-start();
+start(process.argv);

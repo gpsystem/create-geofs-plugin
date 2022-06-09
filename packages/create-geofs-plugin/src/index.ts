@@ -1,3 +1,3 @@
-export async function start(argv: string): Promise<void> {
+export async function start(argv: string[]): Promise<void> {
   // TODO
 }

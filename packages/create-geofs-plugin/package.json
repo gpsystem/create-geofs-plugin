@@ -27,5 +27,9 @@
     "@rollup/plugin-typescript": "~8.3.2",
     "rollup": "~2.75.6",
     "rollup-plugin-node-externals": "~4.0.0"
+  },
+  "dependencies": {
+    "commander": "~9.3.0",
+    "yaml": "~2.1.1"
   }
 }

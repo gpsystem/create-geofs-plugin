@@ -1,17 +1,8 @@
 import { rm } from "node:fs";
 import { join } from "node:path";
+import { argv0 as nodeExecPath } from "node:process";
 
 export const testTargetDir: string = join(__dirname, "..", "target/");
-
-export const allArgPermutations: [
-  permutationName: string,
-  args: CommandLineArgs
-][] = [
-  ["vanilla", {}],
-  ["ts", { template: "typescript" }],
-  ["react", { template: "react" }],
-  ["react-ts", { template: "react-ts" }],
-];
 
 /**
  * Clears {@link testTargetDir} for the next test.
@@ -24,10 +15,10 @@ export function clearTestTargetDir(): Promise<void> {
 
 export interface CommandLineArgs {
   template?: "typescript" | "react" | "react-ts";
+  overwrite?: boolean;
 }
 
 export function createArgsForProgram(args: CommandLineArgs): string[] {
-  const nodeExecPath = process.argv0;
   const binFile: string = join(
     __dirname,
     "../../rollup.config.js",
@@ -38,3 +29,5 @@ export function createArgsForProgram(args: CommandLineArgs): string[] {
 
   return [nodeExecPath, binFile, testTargetDir, ...flags];
 }
+
+export * from "./argPermutations";

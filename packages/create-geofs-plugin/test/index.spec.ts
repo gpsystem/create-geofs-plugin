@@ -3,7 +3,7 @@ import {
   createArgsForProgram,
   allArgPermutations,
   clearTestTargetDir,
-} from "./utils";
+} from "./utils/index";
 
 describe("integration tests", () => {
   afterEach(() => clearTestTargetDir());
@@ -11,7 +11,11 @@ describe("integration tests", () => {
   for (const [name, args] of allArgPermutations) {
     // eslint-disable-next-line jest/valid-title
     test(name, async () => {
-      await expect(start(createArgsForProgram(args))).resolves.toBeUndefined();
+      // TODO: uncomment this, delete the other one, and regenerate snapshots when implementation actually starts
+      // await expect(start(createArgsForProgram(args))).resolves.toBeUndefined();
+      await expect(
+        start(createArgsForProgram(args))
+      ).rejects.toThrowErrorMatchingSnapshot();
     });
   }
 });

@@ -5,7 +5,8 @@
   "bin": "index.js",
   "author": "GeoFS Plugin System",
   "contributors": [
-    "Nicolas Rodriguez (https://github.com/nicolas377)"
+    "Nicolas Rodriguez (https://github.com/nicolas377)",
+    "Guy Adler (https://github.com/Guy-Adler)"
   ],
   "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "license": "ISC",

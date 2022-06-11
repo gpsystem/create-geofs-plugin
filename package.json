@@ -6,7 +6,7 @@
     "check-format": "prettier --check --ignore-path=.gitignore .",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore .",
-    "prepare": "husky install && lerna exec npm i",
+    "prepare": "husky install && npm run bootstrap && npm run prettier",
     "prettier": "prettier --write --ignore-path=.gitignore .",
     "test": "jest"
   },

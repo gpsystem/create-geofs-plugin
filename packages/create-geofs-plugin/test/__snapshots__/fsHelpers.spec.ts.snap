@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get all files in a directory throws when passed path isn't a directory 1`] = `"passed path is not a directory"`;
+
+exports[`output file throws on already existing file 1`] = `"file already exists"`;
+
+exports[`output file writes correctly: first/file.txt 1`] = `"test contents, 12345, 1.2345"`;

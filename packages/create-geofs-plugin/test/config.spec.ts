@@ -21,6 +21,7 @@ describe("parse config", () => {
           pathRelativeToPackage(originalConfig.templateDir)
         ),
       };
+
       expect(snapshotConfig).toMatchSnapshot();
     });
   }

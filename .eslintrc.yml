@@ -30,6 +30,9 @@ rules:
     - ignoreDeclarationSort: true
   eqeqeq:
     - error
+  prefer-const:
+    - error
+    - destructuring: all
 overrides:
   - files:
       - "**/*.js"

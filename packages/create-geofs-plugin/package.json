@@ -35,9 +35,12 @@
     "rollup-plugin-node-externals": "~4.0.0"
   },
   "dependencies": {
-    "@geps/cgp-eslint-config": "^0.3.1",
+    "@geps/cgp-eslint-config": "~0.3.1",
+    "@geps/cgp-template-default": "~0.3.1",
+    "@geps/cgp-template-react": "~0.3.1",
+    "@geps/cgp-template-react-ts": "~0.3.1",
+    "@geps/cgp-template-typescript": "~0.3.1",
     "commander": "~9.3.0",
-    "pkg-dir": "~5.0.0",
     "tmp-promise": "~3.0.3",
     "yaml": "~2.1.1"
   }

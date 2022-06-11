@@ -14,7 +14,6 @@ export function normalizeToForwardSlash(path: string): string {
  * Gets the path relative to the directory of the create-geofs-plugin package.
  */
 export function pathRelativeToPackage(path: string): string {
-  console.log(path);
   return relative(packageDir, path);
 }
 
@@ -37,12 +36,13 @@ export function createArgsForProgram(args: CommandLineArgs): string[] {
     __dirname,
     "..",
     "..",
-    "bin/create-geofs-plugin.js"
+    "bin",
+    "create-geofs-plugin.js"
   );
   const flags: string[] = [];
 
   // TODO: make the quoting unnecessary
-  if (args.template) flags.push(`-t "${args.template}"`);
+  if (args.template) flags.push(`--template=${args.template}`);
   if (args.overwrite) flags.push("--overwrite");
 
   return [

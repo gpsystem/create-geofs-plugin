@@ -1,7 +1,6 @@
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { cwd } from "node:process";
 import { Command } from "commander";
-import { sync as packageDirectorySync } from "pkg-dir";
 import { version } from "../package.json";
 
 export interface Configuration {
@@ -14,7 +13,6 @@ export interface Configuration {
 export function parseConfig(argv: string[]): Configuration {
   let destination = "";
 
-  // eslint-disable-next-line prefer-const
   let { overwrite, template } = new Command()
     .name("create-geofs-plugin")
     .version(`Create GeoFS Plugin v${version}`)
@@ -32,12 +30,10 @@ export function parseConfig(argv: string[]): Configuration {
   if (!["default", "typescript", "react", "react-ts"].includes(template ?? ""))
     template = "default";
 
-  // TODO: create templates
-  const templateDir: string | undefined = require.resolve(
-    // `@geps/cgp-template-${template}`
-    `@geps/cgp-eslint-config`
+  // hack: getting the directory name of a file that will always be in the top-level
+  const templateDir: string = dirname(
+    require.resolve(`@geps/cgp-template-${template}/README.md`)
   );
-  if (!templateDir) throw new Error("template not found");
 
   return {
     targetDir: destination,

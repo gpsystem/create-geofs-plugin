@@ -20,7 +20,7 @@ function getNameFromArgs(args: CommandLineArgs): string {
     Object.entries(args)
       .reduce<string>(
         (acc, [argName, argValue]) =>
-          acc === undefined ? acc : acc + `${argName}:${argValue}/`,
+          argValue === undefined ? acc : acc + `${argName}:${argValue}/`,
         ""
       )
       // there will be an extra slash at the end, trim that off

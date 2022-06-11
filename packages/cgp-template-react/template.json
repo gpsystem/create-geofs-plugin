@@ -1,0 +1,19 @@
+{
+  "dependencies": [
+    "@babel/core@v7",
+    "@babel/preset-env@v7",
+    "@babel/preset-react@v7",
+    "@geps/geofs-types@v1",
+    "babel-loader@v8",
+    "prettier@v2",
+    "react@v18",
+    "react-dom@v18",
+    "webpack@v5",
+    "webpack-cli@v4"
+  ],
+  "scripts": {
+    "build": "webpack",
+    "test": "npm run lint"
+  },
+  "eslintConfigTemplates": ["baseConfig", "reactBase"]
+}

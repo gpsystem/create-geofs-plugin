@@ -37,6 +37,10 @@ overrides:
       "@typescript-eslint/no-var-requires":
         - "off"
   - files:
+      - "**/template/src/*.js"
+    env:
+      browser: true
+  - files:
       - "**/test/**"
     plugins:
       - jest

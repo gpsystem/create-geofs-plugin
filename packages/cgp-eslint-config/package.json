@@ -5,6 +5,9 @@
   "author": "nicolas377 <programnicolas@gmail.com>",
   "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  },
   "types": "./dist/index.d.ts",
   "exports": {
     "import": "./dist/index.mjs",
@@ -18,7 +21,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git"
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git",
+    "directory": "packages/cgp-eslint-config"
   },
   "scripts": {
     "build": "rollup -c"

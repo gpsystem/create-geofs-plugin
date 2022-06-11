@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "@geps/geofs-types@v1",
+    "prettier@v2",
+    "ts-loader@v9",
+    "typescript@v4",
+    "webpack@v5",
+    "webpack-cli@v4"
+  ],
+  "scripts": {
+    "build": "webpack",
+    "test": "npm run lint"
+  },
+  "eslintConfigTemplates": ["baseConfig", "tsBase"]
+}

@@ -10,12 +10,16 @@
   ],
   "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  },
   "files": [
     "bin"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git"
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git",
+    "directory": "packages/create-geofs-plugin"
   },
   "scripts": {
     "build": "rollup -c"

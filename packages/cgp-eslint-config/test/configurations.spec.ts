@@ -1,6 +1,6 @@
 import {
-  eslintConfigBases,
   eslintConfigBaseDependencies,
+  eslintConfigBases,
 } from "../src/configurations";
 
 describe("raw config bases", () => {

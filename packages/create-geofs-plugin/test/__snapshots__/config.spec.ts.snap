@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parse config ensure parsing integrity template:react/overwrite:false 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:react/overwrite:true 1`] = `
+Object {
+  "overwrite": true,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:react/overwrite:undefined 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:react-ts/overwrite:false 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:react-ts/overwrite:true 1`] = `
+Object {
+  "overwrite": true,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:react-ts/overwrite:undefined 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:typescript/overwrite:false 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:typescript/overwrite:true 1`] = `
+Object {
+  "overwrite": true,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:typescript/overwrite:undefined 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:undefined/overwrite:false 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity template:undefined/overwrite:true 1`] = `
+Object {
+  "overwrite": true,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;
+
+exports[`parse config ensure parsing integrity vanilla 1`] = `
+Object {
+  "overwrite": false,
+  "targetDir": "../../target",
+  "templateDir": "../cgp-eslint-config/dist/index.js",
+  "templateName": "default",
+}
+`;

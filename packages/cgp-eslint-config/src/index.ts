@@ -1,8 +1,8 @@
 import merge from "lodash.merge";
 import {
   UnknownEslintConfigBase,
-  eslintConfigBases,
   eslintConfigBaseDependencies,
+  eslintConfigBases,
 } from "./configurations";
 
 // TODO: is there a type for a eslint configuration file?

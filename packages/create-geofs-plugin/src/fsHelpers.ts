@@ -42,11 +42,11 @@ export function* getAllFilesInDir(
     withFileTypes: true,
   });
 
-  for (const { name, isDirectory, isFile } of directoryDetails) {
-    const childPath: string = resolve(dirName, name);
+  for (const directoryChild of directoryDetails) {
+    const childPath: string = resolve(dirName, directoryChild.name);
 
-    if (isDirectory()) yield* getAllFilesInDir(childPath);
-    else if (isFile()) yield childPath;
+    if (directoryChild.isDirectory()) yield* getAllFilesInDir(childPath);
+    else if (directoryChild.isFile()) yield childPath;
   }
 }
 

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`copy directories throws when source and target directories are the same 1`] = `"source and target directories can't be the same"`;
+
+exports[`copy directories throws when the passed source path isn't a directory 1`] = `"source path isn't a directory"`;
+
 exports[`get all files in a directory throws when passed path isn't a directory 1`] = `"passed path is not a directory"`;
 
 exports[`output file throws on already existing file 1`] = `"file already exists"`;
-
-exports[`output file writes correctly: first/file.txt 1`] = `"test contents, 12345, 1.2345"`;

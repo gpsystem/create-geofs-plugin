@@ -1,8 +1,8 @@
 import {
   Dirent,
-  copyFileSync,
   existsSync,
   mkdirSync,
+  readFileSync,
   readdirSync,
   statSync,
   writeFileSync,
@@ -42,26 +42,32 @@ export function* getAllFilesInDir(
     withFileTypes: true,
   });
 
-  for (const directoryChild of directoryDetails) {
-    const childPath: string = resolve(dirName, directoryChild.name);
-    const isDirectory = directoryChild.isDirectory();
+  for (const { name, isDirectory, isFile } of directoryDetails) {
+    const childPath: string = resolve(dirName, name);
 
-    if (isDirectory) yield* getAllFilesInDir(childPath);
-    else yield childPath;
+    if (isDirectory()) yield* getAllFilesInDir(childPath);
+    else if (isFile()) yield childPath;
   }
+}
+
+export interface CopyDirOptions {
+  overwrite?: boolean;
 }
 
 export function copyDir(
   srcDir: string,
   targetDir: string,
-  overwrite = false
+  { overwrite = false }: CopyDirOptions = {}
 ): void {
-  if (pathIsDirectory(srcDir)) throw new Error("source path isn't a directory");
+  if (srcDir === targetDir)
+    throw new Error("source and target directories can't be the same");
+  if (!pathIsDirectory(srcDir))
+    throw new Error("source path isn't a directory");
 
   for (const srcFilePath of getAllFilesInDir(srcDir)) {
     const newFilePath: string = join(targetDir, relative(srcDir, srcFilePath));
 
-    mkdirSync(dirname(newFilePath), { recursive: true });
-    copyFileSync(srcFilePath, newFilePath);
+    if (existsSync(newFilePath) && overwrite === false) continue;
+    else outputFile(newFilePath, readFileSync(srcFilePath, "utf-8"), overwrite);
   }
 }

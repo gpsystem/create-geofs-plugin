@@ -6,7 +6,7 @@ import {
   statSync,
   writeFileSync,
 } from "node:fs";
-import { dirname, join, relative, sep } from "node:path";
+import { dirname, join } from "node:path";
 import { copyDir, getAllFilesInDir, outputFile } from "../src/fsHelpers";
 import { testTargetDir } from "./utils/index";
 
@@ -73,16 +73,12 @@ describe("output file", () => {
   });
 
   test("writes correctly", () => {
-    // DO NOT TOUCH THE CONSTANTS
-    // if you do touch these constants, remember to regenerate the snapshots
     const filePath: string = joinWithTargetDir("first", "file.txt");
     const fileContents = "test contents, 12345, 1.2345";
 
     outputFile(filePath, fileContents);
 
-    expect(readFileSync(filePath, "utf-8")).toMatchSnapshot(
-      relative(testTargetDir, filePath).split(sep).join("/")
-    );
+    expect(readFileSync(filePath, "utf-8")).toBe(fileContents);
   });
 });
 
@@ -97,6 +93,7 @@ describe("get all files in a directory", () => {
   beforeEach(() => {
     createTargetDir();
     for (const fileName of allFiles) {
+      // TODO: this will randomly fail
       outputFile(joinWithTargetDir(fileName), "test data");
     }
   });
@@ -126,13 +123,92 @@ describe("get all files in a directory", () => {
 });
 
 describe("copy directories", () => {
-  test.todo("throws when the passed source path isn't a directory");
+  /** The directory that will contain the files that will be copied into {@link firstCopyDir}. */
+  const originalCopyDir: string = joinWithTargetDir("second/");
+  /** The directory that will have files copied into it. */
+  const targetCopyDir: string = joinWithTargetDir("first/");
 
-  test.todo("skips files that already exist");
+  // leaving setup specifics to each test
+  beforeEach(() => {
+    createTargetDir();
+    mkdirSync(originalCopyDir);
+    mkdirSync(targetCopyDir);
+  });
+  afterEach(deleteTargetDir);
 
-  test.todo("overwrites files when overwrite=true");
+  test("throws when source and target directories are the same", () => {
+    expect(() =>
+      copyDir(originalCopyDir, originalCopyDir)
+    ).toThrowErrorMatchingSnapshot();
+  });
 
-  test.todo("doesn't modify directory structure");
+  test("throws when the passed source path isn't a directory", () => {
+    const exampleFile: string = joinWithTargetDir("test.txt");
 
-  test.todo("doesn't modify file contents");
+    writeFileSync(exampleFile, "test data");
+
+    expect(() =>
+      copyDir(exampleFile, targetCopyDir)
+    ).toThrowErrorMatchingSnapshot();
+  });
+
+  test("skips files that already exist", () => {
+    // setup
+    const allFiles: string[] = [
+      "./first/some/file.txt",
+      "./first/conflicting/file.txt",
+      "./second/conflicting/file.txt",
+      "./second/some/other/file.txt",
+    ];
+    const firstDirContents = "test 1";
+    const secondDirContents = "test 2";
+
+    for (const filePath of allFiles) {
+      const expandedFilePath: string = joinWithTargetDir(filePath);
+
+      outputFile(
+        expandedFilePath,
+        filePath.includes("first") ? firstDirContents : secondDirContents
+      );
+    }
+
+    // test
+    copyDir(originalCopyDir, targetCopyDir);
+
+    // if the file was overwritten, its contents would be secondDirContents
+    expect(
+      readFileSync(joinWithTargetDir("./first/conflicting/file.txt"), "utf-8")
+    ).toBe(firstDirContents);
+  });
+
+  test("overwrites files when overwrite=true", () => {
+    // setup
+    const allFiles: string[] = [
+      "./first/some/file.txt",
+      "./first/conflicting/file.txt",
+      "./second/conflicting/file.txt",
+      "./second/some/other/file.txt",
+    ];
+    const firstDirContents = "test 1";
+    const secondDirContents = "test 2";
+
+    for (const filePath of allFiles) {
+      const expandedFilePath: string = joinWithTargetDir(filePath);
+
+      outputFile(
+        expandedFilePath,
+        filePath.includes("first") ? firstDirContents : secondDirContents
+      );
+    }
+
+    // test
+    copyDir(originalCopyDir, targetCopyDir, {
+      overwrite: true,
+    });
+
+    // if the file wasn't overwritten, its contents would be firstDirContents
+    expect(
+      readFileSync(joinWithTargetDir("./first/conflicting/file.txt"), "utf-8")
+    ).toBe(secondDirContents);
+  });
 });

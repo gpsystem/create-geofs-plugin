@@ -41,7 +41,7 @@ export function createArgsForProgram(args: CommandLineArgs): string[] {
   );
   const flags: string[] = [];
 
-  // TODO: make the quoting unnecessary
+  // TODO: document this usage or fix it
   if (args.template) flags.push(`--template=${args.template}`);
   if (args.overwrite) flags.push("--overwrite");
 

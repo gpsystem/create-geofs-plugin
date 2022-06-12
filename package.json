@@ -3,12 +3,14 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
     "check-format": "prettier --check --ignore-path=.gitignore .",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore .",
-    "prepare": "husky install && npm run bootstrap && npm run prettier",
+    "prepare": "husky install",
+    "postinstall": "npm run bootstrap && npm run prettier",
     "prettier": "prettier --write --ignore-path=.gitignore .",
-    "test": "lerna run build && jest"
+    "test": "npm run build && jest"
   },
   "devDependencies": {
     "@commitlint/cli": "~17.0.2",

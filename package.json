@@ -8,7 +8,7 @@
     "lint": "eslint --ignore-path=.gitignore .",
     "prepare": "husky install && npm run bootstrap && npm run prettier",
     "prettier": "prettier --write --ignore-path=.gitignore .",
-    "test": "jest"
+    "test": "lerna run build && jest"
   },
   "devDependencies": {
     "@commitlint/cli": "~17.0.2",

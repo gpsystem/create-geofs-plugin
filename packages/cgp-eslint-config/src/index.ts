@@ -1,9 +1,9 @@
 import merge from "lodash.merge";
 import {
-  EslintConfigNames,
-  UnknownEslintConfigBase,
   eslintConfigBaseDependencies,
   eslintConfigBases,
+  EslintConfigNames,
+  UnknownEslintConfigBase,
 } from "./configurations";
 
 export type MoreThanOneArray<T> = [T, ...T[]];

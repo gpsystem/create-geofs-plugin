@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { DirectoryResult, dir } from "tmp-promise";
+import { dir, DirectoryResult } from "tmp-promise";
 import { Configuration, parseConfig } from "./config";
 import { copyDir } from "./fsHelpers";
 import expandTemplateJson, { ExpandedTemplateJson } from "./template";

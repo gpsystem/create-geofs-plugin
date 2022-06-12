@@ -28,6 +28,7 @@ rules:
   sort-imports:
     - error
     - ignoreDeclarationSort: true
+      ignoreCase: true
   eqeqeq:
     - error
   prefer-const:

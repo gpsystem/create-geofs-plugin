@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import {
   EslintConfigNames,
-  MoreThanOneArray,
   getEslintConfig,
+  MoreThanOneArray,
 } from "@geps/cgp-eslint-config";
 
 interface TemplateJson {

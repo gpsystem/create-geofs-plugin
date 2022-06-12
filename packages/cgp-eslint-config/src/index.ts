@@ -1,9 +1,12 @@
 import merge from "lodash.merge";
 import {
+  EslintConfigNames,
   UnknownEslintConfigBase,
   eslintConfigBaseDependencies,
   eslintConfigBases,
 } from "./configurations";
+
+export type MoreThanOneArray<T> = [T, ...T[]];
 
 // TODO: is there a type for a eslint configuration file?
 /**
@@ -16,10 +19,7 @@ import {
  * Second is the names of the dependencies to install to make sure the .eslintrc configuration works properly.
  */
 export function getEslintConfig(
-  ...configNames: [
-    baseConfigName: keyof typeof eslintConfigBases,
-    ...otherConfigNames: (keyof typeof eslintConfigBases)[]
-  ]
+  ...configNames: MoreThanOneArray<EslintConfigNames>
 ): [config: Record<string, unknown>, dependencies: string[]] {
   if (!configNames.length)
     throw new Error("must provide at least one config name");
@@ -27,10 +27,7 @@ export function getEslintConfig(
     (val) => eslintConfigBases[val]
   );
   const config: Record<string, unknown> = merge(
-    ...(configsToMerge as [
-      UnknownEslintConfigBase,
-      ...UnknownEslintConfigBase[]
-    ])
+    ...(configsToMerge as MoreThanOneArray<UnknownEslintConfigBase>)
   );
 
   // if the typescript template is mentioned, remove globals from the config
@@ -45,3 +42,5 @@ export function getEslintConfig(
     ),
   ];
 }
+
+export { EslintConfigNames };

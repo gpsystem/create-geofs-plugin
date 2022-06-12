@@ -1,6 +1,8 @@
+import { join } from "node:path";
 import { DirectoryResult, dir } from "tmp-promise";
 import { Configuration, parseConfig } from "./config";
 import { copyDir } from "./fsHelpers";
+import expandTemplateJson, { ExpandedTemplateJson } from "./template";
 
 export async function start(argv: string[]): Promise<void> {
   const config: Configuration = parseConfig(argv);
@@ -9,8 +11,9 @@ export async function start(argv: string[]): Promise<void> {
       unsafeCleanup: true,
     });
 
-  // copyDir(config.templateDir, tmpDirName);
-  // expand the template.json into both a .eslintrc.yml, store the deps somewhere
+  copyDir(config.templateDir, tmpDirName, { overwrite: config.overwrite });
+  const { dependencies: templateDeps, eslintConfig }: ExpandedTemplateJson =
+    expandTemplateJson(join(tmpDirName, "template.json"));
   // remove everything that starts with __
   // copy everything to the target dir
   // install the dependencies

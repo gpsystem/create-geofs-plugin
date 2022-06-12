@@ -1,5 +1,7 @@
+export type EslintConfigNames = keyof typeof eslintConfigBases;
+
 export type UnknownEslintConfigBase =
-  typeof eslintConfigBases[keyof typeof eslintConfigBases];
+  typeof eslintConfigBases[EslintConfigNames];
 
 /**
  * The eslint configurations. All the values should be objects.
@@ -85,18 +87,16 @@ export const eslintConfigBases = {
 /**
  * The dependencies of the configurations. Indexable by the same keys that {@link eslintConfigBases} is by.
  */
-export const eslintConfigBaseDependencies: Record<
-  keyof typeof eslintConfigBases,
-  string[]
-> = {
-  baseConfig: [
-    "eslint@v8",
-    "eslint-config-prettier@v8",
-    "eslint-plugin-import@v2",
-  ],
-  tsBase: [
-    "@typescript-eslint/eslint-plugin@v5",
-    "eslint-import-resolver-typescript@v2",
-  ],
-  reactBase: ["eslint-plugin-react@v7"],
-};
+export const eslintConfigBaseDependencies: Record<EslintConfigNames, string[]> =
+  {
+    baseConfig: [
+      "eslint@v8",
+      "eslint-config-prettier@v8",
+      "eslint-plugin-import@v2",
+    ],
+    tsBase: [
+      "@typescript-eslint/eslint-plugin@v5",
+      "eslint-import-resolver-typescript@v2",
+    ],
+    reactBase: ["eslint-plugin-react@v7"],
+  };

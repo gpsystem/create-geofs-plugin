@@ -3,7 +3,6 @@ import { join } from "node:path";
 import { EslintConfigNames, MoreThanOneArray } from "@geps/cgp-eslint-config";
 import expandTemplateJson, {
   assertTemplateJsonFormat,
-  ExpandedTemplateJson,
   TemplateJson,
 } from "../src/template";
 import { testTargetDir } from "./utils";

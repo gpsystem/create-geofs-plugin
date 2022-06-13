@@ -1,0 +1,402 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expand the template.json returns consistent values - empty-base 1`] = `
+Object {
+  "dependencies": Array [
+    "eslint@v8",
+    "eslint-config-prettier@v8",
+    "eslint-plugin-import@v2",
+  ],
+  "eslintConfig": Object {
+    "env": Object {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+    },
+    "extends": Array [
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "prettier",
+    ],
+    "globals": Object {
+      "GlassPanel": "readonly",
+      "Indicator": "readonly",
+      "Object3D": "readonly",
+      "Overlay": "readonly",
+      "PAGE_PATH": "readonly",
+      "PID": "readonly",
+      "absMin": "readonly",
+      "audio": "readonly",
+      "boundHours24": "readonly",
+      "clamp": "readonly",
+      "clone": "readonly",
+      "controls": "readonly",
+      "exponentialSmoothing": "readonly",
+      "exponentialSmoothingV3": "readonly",
+      "fixAngle": "readonly",
+      "fixAngle360": "readonly",
+      "fixAngles": "readonly",
+      "fixAngles360": "readonly",
+      "flight": "readonly",
+      "geoDecodeLocation": "readonly",
+      "geofs": "readonly",
+      "getBuildingCollision": "readonly",
+      "getURLParameters": "readonly",
+      "instruments": "readonly",
+      "ll2xy": "readonly",
+      "lla2xyz": "readonly",
+      "lookAt": "readonly",
+      "multiplayer": "readonly",
+      "objects": "readonly",
+      "rigidBody": "readonly",
+      "span": "readonly",
+      "ui": "readonly",
+      "weather": "readonly",
+      "xy2ll": "readonly",
+      "xyz2lla": "readonly",
+    },
+    "parserOptions": Object {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+    },
+    "root": true,
+    "rules": Object {
+      "eqeqeq": Array [
+        "error",
+      ],
+      "import/order": Array [
+        "error",
+        Object {
+          "alphabetize": Object {
+            "caseInsensitive": true,
+            "order": "asc",
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`expand the template.json returns consistent values - lodash-typescript 1`] = `
+Object {
+  "dependencies": Array [
+    "@types/lodash@v4",
+    "lodash@v4",
+    "eslint@v8",
+    "eslint-config-prettier@v8",
+    "eslint-plugin-import@v2",
+    "@typescript-eslint/eslint-plugin@v5",
+    "eslint-import-resolver-typescript@v2",
+  ],
+  "eslintConfig": Object {
+    "env": Object {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+    },
+    "extends": Array [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:import/typescript",
+      "prettier",
+    ],
+    "overrides": Array [
+      Object {
+        "files": Array [
+          "**/*.js",
+        ],
+        "rules": Object {
+          "@typescript-eslint/no-var-requires": Array [
+            "off",
+          ],
+        },
+      },
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": Object {
+      "ecmaFeatures": Object {
+        "jsx": true,
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+    },
+    "plugins": Array [
+      "@typescript-eslint",
+    ],
+    "root": true,
+    "rules": Object {
+      "eqeqeq": Array [
+        "error",
+      ],
+      "import/order": Array [
+        "error",
+        Object {
+          "alphabetize": Object {
+            "caseInsensitive": true,
+            "order": "asc",
+          },
+        },
+      ],
+    },
+    "settings": Object {
+      "import/parsers": Object {
+        "@typescript-eslint/parser": Array [
+          ".ts",
+          ".tsx",
+        ],
+      },
+      "react": Object {
+        "version": "detect",
+      },
+    },
+  },
+}
+`;
+
+exports[`expand the template.json returns consistent values - lodash-vanilla 1`] = `
+Object {
+  "dependencies": Array [
+    "lodash@v4",
+    "eslint@v8",
+    "eslint-config-prettier@v8",
+    "eslint-plugin-import@v2",
+  ],
+  "eslintConfig": Object {
+    "env": Object {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+    },
+    "extends": Array [
+      "plugin:react/recommended",
+      "plugin:import/typescript",
+      "prettier",
+    ],
+    "overrides": Array [
+      Object {
+        "files": Array [
+          "**/*.js",
+        ],
+        "rules": Object {
+          "@typescript-eslint/no-var-requires": Array [
+            "off",
+          ],
+        },
+      },
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": Object {
+      "ecmaFeatures": Object {
+        "jsx": true,
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+    },
+    "plugins": Array [
+      "react",
+    ],
+    "root": true,
+    "rules": Object {
+      "eqeqeq": Array [
+        "error",
+      ],
+      "import/order": Array [
+        "error",
+        Object {
+          "alphabetize": Object {
+            "caseInsensitive": true,
+            "order": "asc",
+          },
+        },
+      ],
+    },
+    "settings": Object {
+      "import/parsers": Object {
+        "@typescript-eslint/parser": Array [
+          ".ts",
+          ".tsx",
+        ],
+      },
+      "react": Object {
+        "version": "detect",
+      },
+    },
+  },
+}
+`;
+
+exports[`expand the template.json returns consistent values - react-typescript 1`] = `
+Object {
+  "dependencies": Array [
+    "@types/react@v18",
+    "@types/react-dom@v18",
+    "react@v18",
+    "react-dom@v18",
+    "eslint@v8",
+    "eslint-config-prettier@v8",
+    "eslint-plugin-import@v2",
+    "@typescript-eslint/eslint-plugin@v5",
+    "eslint-import-resolver-typescript@v2",
+    "eslint-plugin-react@v7",
+  ],
+  "eslintConfig": Object {
+    "env": Object {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+    },
+    "extends": Array [
+      "plugin:react/recommended",
+      "plugin:import/typescript",
+      "prettier",
+    ],
+    "overrides": Array [
+      Object {
+        "files": Array [
+          "**/*.js",
+        ],
+        "rules": Object {
+          "@typescript-eslint/no-var-requires": Array [
+            "off",
+          ],
+        },
+      },
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": Object {
+      "ecmaFeatures": Object {
+        "jsx": true,
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+    },
+    "plugins": Array [
+      "react",
+    ],
+    "root": true,
+    "rules": Object {
+      "eqeqeq": Array [
+        "error",
+      ],
+      "import/order": Array [
+        "error",
+        Object {
+          "alphabetize": Object {
+            "caseInsensitive": true,
+            "order": "asc",
+          },
+        },
+      ],
+    },
+    "settings": Object {
+      "import/parsers": Object {
+        "@typescript-eslint/parser": Array [
+          ".ts",
+          ".tsx",
+        ],
+      },
+      "react": Object {
+        "version": "detect",
+      },
+    },
+  },
+}
+`;
+
+exports[`expand the template.json returns consistent values - react-vanilla 1`] = `
+Object {
+  "dependencies": Array [
+    "react@v18",
+    "react-dom@v18",
+    "eslint@v8",
+    "eslint-config-prettier@v8",
+    "eslint-plugin-import@v2",
+    "eslint-plugin-react@v7",
+  ],
+  "eslintConfig": Object {
+    "env": Object {
+      "browser": true,
+      "es2021": true,
+      "node": true,
+    },
+    "extends": Array [
+      "plugin:react/recommended",
+      "plugin:import/recommended",
+      "prettier",
+    ],
+    "globals": Object {
+      "GlassPanel": "readonly",
+      "Indicator": "readonly",
+      "Object3D": "readonly",
+      "Overlay": "readonly",
+      "PAGE_PATH": "readonly",
+      "PID": "readonly",
+      "absMin": "readonly",
+      "audio": "readonly",
+      "boundHours24": "readonly",
+      "clamp": "readonly",
+      "clone": "readonly",
+      "controls": "readonly",
+      "exponentialSmoothing": "readonly",
+      "exponentialSmoothingV3": "readonly",
+      "fixAngle": "readonly",
+      "fixAngle360": "readonly",
+      "fixAngles": "readonly",
+      "fixAngles360": "readonly",
+      "flight": "readonly",
+      "geoDecodeLocation": "readonly",
+      "geofs": "readonly",
+      "getBuildingCollision": "readonly",
+      "getURLParameters": "readonly",
+      "instruments": "readonly",
+      "ll2xy": "readonly",
+      "lla2xyz": "readonly",
+      "lookAt": "readonly",
+      "multiplayer": "readonly",
+      "objects": "readonly",
+      "rigidBody": "readonly",
+      "span": "readonly",
+      "ui": "readonly",
+      "weather": "readonly",
+      "xy2ll": "readonly",
+      "xyz2lla": "readonly",
+    },
+    "parserOptions": Object {
+      "ecmaFeatures": Object {
+        "jsx": true,
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+    },
+    "plugins": Array [
+      "react",
+    ],
+    "root": true,
+    "rules": Object {
+      "eqeqeq": Array [
+        "error",
+      ],
+      "import/order": Array [
+        "error",
+        Object {
+          "alphabetize": Object {
+            "caseInsensitive": true,
+            "order": "asc",
+          },
+        },
+      ],
+    },
+    "settings": Object {
+      "react": Object {
+        "version": "detect",
+      },
+    },
+  },
+}
+`;
+
+exports[`expand the template.json throws for an empty eslint config template list 1`] = `"template must specify at least one config template"`;
+
+exports[`expand the template.json throws on malformed template.json 1`] = `"template.json is malformed"`;
+
+exports[`expand the template.json throws when base eslint config template isn't first 1`] = `"template's eslint config template list must include the base configuration first"`;

@@ -5,7 +5,7 @@ import {
   MoreThanOneArray,
 } from "@geps/cgp-eslint-config";
 
-interface TemplateJson {
+export interface TemplateJson {
   /** The dependencies of the template. Does not include the dependencies returned from cgp-eslint-config. */
   dependencies: string[];
   eslintConfigTemplates: EslintConfigNames[];
@@ -24,7 +24,7 @@ export function assertTemplateJsonFormat(
   // thanks to Joshua Chen on the TS discord for this assertion code!
   type AssertTrue<T extends true> = T;
   // If typescript throws type 'false' does not satisfy the constraint 'true' here, then
-  // allPossibleConfigNames doesn't include all values of EslintConfigNames
+  // allPossibleConfigNames is malformed
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   type A = AssertTrue<
     [EslintConfigNames] extends [typeof allPossibleConfigNames[number]]
@@ -66,8 +66,13 @@ export default function expandTemplateJson(
   if (!assertTemplateJsonFormat(templateJson))
     throw new Error("template.json is malformed");
 
-  let { eslintConfigTemplates } = templateJson;
-  if (!eslintConfigTemplates.length) eslintConfigTemplates = ["baseConfig"];
+  const { eslintConfigTemplates } = templateJson;
+  if (eslintConfigTemplates.length === 0)
+    throw new Error("template must specify at least one config template");
+  if (eslintConfigTemplates[0] !== "baseConfig")
+    throw new Error(
+      "template's eslint config template list must include the base configuration first"
+    );
 
   const [eslintConfig, eslintDependencies] = getEslintConfig(
     ...(eslintConfigTemplates as MoreThanOneArray<

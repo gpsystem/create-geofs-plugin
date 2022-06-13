@@ -17,5 +17,5 @@ export async function start(argv: string[]): Promise<void> {
   // remove everything that starts with __
   // copy everything to the target dir
   // install the dependencies
-  cleanupTempDir();
+  await cleanupTempDir();
 }

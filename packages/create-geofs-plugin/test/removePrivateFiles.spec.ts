@@ -27,7 +27,10 @@ describe("remove private files from directory", () => {
     const filesThatShouldBeRemoved: string[] = allFiles.reduce<string[]>(
       (acc, [fileRelPath, toDelete]) => {
         // if the file's name starts with __, and the file is marked to be deleted
-        if (fileRelPath.split("/")[-1].startsWith("__") && toDelete)
+        if (
+          (fileRelPath.split("/").at(-1)?.startsWith("__") ?? false) &&
+          toDelete
+        )
           return [...acc, fileRelPath];
         else return acc;
       },

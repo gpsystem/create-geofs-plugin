@@ -2,9 +2,10 @@ import { existsSync, mkdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { outputFile } from "../src/fsHelpers";
 import removePrivateFiles from "../src/removePrivateFiles";
-import { testTargetDir } from "./utils";
+import { createTestDirectory } from "./utils";
 
 describe("remove private files from directory", () => {
+  const { targetDir: testTargetDir, teardown } = createTestDirectory();
   // paths should be relative to testTargetDir
   const allFiles: [relPath: string, toDelete: boolean][] = [
     ["./some/nested/file/that/should/not/be/touched.txt", false],
@@ -14,7 +15,7 @@ describe("remove private files from directory", () => {
   ];
 
   beforeEach(() => {
-    mkdirSync(testTargetDir);
+    mkdirSync(testTargetDir, { recursive: true });
     for (const [fileRelPath] of allFiles) {
       outputFile(join(testTargetDir, fileRelPath), "test data");
     }
@@ -22,6 +23,7 @@ describe("remove private files from directory", () => {
   afterEach(() => {
     rmSync(testTargetDir, { recursive: true, force: true });
   });
+  afterAll(() => teardown());
 
   test("removes the correct files", () => {
     const filesThatShouldBeRemoved: string[] = allFiles.reduce<string[]>(

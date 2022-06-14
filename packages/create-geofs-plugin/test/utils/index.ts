@@ -1,8 +1,7 @@
 import { rm } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { argv0 as nodeExecPath } from "node:process";
-
-export const testTargetDir: string = join(__dirname, "..", "target/");
+import { testTargetDirRoot } from "./testDirectories";
 
 export const packageDir: string = join(__dirname, "..", "..");
 
@@ -22,7 +21,7 @@ export function pathRelativeToPackage(path: string): string {
  */
 export function clearTestTargetDir(): Promise<void> {
   return new Promise((resolve) => {
-    rm(testTargetDir, { recursive: true, force: true }, () => resolve());
+    rm(testTargetDirRoot, { recursive: true, force: true }, () => resolve());
   });
 }
 
@@ -48,9 +47,13 @@ export function createArgsForProgram(args: CommandLineArgs): string[] {
   return [
     nodeExecPath,
     binFile,
-    relative(join(__dirname, ".."), testTargetDir).replace(/^[a-z]/i, "./$&"),
+    relative(join(__dirname, ".."), testTargetDirRoot).replace(
+      /^[a-z]/i,
+      "./$&"
+    ),
     ...flags,
   ];
 }
 
-export * from "./argPermutations";
+export { ArgPermutation, allArgPermutations } from "./argPermutations";
+export { createTestDirectory } from "./testDirectories";

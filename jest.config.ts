@@ -8,8 +8,6 @@ const config: InitialOptionsTsJest = {
       isolatedModules: true,
     },
   },
-  // TODO: someday, we need to mock fs so we can run tests in parallel
-  maxWorkers: 1,
   moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
   testMatch: ["**/test/**/*.spec.ts"],
   moduleFileExtensions: ["js", "ts", "tsx", "d.ts", "json", "node"],

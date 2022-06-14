@@ -8,10 +8,14 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { copyDir, getAllFilesInDir, outputFile } from "../src/fsHelpers";
-import { testTargetDir } from "./utils/index";
+import { createTestDirectory } from "./utils/index";
+
+const { targetDir: testTargetDir, teardown } = createTestDirectory();
+
+afterAll(() => teardown());
 
 function createTargetDir(): void {
-  mkdirSync(testTargetDir);
+  mkdirSync(testTargetDir, { recursive: true });
 }
 
 function deleteTargetDir(): void {

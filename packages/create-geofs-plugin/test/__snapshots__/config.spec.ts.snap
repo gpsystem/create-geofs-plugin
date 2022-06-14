@@ -3,7 +3,7 @@
 exports[`parse config ensure parsing integrity overwrite:false 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-default",
   "templateName": "default",
 }
@@ -12,7 +12,7 @@ Object {
 exports[`parse config ensure parsing integrity overwrite:true 1`] = `
 Object {
   "overwrite": true,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-default",
   "templateName": "default",
 }
@@ -21,7 +21,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react",
   "templateName": "react",
 }
@@ -30,7 +30,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react/overwrite:false 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react",
   "templateName": "react",
 }
@@ -39,7 +39,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react/overwrite:true 1`] = `
 Object {
   "overwrite": true,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react",
   "templateName": "react",
 }
@@ -48,7 +48,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react-ts 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react-ts",
   "templateName": "react-ts",
 }
@@ -57,7 +57,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react-ts/overwrite:false 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react-ts",
   "templateName": "react-ts",
 }
@@ -66,7 +66,7 @@ Object {
 exports[`parse config ensure parsing integrity template:react-ts/overwrite:true 1`] = `
 Object {
   "overwrite": true,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-react-ts",
   "templateName": "react-ts",
 }
@@ -75,7 +75,7 @@ Object {
 exports[`parse config ensure parsing integrity template:typescript 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-typescript",
   "templateName": "typescript",
 }
@@ -84,7 +84,7 @@ Object {
 exports[`parse config ensure parsing integrity template:typescript/overwrite:false 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-typescript",
   "templateName": "typescript",
 }
@@ -93,7 +93,7 @@ Object {
 exports[`parse config ensure parsing integrity template:typescript/overwrite:true 1`] = `
 Object {
   "overwrite": true,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-typescript",
   "templateName": "typescript",
 }
@@ -102,7 +102,7 @@ Object {
 exports[`parse config ensure parsing integrity vanilla 1`] = `
 Object {
   "overwrite": false,
-  "targetDir": "../../target",
+  "targetDir": "../../tempForTests",
   "templateDir": "../cgp-template-default",
   "templateName": "default",
 }

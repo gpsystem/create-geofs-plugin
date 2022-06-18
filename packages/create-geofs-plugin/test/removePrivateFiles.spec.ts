@@ -75,5 +75,21 @@ describe("remove private files from directory", () => {
     }
   });
 
-  test.todo("doesn't touch non-marked files and directories");
+  test("doesn't touch non-marked files and directories", () => {
+    const filesThatShouldNotBeRemoved: string[] = allFiles.reduce<string[]>(
+      (acc, [relPath, toDelete]) => {
+        if (!toDelete) acc.push(relPath);
+
+        return acc;
+      },
+      []
+    );
+
+    removePrivateFiles(testTargetDir);
+
+    for (const fileRelPath of filesThatShouldNotBeRemoved) {
+      // expecting the folder to not be removed
+      expect(existsSync(join(testTargetDir, fileRelPath))).toBe(true);
+    }
+  });
 });

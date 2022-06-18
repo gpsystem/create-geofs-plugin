@@ -47,7 +47,33 @@ describe("remove private files from directory", () => {
     }
   });
 
-  test.todo("removes marked directories");
+  test("removes marked directories", () => {
+    const foldersThatShouldBeRemoved: string[] = allFiles.reduce<string[]>(
+      (acc, [relPath, toDelete]) => {
+        if (!toDelete) return acc;
+
+        const splitRelPath: string[] = relPath.split("/");
+        splitRelPath.forEach((val, i, arr) => {
+          // if this is the last iteration (val would be the filename), return
+          if (i === arr.length - 1) return;
+
+          if (val.startsWith("__")) {
+            acc.push(arr.slice(0, i + 1).join("/"));
+          }
+        });
+
+        return acc;
+      },
+      []
+    );
+
+    removePrivateFiles(testTargetDir);
+
+    for (const folderRelPath of foldersThatShouldBeRemoved) {
+      // expecting the folder to be removed
+      expect(existsSync(join(testTargetDir, folderRelPath))).toBe(false);
+    }
+  });
 
   test.todo("doesn't touch non-marked files and directories");
 });

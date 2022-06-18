@@ -9,6 +9,8 @@ import { createTestDirectory } from "./utils/index";
 
 const { targetDir: testTargetDir, teardown } = createTestDirectory();
 
+afterAll(() => teardown());
+
 describe("check the formatting of a template.json file", () => {
   test("returns correct false values", () => {
     class TemplateFake implements TemplateJson {
@@ -153,5 +155,3 @@ describe("expand the template.json", () => {
     });
   }
 });
-
-teardown();

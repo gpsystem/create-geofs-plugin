@@ -30,6 +30,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "~4.1.0",
     "@rollup/plugin-typescript": "~8.3.2",
+    "@types/js-yaml": "~4.0.5",
     "@types/tmp": "~0.2.3",
     "rollup": "~2.75.6",
     "rollup-plugin-node-externals": "~4.0.0"
@@ -41,6 +42,7 @@
     "@geps/cgp-template-react-ts": "~0.3.1",
     "@geps/cgp-template-typescript": "~0.3.1",
     "commander": "~9.3.0",
+    "js-yaml": "~4.1.0",
     "tmp-promise": "~3.0.3",
     "yaml": "~2.1.1"
   }

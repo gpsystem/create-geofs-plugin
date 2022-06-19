@@ -1,9 +1,11 @@
 import { join } from "node:path";
+import { dump } from "js-yaml";
 import { dir, DirectoryResult } from "tmp-promise";
 import { Configuration, parseConfig } from "./config";
-import { copyDir } from "./fsHelpers";
+import { copyDir, outputFile } from "./fsHelpers";
+import { initializeNpm } from "./npmHelpers";
 import removePrivateFiles from "./removePrivateFiles";
-import expandTemplateJson, { ExpandedTemplateJson } from "./template";
+import expandTemplateJson from "./template";
 
 export async function start(argv: string[]): Promise<void> {
   const config: Configuration = parseConfig(argv);
@@ -12,14 +14,18 @@ export async function start(argv: string[]): Promise<void> {
       unsafeCleanup: true,
     });
 
-  copyDir(config.templateDir, tmpDirPath, { overwrite: config.overwrite });
-  const { dependencies: templateDeps, eslintConfig }: ExpandedTemplateJson =
-    expandTemplateJson(join(tmpDirPath, "template.json"));
+  // config.templateDir is the top level of the template package
+  copyDir(join(config.templateDir, "template"), tmpDirPath);
+  const {
+    dependencies: templateDeps,
+    eslintConfig,
+  }: { dependencies: string[]; eslintConfig: Record<string, unknown> } =
+    expandTemplateJson(join(config.templateDir, "template.json"));
 
   removePrivateFiles(tmpDirPath);
-  // remove everything that starts with __
-  // copy everything to the target dir
-  // install the dependencies
+  outputFile(join(tmpDirPath, ".eslintrc.yml"), dump(eslintConfig));
+  copyDir(tmpDirPath, config.targetDir, { overwrite: config.overwrite });
+  initializeNpm(config.targetDir, templateDeps);
 
   await cleanupTempDir();
 }

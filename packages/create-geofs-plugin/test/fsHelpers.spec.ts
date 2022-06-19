@@ -48,7 +48,7 @@ describe("output file", () => {
     writeFileSync(filePath, "1");
 
     const newFileData = "2";
-    outputFile(filePath, newFileData, true);
+    outputFile(filePath, newFileData, { force: true });
 
     expect(readFileSync(filePath, "utf-8")).toBe(newFileData);
   });

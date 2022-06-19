@@ -18,6 +18,7 @@ export function parseConfig(argv: string[]): Configuration {
     .version(`Create GeoFS Plugin v${version}`)
     .argument("<destination>")
     .action((dest: string) => {
+      // TODO: is this check a bit too harsh?
       if (!dest.includes("/"))
         throw new Error("argument <destination> must be a relative path");
       else destination = resolve(cwd(), dest);

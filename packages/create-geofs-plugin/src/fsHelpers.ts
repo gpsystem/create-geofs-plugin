@@ -13,6 +13,7 @@ function pathIsDirectory(path: string): boolean {
   return statSync(path).isDirectory();
 }
 
+// food for thought: do we want to force ourselves through outputFile, or should we expose this?
 function internalWriteFileSync(targetFile: string, data: string): void {
   writeFileSync(targetFile, data, "utf-8");
 }
@@ -20,7 +21,11 @@ function internalWriteFileSync(targetFile: string, data: string): void {
 export function outputFile(
   targetFile: string,
   data: string,
-  force = false
+  {
+    force = false,
+  }: {
+    force?: boolean;
+  } = {}
 ): void {
   if (!force && existsSync(targetFile)) throw new Error("file already exists");
 
@@ -68,6 +73,9 @@ export function copyDir(
     const newFilePath: string = join(targetDir, relative(srcDir, srcFilePath));
 
     if (existsSync(newFilePath) && overwrite === false) continue;
-    else outputFile(newFilePath, readFileSync(srcFilePath, "utf-8"), overwrite);
+    else
+      outputFile(newFilePath, readFileSync(srcFilePath, "utf-8"), {
+        force: overwrite,
+      });
   }
 }

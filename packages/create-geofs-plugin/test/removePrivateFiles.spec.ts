@@ -26,11 +26,22 @@ describe("remove private files from directory", () => {
   afterAll(() => teardown());
 
   test("removes the correct files", () => {
+    // polyfill for Array#at
+    // TODO: remove this when node v14 gets dropped in favor of using Array.at
+    function arrayAt<T>(arr: Array<T>, index: number): T | undefined {
+      // Allow negative indexing from the end
+      if (index < 0) index += arr.length;
+      // OOB access is guaranteed to return undefined
+      if (index < 0 || index >= arr.length) return undefined;
+      // Otherwise, this is just normal property access
+      return arr[index];
+    }
+
     const filesThatShouldBeRemoved: string[] = allFiles.reduce<string[]>(
       (acc, [fileRelPath, toDelete]) => {
         // if the file's name starts with __, and the file is marked to be deleted
         if (
-          (fileRelPath.split("/").at(-1)?.startsWith("__") ?? false) &&
+          (arrayAt(fileRelPath.split("/"), -1)?.startsWith("__") ?? false) &&
           toDelete
         )
           return [...acc, fileRelPath];

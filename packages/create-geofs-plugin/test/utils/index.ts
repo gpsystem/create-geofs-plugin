@@ -1,7 +1,5 @@
-import { rm } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { argv0 as nodeExecPath } from "node:process";
-import { testTargetDirRoot } from "./testDirectories";
 
 export const packageDir: string = join(__dirname, "..", "..");
 
@@ -16,21 +14,15 @@ export function pathRelativeToPackage(path: string): string {
   return relative(packageDir, path);
 }
 
-/**
- * Clears {@link testTargetDir} for the next test. Also normalizes to forward slashes
- */
-export function clearTestTargetDir(): Promise<void> {
-  return new Promise((resolve) => {
-    rm(testTargetDirRoot, { recursive: true, force: true }, () => resolve());
-  });
-}
-
 export interface CommandLineArgs {
   template?: "typescript" | "react" | "react-ts";
   overwrite?: boolean;
 }
 
-export function createArgsForProgram(args: CommandLineArgs): string[] {
+export function createArgsForProgram(
+  args: CommandLineArgs,
+  targetDir: string
+): string[] {
   const binFile: string = join(
     __dirname,
     "..",
@@ -47,13 +39,13 @@ export function createArgsForProgram(args: CommandLineArgs): string[] {
   return [
     nodeExecPath,
     binFile,
-    relative(join(__dirname, ".."), testTargetDirRoot).replace(
-      /^[a-z]/i,
-      "./$&"
-    ),
+    relative(join(__dirname, ".."), targetDir).replace(/^[a-z]/i, "./$&"),
     ...flags,
   ];
 }
 
 export { ArgPermutation, allArgPermutations } from "./argPermutations";
-export { createTestDirectory } from "./testDirectories";
+export {
+  createTestDirectory__RENAME_LATER,
+  TestDirectoryResults,
+} from "./testDirectories";

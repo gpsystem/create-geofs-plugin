@@ -1,6 +1,6 @@
 import type { InitialOptionsTsJest } from "ts-jest";
 
-const config: InitialOptionsTsJest = {
+export const commonJestConfig: InitialOptionsTsJest = {
   preset: "ts-jest/presets/default-esm",
   globals: {
     "ts-jest": {
@@ -8,13 +8,15 @@ const config: InitialOptionsTsJest = {
       isolatedModules: true,
     },
   },
-  // TODO: someday, we need to mock fs so we can run tests in parallel
-  maxWorkers: 1,
   moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
   testMatch: ["**/test/**/*.spec.ts"],
   moduleFileExtensions: ["js", "ts", "tsx", "d.ts", "json", "node"],
   clearMocks: true,
   resetMocks: true,
+};
+
+const config: InitialOptionsTsJest = {
+  projects: ["./packages/cgp-eslint-config", "./packages/create-geofs-plugin"],
   collectCoverage: true,
   collectCoverageFrom: ["packages/**/src/**/*.ts"],
   coveragePathIgnorePatterns: ["/template/"],

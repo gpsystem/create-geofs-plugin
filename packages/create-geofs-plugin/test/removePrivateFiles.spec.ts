@@ -1,11 +1,18 @@
-import { existsSync, mkdirSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { outputFile } from "../src/fsHelpers";
 import removePrivateFiles from "../src/removePrivateFiles";
-import { createTestDirectory } from "./utils";
+import {
+  createTestDirectory__RENAME_LATER,
+  TestDirectoryResults,
+} from "./utils/index";
 
 describe("remove private files from directory", () => {
-  const { targetDir: testTargetDir, teardown } = createTestDirectory();
+  const { cleanup, directoryPath }: TestDirectoryResults =
+    createTestDirectory__RENAME_LATER();
+
+  afterEach(() => cleanup());
+
   // paths should be relative to testTargetDir
   const allFiles: [relPath: string, toDelete: boolean][] = [
     ["./some/nested/file/that/should/not/be/touched.txt", false],
@@ -15,15 +22,11 @@ describe("remove private files from directory", () => {
   ];
 
   beforeEach(() => {
-    mkdirSync(testTargetDir, { recursive: true });
+    mkdirSync(directoryPath, { recursive: true });
     for (const [fileRelPath] of allFiles) {
-      outputFile(join(testTargetDir, fileRelPath), "test data");
+      outputFile(join(directoryPath, fileRelPath), "test data");
     }
   });
-  afterEach(() => {
-    rmSync(testTargetDir, { recursive: true, force: true });
-  });
-  afterAll(() => teardown());
 
   test("removes the correct files", () => {
     // polyfill for Array#at
@@ -50,11 +53,11 @@ describe("remove private files from directory", () => {
       []
     );
 
-    removePrivateFiles(testTargetDir);
+    removePrivateFiles(directoryPath);
 
     for (const fileRelPath of filesThatShouldBeRemoved) {
       // expecting the file to be removed
-      expect(existsSync(join(testTargetDir, fileRelPath))).toBe(false);
+      expect(existsSync(join(directoryPath, fileRelPath))).toBe(false);
     }
   });
 
@@ -78,11 +81,11 @@ describe("remove private files from directory", () => {
       []
     );
 
-    removePrivateFiles(testTargetDir);
+    removePrivateFiles(directoryPath);
 
     for (const folderRelPath of foldersThatShouldBeRemoved) {
       // expecting the folder to be removed
-      expect(existsSync(join(testTargetDir, folderRelPath))).toBe(false);
+      expect(existsSync(join(directoryPath, folderRelPath))).toBe(false);
     }
   });
 
@@ -96,11 +99,11 @@ describe("remove private files from directory", () => {
       []
     );
 
-    removePrivateFiles(testTargetDir);
+    removePrivateFiles(directoryPath);
 
     for (const fileRelPath of filesThatShouldNotBeRemoved) {
       // expecting the folder to not be removed
-      expect(existsSync(join(testTargetDir, fileRelPath))).toBe(true);
+      expect(existsSync(join(directoryPath, fileRelPath))).toBe(true);
     }
   });
 });

@@ -5,11 +5,15 @@ import expandTemplateJson, {
   assertTemplateJsonFormat,
   TemplateJson,
 } from "../src/template";
-import { createTestDirectory } from "./utils/index";
+import {
+  createTestDirectory__RENAME_LATER,
+  TestDirectoryResults,
+} from "./utils/index";
 
-const { targetDir: testTargetDir, teardown } = createTestDirectory();
+const { cleanup, directoryPath }: TestDirectoryResults =
+  createTestDirectory__RENAME_LATER();
 
-afterAll(() => teardown());
+afterEach(() => cleanup());
 
 describe("check the formatting of a template.json file", () => {
   test("returns correct false values", () => {
@@ -54,14 +58,14 @@ describe("check the formatting of a template.json file", () => {
 });
 
 describe("expand the template.json", () => {
-  const testTemplateJsonLocation: string = join(testTargetDir, "template.json");
+  const testTemplateJsonLocation: string = join(directoryPath, "template.json");
 
   /** @returns The function to delete the target directory. */
   function writeTestTemplate(testData: unknown): () => void {
-    mkdirSync(testTargetDir, { recursive: true });
+    mkdirSync(directoryPath, { recursive: true });
     writeFileSync(testTemplateJsonLocation, JSON.stringify(testData));
 
-    return () => rmSync(testTargetDir, { recursive: true, force: true });
+    return () => rmSync(directoryPath, { recursive: true, force: true });
   }
 
   test("throws on malformed template.json", () => {

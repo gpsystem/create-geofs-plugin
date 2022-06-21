@@ -8,22 +8,22 @@ import {
 } from "node:fs";
 import { dirname, join } from "node:path";
 import { copyDir, getAllFilesInDir, outputFile } from "../src/fsHelpers";
-import { createTestDirectory } from "./utils/index";
+import { createTestDirectory__RENAME_LATER } from "./utils/index";
 
-const { targetDir: testTargetDir, teardown } = createTestDirectory();
+const { cleanup, directoryPath } = createTestDirectory__RENAME_LATER();
 
-afterAll(() => teardown());
+afterAll(() => cleanup());
 
 function createTargetDir(): void {
-  mkdirSync(testTargetDir, { recursive: true });
+  mkdirSync(directoryPath, { recursive: true });
 }
 
 function deleteTargetDir(): void {
-  rmSync(testTargetDir, { recursive: true, force: true });
+  rmSync(directoryPath, { recursive: true, force: true });
 }
 
 function joinWithTargetDir(...paths: string[]): string {
-  return join(testTargetDir, ...paths);
+  return join(directoryPath, ...paths);
 }
 
 describe("output file", () => {
@@ -110,7 +110,7 @@ describe("get all files in a directory", () => {
   });
 
   test("always returns real paths", () => {
-    const allPaths: string[] = [...getAllFilesInDir(testTargetDir)];
+    const allPaths: string[] = [...getAllFilesInDir(directoryPath)];
 
     for (const filePath of allPaths) {
       expect(statSync(filePath).isFile()).toBe(true);
@@ -118,7 +118,7 @@ describe("get all files in a directory", () => {
   });
 
   test("gets the correct paths", () => {
-    const allPaths: string[] = [...getAllFilesInDir(testTargetDir)];
+    const allPaths: string[] = [...getAllFilesInDir(directoryPath)];
 
     expect(
       allFiles.map((relPath) => joinWithTargetDir(relPath)).sort()

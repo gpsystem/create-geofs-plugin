@@ -17,7 +17,7 @@ export const commonJestConfig: InitialOptionsTsJest = {
 
 const config: InitialOptionsTsJest = {
   collectCoverage: true,
-  collectCoverageFrom: ["packages/**/src/**/*.ts"],
+  collectCoverageFrom: ["src/**/*.ts"],
   coverageDirectory: "coverage",
   coveragePathIgnorePatterns: ["/template/"],
   coverageProvider: "v8",

@@ -2,7 +2,11 @@ import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { outputFile } from "./fsHelpers";
 
-export function initializeNpm(targetDir: string, templateDeps: string[]): void {
+export function initializeNpm(
+  targetDir: string,
+  templateDeps: string[],
+  ci: boolean
+): void {
   const firstPackageJson: Record<string, unknown> = {
     name: "geofs-plugin",
     version: "",
@@ -16,5 +20,5 @@ export function initializeNpm(targetDir: string, templateDeps: string[]): void {
       force: true,
     }
   );
-  execSync(`npm i ${templateDeps.join(" ")} -D`, { cwd: targetDir });
+  if (!ci) execSync(`npm i ${templateDeps.join(" ")} -D`, { cwd: targetDir });
 }

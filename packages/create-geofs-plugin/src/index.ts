@@ -25,7 +25,7 @@ export async function start(argv: string[], ci = false): Promise<void> {
   removePrivateFiles(tmpDirPath);
   outputFile(join(tmpDirPath, ".eslintrc.yml"), dump(eslintConfig));
   copyDir(tmpDirPath, config.targetDir, { overwrite: config.overwrite });
-  if (!ci) initializeNpm(config.targetDir, templateDeps);
+  initializeNpm(config.targetDir, templateDeps, ci);
 
   await cleanupTempDir();
 }

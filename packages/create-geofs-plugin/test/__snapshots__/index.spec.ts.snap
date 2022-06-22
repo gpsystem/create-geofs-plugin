@@ -1,0 +1,1291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration tests integration test overwrite:false 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+  - prettier
+globals:
+  PAGE_PATH: readonly
+  geofs: readonly
+  ui: readonly
+  flight: readonly
+  objects: readonly
+  controls: readonly
+  weather: readonly
+  audio: readonly
+  multiplayer: readonly
+  instruments: readonly
+  absMin: readonly
+  span: readonly
+  boundHours24: readonly
+  fixAngle: readonly
+  fixAngle360: readonly
+  fixAngles360: readonly
+  fixAngles: readonly
+  exponentialSmoothingV3: readonly
+  exponentialSmoothing: readonly
+  getBuildingCollision: readonly
+  xyz2lla: readonly
+  xy2ll: readonly
+  lla2xyz: readonly
+  ll2xy: readonly
+  clamp: readonly
+  geoDecodeLocation: readonly
+  lookAt: readonly
+  getURLParameters: readonly
+  clone: readonly
+  PID: readonly
+  Overlay: readonly
+  rigidBody: readonly
+  Object3D: readonly
+  Indicator: readonly
+  GlassPanel: readonly
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:false/template:react 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+const root = createRoot(document.querySelector(\\"REPLACE ME\\"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\", \\"@babel/preset-react\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:false/template:react-ts 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(document.querySelector(\\"REPLACE ME\\")!);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "src/tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"jsx\\": \\"react\\",
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "// @ts-check
+const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:false/template:typescript 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.ts": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.ts\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [\\".tsx\\", \\".ts\\", \\".js\\"],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:true 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+  - prettier
+globals:
+  PAGE_PATH: readonly
+  geofs: readonly
+  ui: readonly
+  flight: readonly
+  objects: readonly
+  controls: readonly
+  weather: readonly
+  audio: readonly
+  multiplayer: readonly
+  instruments: readonly
+  absMin: readonly
+  span: readonly
+  boundHours24: readonly
+  fixAngle: readonly
+  fixAngle360: readonly
+  fixAngles360: readonly
+  fixAngles: readonly
+  exponentialSmoothingV3: readonly
+  exponentialSmoothing: readonly
+  getBuildingCollision: readonly
+  xyz2lla: readonly
+  xy2ll: readonly
+  lla2xyz: readonly
+  ll2xy: readonly
+  clamp: readonly
+  geoDecodeLocation: readonly
+  lookAt: readonly
+  getURLParameters: readonly
+  clone: readonly
+  PID: readonly
+  Overlay: readonly
+  rigidBody: readonly
+  Object3D: readonly
+  Indicator: readonly
+  GlassPanel: readonly
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:true/template:react 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+const root = createRoot(document.querySelector(\\"REPLACE ME\\"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\", \\"@babel/preset-react\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:true/template:react-ts 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(document.querySelector(\\"REPLACE ME\\")!);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "src/tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"jsx\\": \\"react\\",
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "// @ts-check
+const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test overwrite:true/template:typescript 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.ts": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.ts\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [\\".tsx\\", \\".ts\\", \\".js\\"],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test template:react 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+const root = createRoot(document.querySelector(\\"REPLACE ME\\"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\", \\"@babel/preset-react\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test template:react-ts 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:react/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  react:
+    version: detect
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/App.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+
+export function App() {
+  // start writing your code here!
+  // you can reference the geofs apis in intellisense because of the triple-slash directives
+  // the apis from geofs plugin system are not available yet
+
+  return <h1>Test</h1>;
+}
+",
+  "src/index.tsx": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+import React from \\"react\\";
+import { createRoot } from \\"react-dom/client\\";
+import { App } from \\"./App\\";
+
+// Replace the selector with a link to your UI host!
+// Example: #geofs-ui-right
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(document.querySelector(\\"REPLACE ME\\")!);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+",
+  "src/tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"jsx\\": \\"react\\",
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "// @ts-check
+const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test template:typescript 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/typescript
+  - prettier
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.ts": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "tsconfig.json": "{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"es2015\\",
+    \\"module\\": \\"esnext\\",
+    \\"esModuleInterop\\": true,
+    \\"moduleResolution\\": \\"node\\",
+    \\"resolveJsonModule\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"strict\\": true,
+    \\"skipLibCheck\\": true
+  },
+  \\"include\\": [\\"**/*\\"]
+}
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.ts\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: \\"ts-loader\\",
+          },
+        ],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [\\".tsx\\", \\".ts\\", \\".js\\"],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;
+
+exports[`integration tests integration test vanilla 1`] = `
+Object {
+  ".eslintrc.yml": "root: true
+env:
+  browser: true
+  es2021: true
+  node: true
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+  - prettier
+globals:
+  PAGE_PATH: readonly
+  geofs: readonly
+  ui: readonly
+  flight: readonly
+  objects: readonly
+  controls: readonly
+  weather: readonly
+  audio: readonly
+  multiplayer: readonly
+  instruments: readonly
+  absMin: readonly
+  span: readonly
+  boundHours24: readonly
+  fixAngle: readonly
+  fixAngle360: readonly
+  fixAngles360: readonly
+  fixAngles: readonly
+  exponentialSmoothingV3: readonly
+  exponentialSmoothing: readonly
+  getBuildingCollision: readonly
+  xyz2lla: readonly
+  xy2ll: readonly
+  lla2xyz: readonly
+  ll2xy: readonly
+  clamp: readonly
+  geoDecodeLocation: readonly
+  lookAt: readonly
+  getURLParameters: readonly
+  clone: readonly
+  PID: readonly
+  Overlay: readonly
+  rigidBody: readonly
+  Object3D: readonly
+  Indicator: readonly
+  GlassPanel: readonly
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+rules:
+  eqeqeq:
+    - error
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
+",
+  "package.json": "{
+  \\"name\\": \\"geofs-plugin\\",
+  \\"version\\": \\"\\",
+  \\"private\\": true
+}",
+  "src/index.js": "/// <reference types=\\"jquery\\" />
+/// <reference types=\\"@geps/geofs-types\\" />
+
+// start writing your code here!
+// you can reference the geofs apis in intellisense because of the triple-slash directives
+// the apis from geofs plugin system are not available yet
+",
+  "webpack.config.js": "const { join } = require(\\"node:path\\");
+
+/** @type {import(\\"webpack\\").Configuration} */
+const config = {
+  entry: join(__dirname, \\"src\\", \\"index.js\\"),
+  mode: \\"production\\",
+  module: {
+    rules: [
+      {
+        test: /\\\\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: \\"babel-loader\\",
+          options: {
+            presets: [\\"@babel/preset-env\\"],
+          },
+        },
+      },
+    ],
+  },
+  output: {
+    clean: true,
+    filename: \\"index.js\\",
+    path: join(__dirname, \\"dist\\"),
+  },
+};
+
+module.exports = config;
+",
+}
+`;

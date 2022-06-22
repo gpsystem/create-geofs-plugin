@@ -1,15 +1,15 @@
+import { relative } from "node:path";
 import { Configuration, parseConfig } from "../src/config";
 import {
   allArgPermutations,
   createArgsForProgram,
   createTestDirectory__RENAME_LATER,
   normalizeToForwardSlash,
-  pathRelativeToPackage,
   TestDirectoryResults,
 } from "./utils/index";
 
 describe("parse config", () => {
-  const { cleanup, directoryPath }: TestDirectoryResults =
+  const { cleanup, directoryPath, getRelativePath }: TestDirectoryResults =
     createTestDirectory__RENAME_LATER();
 
   afterEach(() => cleanup());
@@ -21,11 +21,12 @@ describe("parse config", () => {
       );
       const snapshotConfig: Configuration = {
         ...originalConfig,
+        // should be an empty string
         targetDir: normalizeToForwardSlash(
-          pathRelativeToPackage(originalConfig.targetDir)
+          getRelativePath(originalConfig.targetDir)
         ),
         templateDir: normalizeToForwardSlash(
-          pathRelativeToPackage(originalConfig.templateDir)
+          relative(__dirname, originalConfig.templateDir)
         ),
       };
 

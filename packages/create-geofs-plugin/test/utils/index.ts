@@ -1,5 +1,5 @@
 import { join, relative, sep } from "node:path";
-import { argv0 as nodeExecPath } from "node:process";
+import { cwd, argv0 as nodeExecPath } from "node:process";
 
 export const packageDir: string = join(__dirname, "..", "..");
 
@@ -39,7 +39,7 @@ export function createArgsForProgram(
   return [
     nodeExecPath,
     binFile,
-    relative(join(__dirname, ".."), targetDir).replace(/^[a-z]/i, "./$&"),
+    relative(cwd(), targetDir).replace(/^[a-z]/i, "./$&"),
     ...flags,
   ];
 }

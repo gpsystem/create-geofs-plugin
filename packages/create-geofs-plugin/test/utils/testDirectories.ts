@@ -1,5 +1,5 @@
 import { mkdirSync, rmSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 
 /**
  * DO NOT USE THIS.
@@ -15,33 +15,27 @@ export const testTargetDirRoot__DO_NOT_USE: string = join(
 );
 
 export interface TestDirectoryResults {
+  cleanup(): void;
   directoryPath: string;
   directoryName: string;
-  cleanup(): void;
+  getRelativePath(childPath: string): string;
 }
 
-// declared in setup.ts
-declare const GLOBAL_TEST_DIRECTORIES: number[];
-
 export function createTestDirectory__RENAME_LATER(): TestDirectoryResults {
-  let workerId = 0;
-  const createDirectoryName = () => `test${workerId}`;
-
-  while (GLOBAL_TEST_DIRECTORIES.includes(workerId)) workerId++;
-
-  GLOBAL_TEST_DIRECTORIES.push(workerId);
-
-  const directoryName = createDirectoryName();
+  const directoryName = `test-dir-${Math.random().toString().substring(2)}`;
   // using the forbidden constant to create the subdirectories
   const directoryPath = join(testTargetDirRoot__DO_NOT_USE, directoryName);
 
   mkdirSync(directoryPath, { recursive: true });
 
   return {
+    cleanup(): void {
+      rmSync(directoryPath, { force: true, recursive: true });
+    },
     directoryName,
     directoryPath,
-    cleanup(): void {
-      rmSync(directoryPath, { recursive: true, force: true });
+    getRelativePath(childPath: string): string {
+      return relative(directoryPath, childPath);
     },
   };
 }

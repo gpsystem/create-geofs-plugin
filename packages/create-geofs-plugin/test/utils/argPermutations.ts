@@ -33,8 +33,8 @@ function createAllArgPermutations(): ArgPermutation[] {
   const possibleValues: Required<{
     [key in keyof CommandLineArgs]: CommandLineArgs[key][];
   }> = {
-    template: [undefined, "typescript", "react", "react-ts"],
     overwrite: [undefined, true, false],
+    template: [undefined, "typescript", "react", "react-ts"],
   };
 
   // the initial object is to get the loops started, it gets overwritten

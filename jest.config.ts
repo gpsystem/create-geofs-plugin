@@ -1,27 +1,27 @@
 import type { InitialOptionsTsJest } from "ts-jest";
 
 export const commonJestConfig: InitialOptionsTsJest = {
-  preset: "ts-jest/presets/default-esm",
+  clearMocks: true,
   globals: {
     "ts-jest": {
-      tsconfig: "./tsconfig.json",
       isolatedModules: true,
+      tsconfig: "./tsconfig.json",
     },
   },
-  moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
-  testMatch: ["**/test/**/*.spec.ts"],
   moduleFileExtensions: ["js", "ts", "tsx", "d.ts", "json", "node"],
-  clearMocks: true,
+  moduleNameMapper: { "^(\\.{1,2}/.*)\\.js$": "$1" },
+  preset: "ts-jest/presets/default-esm",
   resetMocks: true,
+  testMatch: ["**/test/**/*.spec.ts"],
 };
 
 const config: InitialOptionsTsJest = {
-  projects: ["./packages/cgp-eslint-config", "./packages/create-geofs-plugin"],
   collectCoverage: true,
   collectCoverageFrom: ["packages/**/src/**/*.ts"],
-  coveragePathIgnorePatterns: ["/template/"],
   coverageDirectory: "coverage",
+  coveragePathIgnorePatterns: ["/template/"],
   coverageProvider: "v8",
+  projects: ["./packages/cgp-eslint-config", "./packages/create-geofs-plugin"],
   verbose: true,
 };
 

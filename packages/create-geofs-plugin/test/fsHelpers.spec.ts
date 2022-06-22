@@ -19,7 +19,7 @@ function createTargetDir(): void {
 }
 
 function deleteTargetDir(): void {
-  rmSync(directoryPath, { recursive: true, force: true });
+  rmSync(directoryPath, { force: true, recursive: true });
 }
 
 function joinWithTargetDir(...paths: string[]): string {

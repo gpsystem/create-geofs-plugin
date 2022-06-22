@@ -14,8 +14,6 @@ describe("integration tests", () => {
 
   for (const [name, args] of allArgPermutations) {
     test(`doesn't throw on valid params ${name}`, async () => {
-      console.log(createArgsForProgram(args, directoryPath));
-
       await expect(
         start(createArgsForProgram(args, directoryPath), true)
       ).resolves.toBeUndefined();

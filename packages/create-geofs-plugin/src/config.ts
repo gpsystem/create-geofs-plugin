@@ -37,9 +37,9 @@ export function parseConfig(argv: string[]): Configuration {
   );
 
   return {
-    targetDir: destination,
     overwrite: overwrite ?? false,
-    templateName: template as "default" | "typescript" | "react" | "react-ts",
+    targetDir: destination,
     templateDir,
+    templateName: template as "default" | "typescript" | "react" | "react-ts",
   };
 }

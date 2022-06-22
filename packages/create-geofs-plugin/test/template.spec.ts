@@ -65,7 +65,7 @@ describe("expand the template.json", () => {
     mkdirSync(directoryPath, { recursive: true });
     writeFileSync(testTemplateJsonLocation, JSON.stringify(testData));
 
-    return () => rmSync(directoryPath, { recursive: true, force: true });
+    return () => rmSync(directoryPath, { force: true, recursive: true });
   }
 
   test("throws on malformed template.json", () => {

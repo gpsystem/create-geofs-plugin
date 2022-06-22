@@ -2,8 +2,7 @@
 
 exports[`integration tests integration test overwrite:false 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -12,52 +11,53 @@ extends:
   - plugin:import/recommended
   - prettier
 globals:
+  GlassPanel: readonly
+  Indicator: readonly
+  Object3D: readonly
+  Overlay: readonly
   PAGE_PATH: readonly
-  geofs: readonly
-  ui: readonly
-  flight: readonly
-  objects: readonly
-  controls: readonly
-  weather: readonly
-  audio: readonly
-  multiplayer: readonly
-  instruments: readonly
+  PID: readonly
   absMin: readonly
-  span: readonly
+  audio: readonly
   boundHours24: readonly
+  clamp: readonly
+  clone: readonly
+  controls: readonly
+  exponentialSmoothing: readonly
+  exponentialSmoothingV3: readonly
   fixAngle: readonly
   fixAngle360: readonly
-  fixAngles360: readonly
   fixAngles: readonly
-  exponentialSmoothingV3: readonly
-  exponentialSmoothing: readonly
-  getBuildingCollision: readonly
-  xyz2lla: readonly
-  xy2ll: readonly
-  lla2xyz: readonly
-  ll2xy: readonly
-  clamp: readonly
+  fixAngles360: readonly
+  flight: readonly
   geoDecodeLocation: readonly
-  lookAt: readonly
+  geofs: readonly
+  getBuildingCollision: readonly
   getURLParameters: readonly
-  clone: readonly
-  PID: readonly
-  Overlay: readonly
+  instruments: readonly
+  ll2xy: readonly
+  lla2xyz: readonly
+  lookAt: readonly
+  multiplayer: readonly
+  objects: readonly
   rigidBody: readonly
-  Object3D: readonly
-  Indicator: readonly
-  GlassPanel: readonly
+  span: readonly
+  ui: readonly
+  weather: readonly
+  xy2ll: readonly
+  xyz2lla: readonly
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
+        order: asc
 ",
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
@@ -105,8 +105,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:false/template:react 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -119,23 +118,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -212,8 +212,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:false/template:react-ts 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -226,23 +225,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -335,8 +335,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:false/template:typescript 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -347,23 +346,24 @@ extends:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -432,8 +432,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:true 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -442,52 +441,53 @@ extends:
   - plugin:import/recommended
   - prettier
 globals:
+  GlassPanel: readonly
+  Indicator: readonly
+  Object3D: readonly
+  Overlay: readonly
   PAGE_PATH: readonly
-  geofs: readonly
-  ui: readonly
-  flight: readonly
-  objects: readonly
-  controls: readonly
-  weather: readonly
-  audio: readonly
-  multiplayer: readonly
-  instruments: readonly
+  PID: readonly
   absMin: readonly
-  span: readonly
+  audio: readonly
   boundHours24: readonly
+  clamp: readonly
+  clone: readonly
+  controls: readonly
+  exponentialSmoothing: readonly
+  exponentialSmoothingV3: readonly
   fixAngle: readonly
   fixAngle360: readonly
-  fixAngles360: readonly
   fixAngles: readonly
-  exponentialSmoothingV3: readonly
-  exponentialSmoothing: readonly
-  getBuildingCollision: readonly
-  xyz2lla: readonly
-  xy2ll: readonly
-  lla2xyz: readonly
-  ll2xy: readonly
-  clamp: readonly
+  fixAngles360: readonly
+  flight: readonly
   geoDecodeLocation: readonly
-  lookAt: readonly
+  geofs: readonly
+  getBuildingCollision: readonly
   getURLParameters: readonly
-  clone: readonly
-  PID: readonly
-  Overlay: readonly
+  instruments: readonly
+  ll2xy: readonly
+  lla2xyz: readonly
+  lookAt: readonly
+  multiplayer: readonly
+  objects: readonly
   rigidBody: readonly
-  Object3D: readonly
-  Indicator: readonly
-  GlassPanel: readonly
+  span: readonly
+  ui: readonly
+  weather: readonly
+  xy2ll: readonly
+  xyz2lla: readonly
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
+        order: asc
 ",
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
@@ -535,8 +535,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:true/template:react 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -549,23 +548,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -642,8 +642,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:true/template:react-ts 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -656,23 +655,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -765,8 +765,7 @@ module.exports = config;
 
 exports[`integration tests integration test overwrite:true/template:typescript 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -777,23 +776,24 @@ extends:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -862,8 +862,7 @@ module.exports = config;
 
 exports[`integration tests integration test template:react 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -876,23 +875,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -969,8 +969,7 @@ module.exports = config;
 
 exports[`integration tests integration test template:react-ts 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -983,23 +982,24 @@ parserOptions:
   sourceType: module
   ecmaFeatures:
     jsx: true
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -1092,8 +1092,7 @@ module.exports = config;
 
 exports[`integration tests integration test template:typescript 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -1104,23 +1103,24 @@ extends:
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
+        order: asc
 overrides:
   - files:
       - '**/*.js'
     rules:
       '@typescript-eslint/no-var-requires':
         - 'off'
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -1189,8 +1189,7 @@ module.exports = config;
 
 exports[`integration tests integration test vanilla 1`] = `
 Object {
-  ".eslintrc.yml": "root: true
-env:
+  ".eslintrc.yml": "env:
   browser: true
   es2021: true
   node: true
@@ -1199,52 +1198,53 @@ extends:
   - plugin:import/recommended
   - prettier
 globals:
+  GlassPanel: readonly
+  Indicator: readonly
+  Object3D: readonly
+  Overlay: readonly
   PAGE_PATH: readonly
-  geofs: readonly
-  ui: readonly
-  flight: readonly
-  objects: readonly
-  controls: readonly
-  weather: readonly
-  audio: readonly
-  multiplayer: readonly
-  instruments: readonly
+  PID: readonly
   absMin: readonly
-  span: readonly
+  audio: readonly
   boundHours24: readonly
+  clamp: readonly
+  clone: readonly
+  controls: readonly
+  exponentialSmoothing: readonly
+  exponentialSmoothingV3: readonly
   fixAngle: readonly
   fixAngle360: readonly
-  fixAngles360: readonly
   fixAngles: readonly
-  exponentialSmoothingV3: readonly
-  exponentialSmoothing: readonly
-  getBuildingCollision: readonly
-  xyz2lla: readonly
-  xy2ll: readonly
-  lla2xyz: readonly
-  ll2xy: readonly
-  clamp: readonly
+  fixAngles360: readonly
+  flight: readonly
   geoDecodeLocation: readonly
-  lookAt: readonly
+  geofs: readonly
+  getBuildingCollision: readonly
   getURLParameters: readonly
-  clone: readonly
-  PID: readonly
-  Overlay: readonly
+  instruments: readonly
+  ll2xy: readonly
+  lla2xyz: readonly
+  lookAt: readonly
+  multiplayer: readonly
+  objects: readonly
   rigidBody: readonly
-  Object3D: readonly
-  Indicator: readonly
-  GlassPanel: readonly
+  span: readonly
+  ui: readonly
+  weather: readonly
+  xy2ll: readonly
+  xyz2lla: readonly
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+root: true
 rules:
   eqeqeq:
     - error
   import/order:
     - error
     - alphabetize:
-        order: asc
         caseInsensitive: true
+        order: asc
 ",
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",

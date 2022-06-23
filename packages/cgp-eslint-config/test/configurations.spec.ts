@@ -18,7 +18,8 @@ describe("raw config bases", () => {
     const allExtendsProperties: string[] = [];
     // can't use extends as a variable name, but can in the objects
     for (const { extends: configExtends } of Object.values(eslintConfigBases)) {
-      if (!configExtends) throw new Error("config extends property should always be defined");
+      if (!configExtends)
+        throw new Error("config extends property should always be defined");
 
       for (const extendsProperty of configExtends) {
         expect(allExtendsProperties).not.toContain(extendsProperty);

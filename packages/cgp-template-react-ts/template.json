@@ -3,7 +3,6 @@
     "@geps/geofs-types@v1",
     "@types/react@v18",
     "@types/react-dom@v18",
-    "prettier@v2",
     "react@v18",
     "react-dom@v18",
     "ts-loader@v9",
@@ -11,9 +10,5 @@
     "webpack@v5",
     "webpack-cli@v4"
   ],
-  "scripts": {
-    "build": "webpack",
-    "test": "npm run lint"
-  },
   "eslintConfigTemplates": ["baseConfig", "tsBase", "reactBase"]
 }

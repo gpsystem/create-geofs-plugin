@@ -1,4 +1,6 @@
-export type EslintConfigNames = keyof typeof eslintConfigBases;
+import type { EslintConfig } from "eslint-define-config";
+
+export type EslintConfigNames = "baseConfig" | "reactBase" | "tsBase";
 
 export type UnknownEslintConfigBase =
   typeof eslintConfigBases[EslintConfigNames];
@@ -6,7 +8,9 @@ export type UnknownEslintConfigBase =
 /**
  * The eslint configurations. All the values should be objects.
  */
-export const eslintConfigBases = {
+export const eslintConfigBases: {
+  [key in EslintConfigNames]: EslintConfig;
+} = {
   baseConfig: {
     env: { browser: true, es2021: true, node: true },
     extends: ["eslint:recommended", "plugin:import/recommended", "prettier"],
@@ -82,7 +86,7 @@ export const eslintConfigBases = {
       "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] },
     },
   },
-} as const;
+};
 
 /**
  * The dependencies of the configurations. Indexable by the same keys that {@link eslintConfigBases} is by.

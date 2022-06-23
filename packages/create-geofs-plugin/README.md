@@ -1,6 +1,6 @@
 # Create GeoFS Plugin
 
-`create-geofs-plugin` is a _command line interface_ (CLI) for Node.js that generates a new plugin compatible with GeoFS Plugin System.
+> `create-geofs-plugin` is a _command line interface_ (CLI) for Node.js that generates a new plugin compatible with GeoFS Plugin System.
 
 More specifically, this CLI allows you to select from our pre-defined blueprints to choose a basic working example to start from.
 

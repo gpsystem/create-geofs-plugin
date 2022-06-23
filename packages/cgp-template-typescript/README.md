@@ -1,11 +1,5 @@
 # `@geps/cgp-template-typescript`
 
-> TODO: description
+`@geps/cgp-template-typescript` is a template used for `create-geofs-plugin`. When the template flag is set to `typescript`, this template is used.
 
-## Usage
-
-```
-const cgpTemplateTypescript = require('@geps/cgp-template-typescript');
-
-// TODO: DEMONSTRATE API
-```
+This template contains everything a developer could need for starting a typescript plugin. Projects bootstrapped with this template include webpack to bundle modules, and typescript to write type-safe modern code.

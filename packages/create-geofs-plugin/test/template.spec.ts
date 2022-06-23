@@ -1,6 +1,6 @@
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { EslintConfigNames, MoreThanOneArray } from "@geps/cgp-eslint-config";
+import { EslintConfigNames } from "@geps/cgp-eslint-config";
 import expandTemplateJson, {
   assertTemplateJsonFormat,
   TemplateJson,
@@ -19,7 +19,7 @@ describe("check the formatting of a template.json file", () => {
   test("returns correct false values", () => {
     class TemplateFake implements TemplateJson {
       public dependencies: string[];
-      public eslintConfigTemplates: MoreThanOneArray<EslintConfigNames>;
+      public eslintConfigTemplates: [EslintConfigNames, ...EslintConfigNames[]];
 
       constructor() {
         this.dependencies = [];

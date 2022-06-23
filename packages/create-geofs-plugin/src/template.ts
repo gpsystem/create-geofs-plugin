@@ -1,9 +1,5 @@
 import { readFileSync } from "node:fs";
-import {
-  EslintConfigNames,
-  getEslintConfig,
-  MoreThanOneArray,
-} from "@geps/cgp-eslint-config";
+import { EslintConfigNames, getEslintConfig } from "@geps/cgp-eslint-config";
 
 export interface TemplateJson {
   /** The dependencies of the template. Does not include the dependencies returned from cgp-eslint-config. */
@@ -75,9 +71,7 @@ export default function expandTemplateJson(
     );
 
   const [eslintConfig, eslintDependencies] = getEslintConfig(
-    ...(eslintConfigTemplates as MoreThanOneArray<
-      typeof eslintConfigTemplates[number]
-    >)
+    ...(eslintConfigTemplates as [EslintConfigNames, ...EslintConfigNames[]])
   );
 
   const dependencies: string[] = [
@@ -85,5 +79,9 @@ export default function expandTemplateJson(
     ...eslintDependencies,
   ];
 
-  return { dependencies, eslintConfig };
+  return {
+    dependencies,
+    // TODO
+    eslintConfig: eslintConfig as Record<string, unknown>,
+  };
 }

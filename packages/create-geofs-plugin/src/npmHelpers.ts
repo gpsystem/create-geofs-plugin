@@ -11,6 +11,10 @@ export function initializeNpm(
     name: "geofs-plugin",
     version: "",
     private: true,
+    scripts: {
+      build: "webpack",
+      test: "npm run lint",
+    },
   };
 
   outputFile(

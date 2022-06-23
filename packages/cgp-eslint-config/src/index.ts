@@ -1,3 +1,4 @@
+import type { EslintConfig } from "eslint-define-config";
 import merge from "lodash.merge";
 import {
   eslintConfigBaseDependencies,
@@ -6,9 +7,8 @@ import {
   UnknownEslintConfigBase,
 } from "./configurations";
 
-export type MoreThanOneArray<T> = [T, ...T[]];
+type MoreThanOneArray<T> = [T, ...T[]];
 
-// TODO: is there a type for a eslint configuration file?
 /**
  * Merges eslint configuration templates into one configuration to output to a .eslintrc file.
  *
@@ -20,16 +20,17 @@ export type MoreThanOneArray<T> = [T, ...T[]];
  */
 export function getEslintConfig(
   ...configNames: MoreThanOneArray<EslintConfigNames>
-): [config: Record<string, unknown>, dependencies: string[]] {
+): [config: EslintConfig, dependencies: string[]] {
   if (!configNames.length)
     throw new Error("must provide at least one config name");
   const configsToMerge: UnknownEslintConfigBase[] = configNames.map(
     (val) => eslintConfigBases[val]
   );
-  const config: Record<string, unknown> = merge(
+  const config: EslintConfig = merge(
     ...(configsToMerge as MoreThanOneArray<UnknownEslintConfigBase>)
   );
 
+  // reviewers, is there a better way to do this?
   // if the typescript template is mentioned, remove globals from the config
   if (configNames.includes("tsBase") && config.globals !== undefined)
     delete config.globals;

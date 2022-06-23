@@ -7,7 +7,7 @@ describe("raw config bases", () => {
   test("all values are vanilla objects", () => {
     for (const configBase of Object.values(eslintConfigBases)) {
       // The original Object#toString returns [object Object]
-      // Calling Object#toString with any class that extends on Object will return [object ClassName]
+      // Calling Object#toString with an instance of any class that extends Object will return [object ClassName]
       expect(Object.prototype.toString.call(configBase)).toBe(
         Object.prototype.toString()
       );
@@ -18,6 +18,8 @@ describe("raw config bases", () => {
     const allExtendsProperties: string[] = [];
     // can't use extends as a variable name, but can in the objects
     for (const { extends: configExtends } of Object.values(eslintConfigBases)) {
+      if (!configExtends) throw new Error("config extends property should always be defined");
+
       for (const extendsProperty of configExtends) {
         expect(allExtendsProperties).not.toContain(extendsProperty);
         allExtendsProperties.push(extendsProperty);

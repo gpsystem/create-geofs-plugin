@@ -27,16 +27,12 @@
   "bugs": {
     "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
   },
-  "devDependencies": {
-    "@types/js-yaml": "~4.0.5",
-    "@types/tmp": "~0.2.3"
-  },
   "dependencies": {
-    "@geps/cgp-eslint-config": "~0.3.1",
-    "@geps/cgp-template-default": "~0.3.1",
-    "@geps/cgp-template-react": "~0.3.1",
-    "@geps/cgp-template-react-ts": "~0.3.1",
-    "@geps/cgp-template-typescript": "~0.3.1",
+    "@geps/cgp-eslint-config": "file:../packages/cgp-eslint-config",
+    "@geps/cgp-template-default": "file:../packages/cgp-template-default",
+    "@geps/cgp-template-react": "file:../packages/cgp-template-react",
+    "@geps/cgp-template-react-ts": "file:../packages/cgp-template-react-ts",
+    "@geps/cgp-template-typescript": "file:../packages/cgp-template-typescript",
     "commander": "~9.3.0",
     "js-yaml": "~4.1.0",
     "tmp-promise": "~3.0.3",

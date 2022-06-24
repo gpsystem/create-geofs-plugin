@@ -164,17 +164,16 @@ describe("copy directories", () => {
     ).toThrowErrorMatchingSnapshot();
   });
 
-  test("skips files that already exist", () => {
-    // setup
-    const allFiles: string[] = [
-      "./first/some/file.txt",
-      "./first/conflicting/file.txt",
-      "./second/conflicting/file.txt",
-      "./second/some/other/file.txt",
-    ];
-    const firstDirContents = "test 1";
-    const secondDirContents = "test 2";
+  const allFiles: string[] = [
+    "./first/some/file.txt",
+    "./first/conflicting/file.txt",
+    "./second/conflicting/file.txt",
+    "./second/some/other/file.txt",
+  ];
+  const firstDirContents = "test 1";
+  const secondDirContents = "test 2";
 
+  function setupFilesInTestDirectory(): void {
     for (const filePath of allFiles) {
       const expandedFilePath: string = joinWithTargetDir(filePath);
 
@@ -183,6 +182,10 @@ describe("copy directories", () => {
         filePath.includes("first") ? firstDirContents : secondDirContents
       );
     }
+  }
+
+  test("skips files that already exist", () => {
+    setupFilesInTestDirectory();
 
     // test
     copyDir(originalCopyDir, targetCopyDir);
@@ -194,24 +197,7 @@ describe("copy directories", () => {
   });
 
   test("overwrites files when overwrite=true", () => {
-    // setup
-    const allFiles: string[] = [
-      "./first/some/file.txt",
-      "./first/conflicting/file.txt",
-      "./second/conflicting/file.txt",
-      "./second/some/other/file.txt",
-    ];
-    const firstDirContents = "test 1";
-    const secondDirContents = "test 2";
-
-    for (const filePath of allFiles) {
-      const expandedFilePath: string = joinWithTargetDir(filePath);
-
-      outputFile(
-        expandedFilePath,
-        filePath.includes("first") ? firstDirContents : secondDirContents
-      );
-    }
+    setupFilesInTestDirectory();
 
     // test
     copyDir(originalCopyDir, targetCopyDir, {

@@ -23,8 +23,7 @@ export function createArgsForProgram(
   );
   const flags: string[] = [];
 
-  // TODO: document this usage or fix it
-  if (args.template) flags.push(`--template=${args.template}`);
+  if (args.template) flags.push(`--template`, args.template);
   if (args.overwrite) flags.push("--overwrite");
 
   return [

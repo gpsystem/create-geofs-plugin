@@ -66,7 +66,7 @@ rules:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@geps/geofs-types@v1\\",
@@ -125,11 +125,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -139,15 +148,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -164,7 +164,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@babel/preset-react@v7\\",
@@ -249,11 +249,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -263,15 +272,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -288,7 +288,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"@types/react@v18\\",
     \\"@types/react-dom@v18\\",
@@ -391,9 +391,18 @@ Object {
 extends:
   - plugin:@typescript-eslint/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+plugins:
+  - '@typescript-eslint'
 root: true
 rules:
   eqeqeq:
@@ -403,15 +412,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -426,7 +426,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"ts-loader@v9\\",
     \\"typescript@v4\\",
@@ -559,7 +559,7 @@ rules:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@geps/geofs-types@v1\\",
@@ -618,11 +618,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -632,15 +641,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -657,7 +657,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@babel/preset-react@v7\\",
@@ -742,11 +742,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -756,15 +765,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -781,7 +781,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"@types/react@v18\\",
     \\"@types/react-dom@v18\\",
@@ -884,9 +884,18 @@ Object {
 extends:
   - plugin:@typescript-eslint/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+plugins:
+  - '@typescript-eslint'
 root: true
 rules:
   eqeqeq:
@@ -896,15 +905,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -919,7 +919,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"ts-loader@v9\\",
     \\"typescript@v4\\",
@@ -995,11 +995,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -1009,15 +1018,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -1034,7 +1034,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@babel/preset-react@v7\\",
@@ -1119,11 +1119,20 @@ Object {
 extends:
   - plugin:react/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: latest
-  sourceType: module
   ecmaFeatures:
     jsx: true
+  ecmaVersion: latest
+  sourceType: module
+plugins:
+  - react
 root: true
 rules:
   eqeqeq:
@@ -1133,15 +1142,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - react
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -1158,7 +1158,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"@types/react@v18\\",
     \\"@types/react-dom@v18\\",
@@ -1261,9 +1261,18 @@ Object {
 extends:
   - plugin:@typescript-eslint/recommended
   - plugin:import/typescript
+overrides:
+  - files:
+      - '**/*.js'
+    rules:
+      '@typescript-eslint/no-var-requires':
+        - 'off'
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+plugins:
+  - '@typescript-eslint'
 root: true
 rules:
   eqeqeq:
@@ -1273,15 +1282,6 @@ rules:
     - alphabetize:
         caseInsensitive: true
         order: asc
-overrides:
-  - files:
-      - '**/*.js'
-    rules:
-      '@typescript-eslint/no-var-requires':
-        - 'off'
-parser: '@typescript-eslint/parser'
-plugins:
-  - '@typescript-eslint'
 settings:
   import/parsers:
     '@typescript-eslint/parser':
@@ -1296,7 +1296,7 @@ settings:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@geps/geofs-types@v1\\",
     \\"ts-loader@v9\\",
     \\"typescript@v4\\",
@@ -1429,7 +1429,7 @@ rules:
     \\"build\\": \\"webpack\\",
     \\"test\\": \\"npm run lint\\"
   },
-  \\"templateDeps\\": [
+  \\"templateDeps__INSTALLED_WHEN_NOT_IN_CI\\": [
     \\"@babel/core@v7\\",
     \\"@babel/preset-env@v7\\",
     \\"@geps/geofs-types@v1\\",

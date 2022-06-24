@@ -9,8 +9,8 @@ export default function removePrivateFiles(directoryPath: string): void {
       fullFilePath
     ).split(sep);
 
-    // all private files start with __
     for (const [i, pathPortion] of relFilePathParts.entries()) {
+      // all private entries start with __
       if (pathPortion.startsWith("__")) {
         const relativePathPortion: string = relFilePathParts
           .slice(0, i + 1)
@@ -18,6 +18,7 @@ export default function removePrivateFiles(directoryPath: string): void {
         // keep in mind that fullPath can be a directory or file
         const fullPath: string = join(directoryPath, relativePathPortion);
 
+        // fullPath could be a directory or a file
         rmSync(fullPath, { force: true, recursive: true });
         // if there are more parts to the path, they would have to be nested files or subdirectories
         // they would have been removed by the rmSync call, so skip over all of them

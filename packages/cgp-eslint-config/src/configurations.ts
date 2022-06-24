@@ -2,9 +2,6 @@ import type { EslintConfig } from "eslint-define-config";
 
 export type EslintConfigNames = "baseConfig" | "reactBase" | "tsBase";
 
-export type UnknownEslintConfigBase =
-  typeof eslintConfigBases[EslintConfigNames];
-
 /**
  * The eslint configurations. All the values should be objects.
  */

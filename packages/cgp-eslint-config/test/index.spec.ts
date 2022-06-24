@@ -1,6 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import { eslintConfigBases } from "../src/configurations";
 import { getEslintConfig } from "../src/index";
+import { isObject } from "./isObject";
 
 describe("get the eslint config", () => {
   const allConfigBasesNames: (keyof typeof eslintConfigBases)[] = [
@@ -28,10 +29,8 @@ describe("get the eslint config", () => {
 
   test("returns an array with the config and dependencies", () => {
     const [config, dependencies] = getEslintConfig("baseConfig");
-    // config is an object
-    expect(Object.prototype.toString.call(config)).toBe(
-      Object.prototype.toString()
-    );
+
+    expect(isObject(config)).toBe(true);
     expect(Array.isArray(dependencies)).toBe(true);
   });
 

@@ -2,13 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "check-format": "prettier --check --ignore-path=.gitignore .",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore .",
     "prepare": "husky install",
-    "postinstall": "npm run bootstrap && npm run prettier",
     "prettier": "prettier --write --ignore-path=.gitignore .",
     "test": "npm run build && jest"
   },
@@ -28,6 +26,7 @@
     "cspell": "~6.1.2",
     "eslint": "~8.18.0",
     "eslint-config-prettier": "~8.5.0",
+    "eslint-define-config": "~1.5.1",
     "eslint-import-resolver-typescript": "~2.7.1",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-jest": "~26.5.3",

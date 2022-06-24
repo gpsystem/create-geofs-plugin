@@ -3,15 +3,12 @@ import {
   eslintConfigBaseDependencies,
   eslintConfigBases,
 } from "../src/configurations";
+import { isObject } from "./isObject";
 
 describe("raw config bases", () => {
   test("all values are vanilla objects", () => {
     for (const configBase of Object.values(eslintConfigBases)) {
-      // The original Object#toString returns [object Object]
-      // Calling Object#toString with an instance of any class that extends Object will return [object ClassName]
-      expect(Object.prototype.toString.call(configBase)).toBe(
-        Object.prototype.toString()
-      );
+      expect(isObject(configBase)).toBe(true);
     }
   });
 

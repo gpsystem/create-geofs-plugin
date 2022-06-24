@@ -5,7 +5,7 @@ import { outputFile } from "./fsHelpers";
 export function initializeNpm(
   targetDir: string,
   templateDeps: string[],
-  { ci = false } = {}
+  { ci = false }: { ci?: boolean } = {}
 ): void {
   let firstPackageJson: Record<string, unknown> = {
     name: "geofs-plugin",
@@ -17,7 +17,11 @@ export function initializeNpm(
     },
   };
 
-  if (ci) firstPackageJson = { ...firstPackageJson, templateDeps };
+  if (ci)
+    firstPackageJson = {
+      ...firstPackageJson,
+      templateDeps__INSTALLED_WHEN_NOT_IN_CI: templateDeps,
+    };
 
   outputFile(
     join(targetDir, "package.json"),
@@ -26,5 +30,6 @@ export function initializeNpm(
       force: true,
     }
   );
+
   if (!ci) execSync(`npm i ${templateDeps.join(" ")} -D`, { cwd: targetDir });
 }

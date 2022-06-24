@@ -4,10 +4,9 @@ import {
   eslintConfigBaseDependencies,
   eslintConfigBases,
   EslintConfigNames,
-  UnknownEslintConfigBase,
 } from "./configurations";
 
-type MoreThanOneArray<T> = [T, ...T[]];
+type MinOneElementArray<T> = [T, ...T[]];
 
 /**
  * Merges eslint configuration templates into one configuration to output to a .eslintrc file.
@@ -19,29 +18,23 @@ type MoreThanOneArray<T> = [T, ...T[]];
  * Second is the names of the dependencies to install to make sure the .eslintrc configuration works properly.
  */
 export function getEslintConfig(
-  ...configNames: MoreThanOneArray<EslintConfigNames>
+  ...configNames: MinOneElementArray<EslintConfigNames>
 ): [config: EslintConfig, dependencies: string[]] {
-  if (!configNames.length)
+  if (configNames.length < 1)
     throw new Error("must provide at least one config name");
-  const configsToMerge: UnknownEslintConfigBase[] = configNames.map(
+
+  const dependencies: string[] = configNames.flatMap(
+    (val) => eslintConfigBaseDependencies[val]
+  );
+  const configsToMerge = configNames.map<EslintConfig>(
     (val) => eslintConfigBases[val]
-  );
-  const config: EslintConfig = merge(
-    ...(configsToMerge as MoreThanOneArray<UnknownEslintConfigBase>)
-  );
+  ) as MinOneElementArray<EslintConfig>;
+  const config: EslintConfig = merge(...configsToMerge);
 
-  // TODO: reviewers, is there a better way to do this?
-  // if the typescript template is mentioned, remove globals from the config
-  if (configNames.includes("tsBase") && config.globals !== undefined)
-    delete config.globals;
+  // if the typescript template is used, remove globals from the config (typescript-eslint will pick them up)
+  if (configNames.includes("tsBase") && config.globals) delete config.globals;
 
-  return [
-    config,
-    configNames.reduce<string[]>(
-      (acc, val) => [...acc, ...eslintConfigBaseDependencies[val]],
-      []
-    ),
-  ];
+  return [config, dependencies];
 }
 
 export { EslintConfigNames };

@@ -7,6 +7,7 @@ repo_url: https://github.com/gpsystem/create-geofs-plugin
 copyright: Copyright &copy; 2022 GeoFS Plugin System Authors
 
 markdown_extensions:
+  - meta
   - mdx_truly_sane_lists
   - admonition
   - attr_list
@@ -39,6 +40,10 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
+
+extra:
+  version:
+    provider: mike
 
 plugins:
   - git-revision-date-localized:

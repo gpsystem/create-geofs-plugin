@@ -31,7 +31,6 @@
     "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
   },
   "dependencies": {
-    "eslint-define-config": "~1.5.1",
     "lodash.merge": "~4.6.2"
   }
 }

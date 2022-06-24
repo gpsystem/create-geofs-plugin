@@ -13,7 +13,6 @@ function pathIsDirectory(path: string): boolean {
   return statSync(path).isDirectory();
 }
 
-// food for thought: do we want to force ourselves through outputFile, or should we expose this?
 function internalWriteFileSync(targetFile: string, data: string): void {
   writeFileSync(targetFile, data, "utf-8");
 }
@@ -36,19 +35,18 @@ export function outputFile(
   internalWriteFileSync(targetFile, data);
 }
 
-// TODO: should we make a wrapper for this that throws on initialization and returns the full string[]?
 export function* getAllFilesInDir(
-  dirName: string
+  dirPath: string
 ): Generator<string, void, void> {
-  if (!pathIsDirectory(dirName))
+  if (!pathIsDirectory(dirPath))
     throw new Error(`passed path is not a directory`);
 
-  const directoryDetails: Dirent[] = readdirSync(dirName, {
+  const directoryDetails: Dirent[] = readdirSync(dirPath, {
     withFileTypes: true,
   });
 
   for (const directoryChild of directoryDetails) {
-    const childPath: string = resolve(dirName, directoryChild.name);
+    const childPath: string = resolve(dirPath, directoryChild.name);
 
     if (directoryChild.isDirectory()) yield* getAllFilesInDir(childPath);
     else if (directoryChild.isFile()) yield childPath;

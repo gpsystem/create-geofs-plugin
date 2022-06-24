@@ -1,12 +1,13 @@
-import { dirname, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { cwd } from "node:process";
 import { Command } from "commander";
 import { version } from "../package.json";
 
 export interface Configuration {
   targetDir: string;
-  templateName: "default" | "typescript" | "react" | "react-ts";
   templateDir: string;
+  templateName: "default" | "typescript" | "react" | "react-ts";
+  templateTopLevelDir: string;
   overwrite: boolean;
 }
 
@@ -32,14 +33,16 @@ export function parseConfig(argv: string[]): Configuration {
     template = "default";
 
   // hack: getting the directory name of a file that will always be in the top-level
-  const templateDir: string = dirname(
+  const templateTopLevelDir: string = dirname(
     require.resolve(`@geps/cgp-template-${template}/README.md`)
   );
 
   return {
     overwrite: overwrite ?? false,
+    templateDir: join(templateTopLevelDir, "template"),
     targetDir: destination,
-    templateDir,
+    templateTopLevelDir,
+    // template is validated against an array of the possible template names, so this assertion is safe
     templateName: template as "default" | "typescript" | "react" | "react-ts",
   };
 }

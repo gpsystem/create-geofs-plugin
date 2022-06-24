@@ -4,8 +4,9 @@ exports[`parse config ensure parsing integrity overwrite:false/ 1`] = `
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-default",
+  "templateDir": "../../packages/cgp-template-default/template",
   "templateName": "default",
+  "templateTopLevelDir": "../../packages/cgp-template-default",
 }
 `;
 
@@ -13,8 +14,9 @@ exports[`parse config ensure parsing integrity overwrite:false//template:react/ 
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react",
+  "templateDir": "../../packages/cgp-template-react/template",
   "templateName": "react",
+  "templateTopLevelDir": "../../packages/cgp-template-react",
 }
 `;
 
@@ -22,8 +24,9 @@ exports[`parse config ensure parsing integrity overwrite:false//template:react-t
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react-ts",
+  "templateDir": "../../packages/cgp-template-react-ts/template",
   "templateName": "react-ts",
+  "templateTopLevelDir": "../../packages/cgp-template-react-ts",
 }
 `;
 
@@ -31,8 +34,9 @@ exports[`parse config ensure parsing integrity overwrite:false//template:typescr
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-typescript",
+  "templateDir": "../../packages/cgp-template-typescript/template",
   "templateName": "typescript",
+  "templateTopLevelDir": "../../packages/cgp-template-typescript",
 }
 `;
 
@@ -40,8 +44,9 @@ exports[`parse config ensure parsing integrity overwrite:true/ 1`] = `
 Object {
   "overwrite": true,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-default",
+  "templateDir": "../../packages/cgp-template-default/template",
   "templateName": "default",
+  "templateTopLevelDir": "../../packages/cgp-template-default",
 }
 `;
 
@@ -49,8 +54,9 @@ exports[`parse config ensure parsing integrity overwrite:true//template:react/ 1
 Object {
   "overwrite": true,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react",
+  "templateDir": "../../packages/cgp-template-react/template",
   "templateName": "react",
+  "templateTopLevelDir": "../../packages/cgp-template-react",
 }
 `;
 
@@ -58,8 +64,9 @@ exports[`parse config ensure parsing integrity overwrite:true//template:react-ts
 Object {
   "overwrite": true,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react-ts",
+  "templateDir": "../../packages/cgp-template-react-ts/template",
   "templateName": "react-ts",
+  "templateTopLevelDir": "../../packages/cgp-template-react-ts",
 }
 `;
 
@@ -67,8 +74,9 @@ exports[`parse config ensure parsing integrity overwrite:true//template:typescri
 Object {
   "overwrite": true,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-typescript",
+  "templateDir": "../../packages/cgp-template-typescript/template",
   "templateName": "typescript",
+  "templateTopLevelDir": "../../packages/cgp-template-typescript",
 }
 `;
 
@@ -76,8 +84,9 @@ exports[`parse config ensure parsing integrity template:react/ 1`] = `
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react",
+  "templateDir": "../../packages/cgp-template-react/template",
   "templateName": "react",
+  "templateTopLevelDir": "../../packages/cgp-template-react",
 }
 `;
 
@@ -85,8 +94,9 @@ exports[`parse config ensure parsing integrity template:react-ts/ 1`] = `
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-react-ts",
+  "templateDir": "../../packages/cgp-template-react-ts/template",
   "templateName": "react-ts",
+  "templateTopLevelDir": "../../packages/cgp-template-react-ts",
 }
 `;
 
@@ -94,8 +104,9 @@ exports[`parse config ensure parsing integrity template:typescript/ 1`] = `
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-typescript",
+  "templateDir": "../../packages/cgp-template-typescript/template",
   "templateName": "typescript",
+  "templateTopLevelDir": "../../packages/cgp-template-typescript",
 }
 `;
 
@@ -103,7 +114,8 @@ exports[`parse config ensure parsing integrity vanilla 1`] = `
 Object {
   "overwrite": false,
   "targetDir": "",
-  "templateDir": "../../packages/cgp-template-default",
+  "templateDir": "../../packages/cgp-template-default/template",
   "templateName": "default",
+  "templateTopLevelDir": "../../packages/cgp-template-default",
 }
 `;

@@ -6,4 +6,6 @@ Specifically, this CLI allows you to select from our pre-defined blueprints to c
 
 See the [documentation][] for more details on how to use `create-geofs-plugin`.
 
+<!-- TODO: correct the link once docs have been written -->
+
 [documentation]: https://gpsystem.github.io/create-geofs-plugin/

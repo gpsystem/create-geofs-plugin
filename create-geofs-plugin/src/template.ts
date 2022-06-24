@@ -17,6 +17,7 @@ function isObject(obj: unknown): obj is Record<string, unknown> {
 export function assertTemplateJsonFormat(
   templateJson: unknown
 ): templateJson is TemplateJson {
+  // asserts that allPossibleConfigNames is a valid array of all possible EslintConfigNames
   // thanks to Joshua Chen on the TS discord for this assertion code!
   type AssertTrue<T extends true> = T;
   // If typescript throws type 'false' does not satisfy the constraint 'true' here, then
@@ -34,10 +35,9 @@ export function assertTemplateJsonFormat(
   return (
     isObject(templateJson) &&
     isArray(templateJson.dependencies) &&
-    templateJson.dependencies.every<string>((val): val is string => {
-      // TODO: ensure val is a npm dep name followed by a major version number (after @ symbol)
-      return typeof val === "string";
-    }) &&
+    templateJson.dependencies.every<string>(
+      (val): val is string => typeof val === "string"
+    ) &&
     isArray(templateJson.eslintConfigTemplates) &&
     templateJson.eslintConfigTemplates.every<EslintConfigNames>(
       (val): val is EslintConfigNames => allPossibleConfigNames.includes(val)
@@ -81,7 +81,7 @@ export default function expandTemplateJson(
 
   return {
     dependencies,
-    // TODO
+    // EslintConfig is an interface, which isn't assignable to an object at compile-time, but is an object at runtime
     eslintConfig: eslintConfig as Record<string, unknown>,
   };
 }

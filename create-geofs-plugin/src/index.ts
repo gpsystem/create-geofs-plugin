@@ -5,11 +5,11 @@ import { Configuration, parseConfig } from "./config";
 import { copyDir, outputFile } from "./fsHelpers";
 import { initializeNpm } from "./npmHelpers";
 import removePrivateFiles from "./removePrivateFiles";
-import expandTemplateJson from "./template";
+import expandTemplateJson, { ExpandedTemplateJson } from "./template";
 
 export async function start(
   argv: string[],
-  { ci = false } = {}
+  { ci = false }: { ci?: boolean } = {}
 ): Promise<void> {
   const config: Configuration = parseConfig(argv);
   const { path: tmpDirPath, cleanup: cleanupTempDir }: DirectoryResult =
@@ -17,16 +17,17 @@ export async function start(
       unsafeCleanup: true,
     });
 
-  // config.templateDir is the top level of the template package
-  copyDir(join(config.templateDir, "template"), tmpDirPath);
-  const {
-    dependencies: templateDeps,
-    eslintConfig,
-  }: { dependencies: string[]; eslintConfig: Record<string, unknown> } =
-    expandTemplateJson(join(config.templateDir, "template.json"));
+  copyDir(config.templateDir, tmpDirPath);
+  const { dependencies: templateDeps, eslintConfig }: ExpandedTemplateJson =
+    expandTemplateJson(join(config.templateTopLevelDir, "template.json"));
 
   removePrivateFiles(tmpDirPath);
-  outputFile(join(tmpDirPath, ".eslintrc.yml"), dump(eslintConfig));
+  outputFile(
+    join(tmpDirPath, ".eslintrc.yml"),
+    dump(eslintConfig, {
+      sortKeys: true,
+    })
+  );
   copyDir(tmpDirPath, config.targetDir, { overwrite: config.overwrite });
   initializeNpm(config.targetDir, templateDeps, { ci });
 

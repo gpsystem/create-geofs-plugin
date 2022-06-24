@@ -27,6 +27,9 @@ describe("parse config", () => {
         templateDir: normalizeToForwardSlash(
           relative(__dirname, originalConfig.templateDir)
         ),
+        templateTopLevelDir: normalizeToForwardSlash(
+          relative(__dirname, originalConfig.templateTopLevelDir)
+        ),
       };
 
       expect(snapshotConfig).toMatchSnapshot();

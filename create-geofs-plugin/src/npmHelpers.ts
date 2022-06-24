@@ -5,9 +5,9 @@ import { outputFile } from "./fsHelpers";
 export function initializeNpm(
   targetDir: string,
   templateDeps: string[],
-  ci: boolean
+  { ci = false } = {}
 ): void {
-  const firstPackageJson: Record<string, unknown> = {
+  let firstPackageJson: Record<string, unknown> = {
     name: "geofs-plugin",
     version: "",
     private: true,
@@ -16,6 +16,8 @@ export function initializeNpm(
       test: "npm run lint",
     },
   };
+
+  if (ci) firstPackageJson = { ...firstPackageJson, templateDeps };
 
   outputFile(
     join(targetDir, "package.json"),

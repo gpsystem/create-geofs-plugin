@@ -1,17 +1,14 @@
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { EslintConfigNames } from "@geps/cgp-eslint-config";
+import { afterEach, describe, expect, test } from "@jest/globals";
 import expandTemplateJson, {
   assertTemplateJsonFormat,
   TemplateJson,
 } from "../src/template";
-import {
-  createTestDirectory__RENAME_LATER,
-  TestDirectoryResults,
-} from "./utils/index";
+import { createDirectoryForTest } from "./utils/index";
 
-const { cleanup, directoryPath }: TestDirectoryResults =
-  createTestDirectory__RENAME_LATER();
+const { cleanup, directoryPath } = createDirectoryForTest();
 
 afterEach(() => cleanup());
 

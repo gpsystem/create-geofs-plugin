@@ -1,16 +1,15 @@
 import { relative } from "node:path";
+import { afterEach, describe, expect, test } from "@jest/globals";
 import { Configuration, parseConfig } from "../src/config";
 import {
   allArgPermutations,
   createArgsForProgram,
-  createTestDirectory__RENAME_LATER,
+  createDirectoryForTest,
   normalizeToForwardSlash,
-  TestDirectoryResults,
 } from "./utils/index";
 
 describe("parse config", () => {
-  const { cleanup, directoryPath, getRelativePath }: TestDirectoryResults =
-    createTestDirectory__RENAME_LATER();
+  const { cleanup, directoryPath, getRelativePath } = createDirectoryForTest();
 
   afterEach(() => cleanup());
 

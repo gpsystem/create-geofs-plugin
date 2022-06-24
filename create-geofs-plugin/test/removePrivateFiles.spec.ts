@@ -1,15 +1,12 @@
 import { existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
+import { afterEach, beforeEach, describe, expect, test } from "@jest/globals";
 import { outputFile } from "../src/fsHelpers";
 import removePrivateFiles from "../src/removePrivateFiles";
-import {
-  createTestDirectory__RENAME_LATER,
-  TestDirectoryResults,
-} from "./utils/index";
+import { createDirectoryForTest } from "./utils/index";
 
 describe("remove private files from directory", () => {
-  const { cleanup, directoryPath }: TestDirectoryResults =
-    createTestDirectory__RENAME_LATER();
+  const { cleanup, directoryPath } = createDirectoryForTest();
 
   afterEach(() => cleanup());
 
@@ -44,7 +41,7 @@ describe("remove private files from directory", () => {
       (acc, [fileRelPath, toDelete]) => {
         // if the file's name starts with __, and the file is marked to be deleted
         if (
-          (arrayAt(fileRelPath.split("/"), -1)?.startsWith("__") ?? false) &&
+          (arrayAt(fileRelPath.split("/"), -1) ?? "").startsWith("__") &&
           toDelete
         )
           return [...acc, fileRelPath];

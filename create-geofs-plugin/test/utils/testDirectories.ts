@@ -14,14 +14,14 @@ export const testTargetDirRoot__DO_NOT_USE: string = join(
   "tempForTests/"
 );
 
-export interface TestDirectoryResults {
+interface TestDirectoryResults {
   cleanup(): void;
   directoryPath: string;
   directoryName: string;
   getRelativePath(childPath: string): string;
 }
 
-export function createTestDirectory__RENAME_LATER(): TestDirectoryResults {
+export function createDirectoryForTest(): TestDirectoryResults {
   const directoryName = `test-dir-${Math.random().toString().substring(2)}`;
   // using the forbidden constant to create the subdirectories
   const directoryPath = join(testTargetDirRoot__DO_NOT_USE, directoryName);

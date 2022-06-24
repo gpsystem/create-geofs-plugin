@@ -1,3 +1,4 @@
+import { describe, expect, test } from "@jest/globals";
 import { eslintConfigBases } from "../src/configurations";
 import { getEslintConfig } from "../src/index";
 

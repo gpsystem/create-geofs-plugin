@@ -1,4 +1,4 @@
-import { commonJestConfig } from "../../jest.config";
+import { commonJestConfig } from "../jest.config";
 
 export default {
   ...commonJestConfig,

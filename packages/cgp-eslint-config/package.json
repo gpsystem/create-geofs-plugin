@@ -31,12 +31,7 @@
     "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "~4.1.0",
-    "@rollup/plugin-typescript": "~8.3.3",
-    "@types/lodash.merge": "~4.6.7",
-    "rollup": "~2.75.6",
-    "rollup-plugin-dts": "~4.2.2",
-    "rollup-plugin-node-externals": "~4.0.0"
+    "@types/lodash.merge": "~4.6.7"
   },
   "dependencies": {
     "eslint-define-config": "~1.5.1",

@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
     "baseUrl": "./",
     "paths": {
-      "@geps/cgp-eslint-config": ["../cgp-eslint-config/src"]
+      "@geps/cgp-eslint-config": ["packages/cgp-eslint-config/src"]
     }
   }
 }

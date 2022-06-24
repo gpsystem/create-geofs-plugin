@@ -1,11 +1,12 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { join, relative, sep } from "node:path";
+import { join, relative } from "node:path";
+import { afterEach, describe, expect, test } from "@jest/globals";
 import { start } from "../src/index";
 import {
   allArgPermutations,
   createArgsForProgram,
-  createTestDirectory__RENAME_LATER,
-  TestDirectoryResults,
+  createDirectoryForTest,
+  normalizeToForwardSlash,
 } from "./utils/index";
 
 type StringObject = { [key: string]: string };
@@ -33,11 +34,11 @@ function createDirectoryTree(
     }
   }
 
-  // make all the names in files relative to the start directory
   if (!recursing)
+    // make all the names in files relative to the start directory
     return Object.entries(files).reduce<StringObject>(
       (acc, [filePath, fileContents]) => {
-        acc[relative(startDirectory, filePath).split(sep).join("/")] =
+        acc[normalizeToForwardSlash(relative(startDirectory, filePath))] =
           fileContents;
         return acc;
       },
@@ -47,15 +48,14 @@ function createDirectoryTree(
 }
 
 describe("integration tests", () => {
-  const { cleanup, directoryPath }: TestDirectoryResults =
-    createTestDirectory__RENAME_LATER();
+  const { cleanup, directoryPath } = createDirectoryForTest();
 
   afterEach(() => cleanup());
 
   for (const [name, args] of allArgPermutations) {
     test(`integration test ${name}`, async () => {
       await expect(
-        start(createArgsForProgram(args, directoryPath), true)
+        start(createArgsForProgram(args, directoryPath), { ci: true })
       ).resolves.toBeUndefined();
 
       expect(createDirectoryTree(directoryPath)).toMatchSnapshot();

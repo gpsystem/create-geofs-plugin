@@ -7,10 +7,18 @@ import {
   writeFileSync,
 } from "node:fs";
 import { dirname, join } from "node:path";
+import {
+  afterAll,
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+} from "@jest/globals";
 import { copyDir, getAllFilesInDir, outputFile } from "../src/fsHelpers";
-import { createTestDirectory__RENAME_LATER } from "./utils/index";
+import { createDirectoryForTest } from "./utils/index";
 
-const { cleanup, directoryPath } = createTestDirectory__RENAME_LATER();
+const { cleanup, directoryPath } = createDirectoryForTest();
 
 afterAll(() => cleanup());
 

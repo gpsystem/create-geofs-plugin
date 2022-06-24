@@ -1,17 +1,8 @@
 import { join, relative, sep } from "node:path";
 import { cwd, argv0 as nodeExecPath } from "node:process";
 
-export const packageDir: string = join(__dirname, "..", "..");
-
 export function normalizeToForwardSlash(path: string): string {
   return path.split(sep).join("/");
-}
-
-/**
- * Gets the path relative to the directory of the create-geofs-plugin package.
- */
-export function pathRelativeToPackage(path: string): string {
-  return relative(packageDir, path);
 }
 
 export interface CommandLineArgs {
@@ -45,7 +36,4 @@ export function createArgsForProgram(
 }
 
 export { ArgPermutation, allArgPermutations } from "./argPermutations";
-export {
-  createTestDirectory__RENAME_LATER,
-  TestDirectoryResults,
-} from "./testDirectories";
+export { createDirectoryForTest } from "./testDirectories";

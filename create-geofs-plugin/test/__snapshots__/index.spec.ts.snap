@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`integration tests integration test overwrite:false 1`] = `
+exports[`integration tests integration test overwrite:false/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -62,7 +62,22 @@ rules:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\"
+  ]
 }",
   "src/index.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -103,7 +118,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:false/template:react 1`] = `
+exports[`integration tests integration test overwrite:false//template:react/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -147,7 +162,26 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@babel/preset-react@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -210,7 +244,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:false/template:react-ts 1`] = `
+exports[`integration tests integration test overwrite:false//template:react-ts/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -254,7 +288,28 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"@types/react@v18\\",
+    \\"@types/react-dom@v18\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.tsx": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -333,7 +388,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:false/template:typescript 1`] = `
+exports[`integration tests integration test overwrite:false//template:typescript/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -373,7 +428,23 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\"
+  ]
 }",
   "src/index.ts": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -430,7 +501,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:true 1`] = `
+exports[`integration tests integration test overwrite:true/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -492,7 +563,22 @@ rules:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\"
+  ]
 }",
   "src/index.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -533,7 +619,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:true/template:react 1`] = `
+exports[`integration tests integration test overwrite:true//template:react/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -577,7 +663,26 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@babel/preset-react@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -640,7 +745,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:true/template:react-ts 1`] = `
+exports[`integration tests integration test overwrite:true//template:react-ts/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -684,7 +789,28 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"@types/react@v18\\",
+    \\"@types/react-dom@v18\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.tsx": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -763,7 +889,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test overwrite:true/template:typescript 1`] = `
+exports[`integration tests integration test overwrite:true//template:typescript/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -803,7 +929,23 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\"
+  ]
 }",
   "src/index.ts": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -860,7 +1002,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test template:react 1`] = `
+exports[`integration tests integration test template:react/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -904,7 +1046,26 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@babel/preset-react@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -967,7 +1128,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test template:react-ts 1`] = `
+exports[`integration tests integration test template:react-ts/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -1011,7 +1172,28 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"@types/react@v18\\",
+    \\"@types/react-dom@v18\\",
+    \\"react@v18\\",
+    \\"react-dom@v18\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\",
+    \\"eslint-plugin-react@v7\\"
+  ]
 }",
   "src/App.tsx": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -1090,7 +1272,7 @@ module.exports = config;
 }
 `;
 
-exports[`integration tests integration test template:typescript 1`] = `
+exports[`integration tests integration test template:typescript/ 1`] = `
 Object {
   ".eslintrc.yml": "env:
   browser: true
@@ -1130,7 +1312,23 @@ settings:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@geps/geofs-types@v1\\",
+    \\"ts-loader@v9\\",
+    \\"typescript@v4\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\",
+    \\"@typescript-eslint/eslint-plugin@v5\\",
+    \\"eslint-import-resolver-typescript@v2\\"
+  ]
 }",
   "src/index.ts": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />
@@ -1249,7 +1447,22 @@ rules:
   "package.json": "{
   \\"name\\": \\"geofs-plugin\\",
   \\"version\\": \\"\\",
-  \\"private\\": true
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"build\\": \\"webpack\\",
+    \\"test\\": \\"npm run lint\\"
+  },
+  \\"templateDeps\\": [
+    \\"@babel/core@v7\\",
+    \\"@babel/preset-env@v7\\",
+    \\"@geps/geofs-types@v1\\",
+    \\"babel-loader@v8\\",
+    \\"webpack@v5\\",
+    \\"webpack-cli@v4\\",
+    \\"eslint@v8\\",
+    \\"eslint-config-prettier@v8\\",
+    \\"eslint-plugin-import@v2\\"
+  ]
 }",
   "src/index.js": "/// <reference types=\\"jquery\\" />
 /// <reference types=\\"@geps/geofs-types\\" />

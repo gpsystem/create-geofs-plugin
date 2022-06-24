@@ -1,4 +1,4 @@
 {
-  "packages": ["packages/*"],
+  "packages": ["packages/*", "create-geofs-plugin/"],
   "version": "0.3.1"
 }

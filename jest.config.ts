@@ -19,9 +19,8 @@ const config: InitialOptionsTsJest = {
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.ts"],
   coverageDirectory: "coverage",
-  coveragePathIgnorePatterns: ["/template/"],
   coverageProvider: "v8",
-  projects: ["./packages/cgp-eslint-config", "./packages/create-geofs-plugin"],
+  projects: ["./packages/cgp-eslint-config", "./create-geofs-plugin"],
   verbose: true,
 };
 

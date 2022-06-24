@@ -30,7 +30,7 @@ export function getEslintConfig(
     ...(configsToMerge as MoreThanOneArray<UnknownEslintConfigBase>)
   );
 
-  // reviewers, is there a better way to do this?
+  // TODO: reviewers, is there a better way to do this?
   // if the typescript template is mentioned, remove globals from the config
   if (configNames.includes("tsBase") && config.globals !== undefined)
     delete config.globals;

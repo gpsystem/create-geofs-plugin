@@ -7,7 +7,10 @@ import { initializeNpm } from "./npmHelpers";
 import removePrivateFiles from "./removePrivateFiles";
 import expandTemplateJson from "./template";
 
-export async function start(argv: string[], ci = false): Promise<void> {
+export async function start(
+  argv: string[],
+  { ci = false } = {}
+): Promise<void> {
   const config: Configuration = parseConfig(argv);
   const { path: tmpDirPath, cleanup: cleanupTempDir }: DirectoryResult =
     await dir({
@@ -25,7 +28,7 @@ export async function start(argv: string[], ci = false): Promise<void> {
   removePrivateFiles(tmpDirPath);
   outputFile(join(tmpDirPath, ".eslintrc.yml"), dump(eslintConfig));
   copyDir(tmpDirPath, config.targetDir, { overwrite: config.overwrite });
-  initializeNpm(config.targetDir, templateDeps, ci);
+  initializeNpm(config.targetDir, templateDeps, { ci });
 
   await cleanupTempDir();
 }

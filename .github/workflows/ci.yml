@@ -31,8 +31,8 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
-  test_on_primary_node_version:
-    name: Tests
+  primary_tests:
+    name: Primary tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -105,13 +105,19 @@ jobs:
       - name: Check spelling
         run: npm run check-spelling
 
-  unit_tests_on_other_node_versions:
-    name: Run unit tests on other Node.js versions
-    runs-on: ubuntu-latest
+  other_unit_tests:
+    name: Run other unit tests
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14, 18]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [14, 16, 18]
+        exclude:
+          # This is the primary test's job
+          - node-version: 16
+            os: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 

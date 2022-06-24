@@ -12,7 +12,6 @@ Object {
   "extends": Array [
     "eslint:recommended",
     "plugin:import/recommended",
-    "prettier",
   ],
   "globals": Object {
     "GlassPanel": "readonly",
@@ -83,7 +82,6 @@ Object {
   "extends": Array [
     "plugin:react/recommended",
     "plugin:import/recommended",
-    "prettier",
   ],
   "globals": Object {
     "GlassPanel": "readonly",
@@ -165,7 +163,6 @@ Object {
   "extends": Array [
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
-    "prettier",
   ],
   "overrides": Array [
     Object {
@@ -229,7 +226,6 @@ Object {
   "extends": Array [
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
-    "prettier",
   ],
   "overrides": Array [
     Object {
@@ -293,7 +289,6 @@ Object {
   "extends": Array [
     "plugin:react/recommended",
     "plugin:import/typescript",
-    "prettier",
   ],
   "overrides": Array [
     Object {
@@ -350,7 +345,6 @@ Object {
 exports[`get the eslint config returns consistent values: dependencies for base run 1`] = `
 Array [
   "eslint@v8",
-  "eslint-config-prettier@v8",
   "eslint-plugin-import@v2",
 ]
 `;
@@ -358,7 +352,6 @@ Array [
 exports[`get the eslint config returns consistent values: dependencies for base-react run 1`] = `
 Array [
   "eslint@v8",
-  "eslint-config-prettier@v8",
   "eslint-plugin-import@v2",
   "eslint-plugin-react@v7",
 ]
@@ -367,7 +360,6 @@ Array [
 exports[`get the eslint config returns consistent values: dependencies for base-react-ts run 1`] = `
 Array [
   "eslint@v8",
-  "eslint-config-prettier@v8",
   "eslint-plugin-import@v2",
   "eslint-plugin-react@v7",
   "@typescript-eslint/eslint-plugin@v5",
@@ -378,7 +370,6 @@ Array [
 exports[`get the eslint config returns consistent values: dependencies for base-ts run 1`] = `
 Array [
   "eslint@v8",
-  "eslint-config-prettier@v8",
   "eslint-plugin-import@v2",
   "@typescript-eslint/eslint-plugin@v5",
   "eslint-import-resolver-typescript@v2",
@@ -388,7 +379,6 @@ Array [
 exports[`get the eslint config returns consistent values: dependencies for base-ts-react run 1`] = `
 Array [
   "eslint@v8",
-  "eslint-config-prettier@v8",
   "eslint-plugin-import@v2",
   "@typescript-eslint/eslint-plugin@v5",
   "eslint-import-resolver-typescript@v2",

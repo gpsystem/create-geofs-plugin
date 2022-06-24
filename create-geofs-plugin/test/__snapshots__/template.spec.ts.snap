@@ -4,7 +4,6 @@ exports[`expand the template.json returns consistent values - empty-base 1`] = `
 Object {
   "dependencies": Array [
     "eslint@v8",
-    "eslint-config-prettier@v8",
     "eslint-plugin-import@v2",
   ],
   "eslintConfig": Object {
@@ -16,7 +15,6 @@ Object {
     "extends": Array [
       "eslint:recommended",
       "plugin:import/recommended",
-      "prettier",
     ],
     "globals": Object {
       "GlassPanel": "readonly",
@@ -84,7 +82,6 @@ Object {
     "@types/lodash@v4",
     "lodash@v4",
     "eslint@v8",
-    "eslint-config-prettier@v8",
     "eslint-plugin-import@v2",
     "@typescript-eslint/eslint-plugin@v5",
     "eslint-import-resolver-typescript@v2",
@@ -98,7 +95,6 @@ Object {
     "extends": Array [
       "plugin:@typescript-eslint/recommended",
       "plugin:import/typescript",
-      "prettier",
     ],
     "overrides": Array [
       Object {
@@ -158,7 +154,6 @@ Object {
   "dependencies": Array [
     "lodash@v4",
     "eslint@v8",
-    "eslint-config-prettier@v8",
     "eslint-plugin-import@v2",
   ],
   "eslintConfig": Object {
@@ -170,7 +165,6 @@ Object {
     "extends": Array [
       "plugin:react/recommended",
       "plugin:import/typescript",
-      "prettier",
     ],
     "overrides": Array [
       Object {
@@ -233,7 +227,6 @@ Object {
     "react@v18",
     "react-dom@v18",
     "eslint@v8",
-    "eslint-config-prettier@v8",
     "eslint-plugin-import@v2",
     "@typescript-eslint/eslint-plugin@v5",
     "eslint-import-resolver-typescript@v2",
@@ -248,7 +241,6 @@ Object {
     "extends": Array [
       "plugin:react/recommended",
       "plugin:import/typescript",
-      "prettier",
     ],
     "overrides": Array [
       Object {
@@ -309,7 +301,6 @@ Object {
     "react@v18",
     "react-dom@v18",
     "eslint@v8",
-    "eslint-config-prettier@v8",
     "eslint-plugin-import@v2",
     "eslint-plugin-react@v7",
   ],
@@ -322,7 +313,6 @@ Object {
     "extends": Array [
       "plugin:react/recommended",
       "plugin:import/recommended",
-      "prettier",
     ],
     "globals": Object {
       "GlassPanel": "readonly",

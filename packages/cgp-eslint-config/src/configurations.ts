@@ -13,7 +13,7 @@ export const eslintConfigBases: {
 } = {
   baseConfig: {
     env: { browser: true, es2021: true, node: true },
-    extends: ["eslint:recommended", "plugin:import/recommended", "prettier"],
+    extends: ["eslint:recommended", "plugin:import/recommended"],
     globals: {
       GlassPanel: "readonly",
       Indicator: "readonly",
@@ -93,11 +93,7 @@ export const eslintConfigBases: {
  */
 export const eslintConfigBaseDependencies: Record<EslintConfigNames, string[]> =
   {
-    baseConfig: [
-      "eslint@v8",
-      "eslint-config-prettier@v8",
-      "eslint-plugin-import@v2",
-    ],
+    baseConfig: ["eslint@v8", "eslint-plugin-import@v2"],
     reactBase: ["eslint-plugin-react@v7"],
     tsBase: [
       "@typescript-eslint/eslint-plugin@v5",

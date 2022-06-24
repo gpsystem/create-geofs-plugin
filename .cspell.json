@@ -11,12 +11,14 @@
     "**/node_modules/**"
   ],
   "words": [
+    "bootstrapper",
     "commitlint",
     "eqeqeq",
     "geofs",
     "geps",
     "klaw",
     "promisified",
+    "snapshotting",
     "socio"
   ],
   "dictionaries": [

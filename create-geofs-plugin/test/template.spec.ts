@@ -4,7 +4,7 @@ import { EslintConfigNames } from "@geps/cgp-eslint-config";
 import { afterEach, describe, expect, test } from "@jest/globals";
 import expandTemplateJson, {
   assertTemplateJsonFormat,
-  TemplateJson,
+  RawTemplateJson,
 } from "../src/template";
 import { createDirectoryForTest } from "./utils/index";
 
@@ -14,7 +14,7 @@ afterEach(() => cleanup());
 
 describe("check the formatting of a template.json file", () => {
   test("returns correct false values", () => {
-    class TemplateFake implements TemplateJson {
+    class RawTemplateFake implements RawTemplateJson {
       public dependencies: string[];
       public eslintConfigTemplates: [EslintConfigNames, ...EslintConfigNames[]];
 
@@ -34,7 +34,7 @@ describe("check the formatting of a template.json file", () => {
       { some: "value" },
       new Date(),
       // only vanilla objects should be accepted, no matter their contents
-      new TemplateFake(),
+      new RawTemplateFake(),
       { dependencies: [] },
       { eslintConfigTemplates: [] },
       { dependencies: [], eslintConfigTemplates: ["doesn't exist"] },
@@ -45,7 +45,7 @@ describe("check the formatting of a template.json file", () => {
   });
 
   test("assertion returns true when passed a correct value", () => {
-    const correctValue: TemplateJson = {
+    const correctValue: RawTemplateJson = {
       dependencies: [],
       eslintConfigTemplates: ["baseConfig"],
     };
@@ -76,7 +76,7 @@ describe("expand the template.json", () => {
   });
 
   test("throws for an empty eslint config template list", () => {
-    const testTemplate: TemplateJson = {
+    const testTemplate: RawTemplateJson = {
       dependencies: [],
       eslintConfigTemplates: [],
     };
@@ -90,7 +90,7 @@ describe("expand the template.json", () => {
   });
 
   test("throws when base eslint config template isn't first", () => {
-    const testTemplate: TemplateJson = {
+    const testTemplate: RawTemplateJson = {
       dependencies: [],
       eslintConfigTemplates: ["reactBase"],
     };
@@ -103,7 +103,7 @@ describe("expand the template.json", () => {
     destructTestDir();
   });
 
-  const goodValues: [name: string, template: TemplateJson][] = [
+  const goodValues: [name: string, template: RawTemplateJson][] = [
     [
       "empty-base",
       {

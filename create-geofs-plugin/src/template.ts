@@ -1,22 +1,24 @@
 import { readFileSync } from "node:fs";
 import { EslintConfigNames, getEslintConfig } from "@geps/cgp-eslint-config";
 
-export interface TemplateJson {
+export interface RawTemplateJson {
   /** The dependencies of the template. Does not include the dependencies returned from cgp-eslint-config. */
   dependencies: string[];
   eslintConfigTemplates: EslintConfigNames[];
 }
 
+/** Checks if the input is a vanilla object. */
 function isObject(obj: unknown): obj is Record<string, unknown> {
-  // intentionally allowing a comparison of both undefined and null
-  // Object.getPrototypeOf will throw for both undefined and null
+  // intentionally allowing a comparison of both undefined and null, since
+  // Object.getPrototypeOf will throw for both of them
   // eslint-disable-next-line eqeqeq
   return obj != null && Object.getPrototypeOf(obj) === Object.prototype;
 }
 
+/** Checks if the provided input follows the format of a raw template.json file. */
 export function assertTemplateJsonFormat(
   templateJson: unknown
-): templateJson is TemplateJson {
+): templateJson is RawTemplateJson {
   // asserts that allPossibleConfigNames is a valid array of all possible EslintConfigNames
   // thanks to Joshua Chen on the TS discord for this assertion code!
   type AssertTrue<T extends true> = T;
@@ -52,6 +54,12 @@ export interface ExpandedTemplateJson {
   eslintConfig: Record<string, unknown>;
 }
 
+/**
+ * Expands a raw template.json file into a data structure to be used.
+ *
+ * @param templateJsonPath The path to the raw template.json file.
+ * @returns The expanded template.json file.
+ */
 export default function expandTemplateJson(
   templateJsonPath: string
 ): ExpandedTemplateJson {

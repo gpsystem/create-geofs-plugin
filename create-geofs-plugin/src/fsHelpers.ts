@@ -9,14 +9,35 @@ import {
 } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 
+/**
+ * Checks if a path is a directory.
+ *
+ * @param path The path to check.
+ */
 function pathIsDirectory(path: string): boolean {
   return statSync(path).isDirectory();
 }
 
+/**
+ * Writes a file to the filesystem.
+ * This is a wrapper around writeFileSync with the preferred encoding, utf-8.
+ *
+ * @param targetFile The path to the file to write.
+ * @param data The data to write to the file.
+ */
 function internalWriteFileSync(targetFile: string, data: string): void {
   writeFileSync(targetFile, data, "utf-8");
 }
 
+/**
+ * Outputs a file to the filesystem, recursively creating the directories the file in nested inside of where necessary.
+ * This is a wrapper around {@link internalWriteFileSync} that uses {@link mkdirSync} to create the directories.
+ *
+ * @param targetFile The path to the file to write.
+ * @param data The data to write to the file.
+ * @param options The options to use.
+ * @param options.force Whether to overwrite an existing file.
+ */
 export function outputFile(
   targetFile: string,
   data: string,
@@ -35,6 +56,12 @@ export function outputFile(
   internalWriteFileSync(targetFile, data);
 }
 
+/**
+ * Recursively finds all files in a directory and its subdirectories.
+ * This is a generator, so it's preferred usage is either a for-of loop or spread syntax.
+ *
+ * @param dirPath The path to the directory to look through.
+ */
 export function* getAllFilesInDir(
   dirPath: string
 ): Generator<string, void, void> {
@@ -53,14 +80,23 @@ export function* getAllFilesInDir(
   }
 }
 
-export interface CopyDirOptions {
-  overwrite?: boolean;
-}
-
+/**
+ * Copies a directory and all of its contents to a new location.
+ * This does not move the directory, but instead copies it.
+ *
+ * @param srcDir The path to the directory to copy from.
+ * @param targetDir The path to the directory to copy to.
+ * @param options The options to use.
+ * @param options.overwrite Whether to overwrite existing files.
+ */
 export function copyDir(
   srcDir: string,
   targetDir: string,
-  { overwrite = false }: CopyDirOptions = {}
+  {
+    overwrite = false,
+  }: {
+    overwrite?: boolean;
+  } = {}
 ): void {
   if (srcDir === targetDir)
     throw new Error("source and target directories can't be the same");

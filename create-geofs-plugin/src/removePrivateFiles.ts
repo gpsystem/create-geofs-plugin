@@ -2,6 +2,12 @@ import { rmSync } from "node:fs";
 import { join, relative, sep } from "node:path";
 import { getAllFilesInDir } from "./fsHelpers";
 
+/**
+ * Recursively removes all private entries from a directory.
+ * A private entry is a file or folder that starts with a double underscore.
+ *
+ * @param directoryPath The path to the directory to remove private entries from.
+ */
 export default function removePrivateFiles(directoryPath: string): void {
   for (const fullFilePath of getAllFilesInDir(directoryPath)) {
     const relFilePathParts: string[] = relative(

@@ -3,6 +3,9 @@ import { cwd } from "node:process";
 import { Command } from "commander";
 import { version } from "../package.json";
 
+/**
+ * The processed configuration. This is the result of parsing the command line arguments.
+ */
 export interface Configuration {
   targetDir: string;
   templateDir: string;
@@ -11,6 +14,11 @@ export interface Configuration {
   overwrite: boolean;
 }
 
+/**
+ * Parses the command line arguments and returns the configuration.
+ * @param argv The command line arguments. Should always be process.argv.
+ * @returns The processed configuration.
+ */
 export function parseConfig(argv: string[]): Configuration {
   let destination = "";
 

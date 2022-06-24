@@ -2,6 +2,15 @@ import { execSync } from "node:child_process";
 import { join } from "node:path";
 import { outputFile } from "./fsHelpers";
 
+/**
+ * Initializes the package.json and installs all provided dependencies.
+ *
+ * @param targetDir The directory to output the package.json and install dependencies in.
+ * @param templateDeps The dependencies to install.
+ * @param options The options to use.
+ * @param options.ci Whether to run in CI mode.
+ * CI mode will not install dependencies, but instead outputs templateDeps directly with the package.json.
+ */
 export function initializeNpm(
   targetDir: string,
   templateDeps: string[],

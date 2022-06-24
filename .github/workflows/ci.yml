@@ -127,7 +127,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install latest version of npm
-        if: ${{ matrix.node-version }} == 14
+        if: ${{ matrix.node-version == 14 }}
         run: npm install -g npm@latest
 
       - name: Install dependencies

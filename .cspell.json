@@ -19,7 +19,8 @@
     "klaw",
     "promisified",
     "snapshotting",
-    "socio"
+    "socio",
+    "tldr"
   ],
   "dictionaries": [
     "typescript",

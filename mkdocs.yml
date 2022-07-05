@@ -18,6 +18,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 theme:
   name: material
@@ -53,3 +55,18 @@ plugins:
 
 nav:
   - Home: index.md
+  - Getting started:
+      - Installation: getting-started.md
+      - License: license.md
+  - Contributing:
+      - contributing/index.md
+      - Contributing guide:
+          - contributing/guide/index.md
+      - Style guides:
+          - contributing/style/index.md
+          - Repository: contributing/style/repo.md
+          - Code: contributing/style/code.md
+          - Documentation: contributing/style/docs.md
+      - Internal documentation:
+          - contributing/internal-docs/index.md
+      - Maintainers: contributing/maintainers.md

@@ -1,0 +1,158 @@
+import { mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { EslintConfigNames } from "@geps/cgp-eslint-config";
+import { afterEach, describe, expect, test } from "@jest/globals";
+import expandTemplateJson, {
+  assertTemplateJsonFormat,
+  RawTemplateJson,
+} from "../src/template";
+import { createDirectoryForTest } from "./utils/index";
+
+const { cleanup, directoryPath } = createDirectoryForTest();
+
+afterEach(() => cleanup());
+
+describe("check the formatting of a template.json file", () => {
+  test("returns correct false values", () => {
+    class RawTemplateFake implements RawTemplateJson {
+      public dependencies: string[];
+      public eslintConfigTemplates: [EslintConfigNames, ...EslintConfigNames[]];
+
+      constructor() {
+        this.dependencies = [];
+        this.eslintConfigTemplates = ["baseConfig"];
+      }
+    }
+
+    const falseValues: unknown[] = [
+      null,
+      undefined,
+      "",
+      3,
+      [],
+      {},
+      { some: "value" },
+      new Date(),
+      // only vanilla objects should be accepted, no matter their contents
+      new RawTemplateFake(),
+      { dependencies: [] },
+      { eslintConfigTemplates: [] },
+      { dependencies: [], eslintConfigTemplates: ["doesn't exist"] },
+    ];
+    for (const value of falseValues) {
+      expect(assertTemplateJsonFormat(value)).toBe(false);
+    }
+  });
+
+  test("assertion returns true when passed a correct value", () => {
+    const correctValue: RawTemplateJson = {
+      dependencies: [],
+      eslintConfigTemplates: ["baseConfig"],
+    };
+
+    expect(assertTemplateJsonFormat(correctValue)).toBe(true);
+  });
+});
+
+describe("expand the template.json", () => {
+  const testTemplateJsonLocation: string = join(directoryPath, "template.json");
+
+  /** @returns The function to delete the target directory. */
+  function writeTestTemplate(testData: unknown): () => void {
+    mkdirSync(directoryPath, { recursive: true });
+    writeFileSync(testTemplateJsonLocation, JSON.stringify(testData));
+
+    return () => rmSync(directoryPath, { force: true, recursive: true });
+  }
+
+  test("throws on malformed template.json", () => {
+    const destructTestDir = writeTestTemplate({ some: "value" });
+
+    expect(() =>
+      expandTemplateJson(testTemplateJsonLocation)
+    ).toThrowErrorMatchingSnapshot();
+
+    destructTestDir();
+  });
+
+  test("throws for an empty eslint config template list", () => {
+    const testTemplate: RawTemplateJson = {
+      dependencies: [],
+      eslintConfigTemplates: [],
+    };
+    const destructTestDir = writeTestTemplate(testTemplate);
+
+    expect(() =>
+      expandTemplateJson(testTemplateJsonLocation)
+    ).toThrowErrorMatchingSnapshot();
+
+    destructTestDir();
+  });
+
+  test("throws when base eslint config template isn't first", () => {
+    const testTemplate: RawTemplateJson = {
+      dependencies: [],
+      eslintConfigTemplates: ["reactBase"],
+    };
+    const destructTestDir = writeTestTemplate(testTemplate);
+
+    expect(() =>
+      expandTemplateJson(testTemplateJsonLocation)
+    ).toThrowErrorMatchingSnapshot();
+
+    destructTestDir();
+  });
+
+  const goodValues: [name: string, template: RawTemplateJson][] = [
+    [
+      "empty-base",
+      {
+        dependencies: [],
+        eslintConfigTemplates: ["baseConfig"],
+      },
+    ],
+    [
+      "react-vanilla",
+      {
+        dependencies: ["react@v18", "react-dom@v18"],
+        eslintConfigTemplates: ["baseConfig", "reactBase"],
+      },
+    ],
+    [
+      "react-typescript",
+      {
+        dependencies: [
+          "@types/react@v18",
+          "@types/react-dom@v18",
+          "react@v18",
+          "react-dom@v18",
+        ],
+        eslintConfigTemplates: ["baseConfig", "tsBase", "reactBase"],
+      },
+    ],
+    [
+      "lodash-vanilla",
+      {
+        dependencies: ["lodash@v4"],
+        eslintConfigTemplates: ["baseConfig"],
+      },
+    ],
+    [
+      "lodash-typescript",
+      {
+        dependencies: ["@types/lodash@v4", "lodash@v4"],
+        eslintConfigTemplates: ["baseConfig", "tsBase"],
+      },
+    ],
+  ];
+  for (const [name, template] of goodValues) {
+    test(`returns consistent values - ${name}`, () => {
+      const destructTestDir = writeTestTemplate(template);
+
+      expect(() => expandTemplateJson(testTemplateJsonLocation)).not.toThrow();
+      expect(expandTemplateJson(testTemplateJsonLocation)).toMatchSnapshot();
+
+      destructTestDir();
+    });
+  }
+});

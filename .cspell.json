@@ -11,13 +11,18 @@
     "**/node_modules/**"
   ],
   "words": [
+    "backticks",
+    "bootstrapper",
     "commitlint",
     "eqeqeq",
     "geofs",
     "geps",
     "klaw",
     "promisified",
-    "socio"
+    "serializedmessage",
+    "snapshotting",
+    "socio",
+    "tldr"
   ],
   "dictionaries": [
     "typescript",

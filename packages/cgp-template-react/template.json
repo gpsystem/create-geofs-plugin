@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "@babel/core@v7",
+    "@babel/preset-env@v7",
+    "@babel/preset-react@v7",
+    "@geps/geofs-types@v1",
+    "babel-loader@v8",
+    "react@v18",
+    "react-dom@v18",
+    "webpack@v5",
+    "webpack-cli@v4"
+  ],
+  "eslintConfigTemplates": ["baseConfig", "reactBase"]
+}

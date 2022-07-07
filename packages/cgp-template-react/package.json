@@ -1,0 +1,29 @@
+{
+  "name": "@geps/cgp-template-react",
+  "version": "0.3.1",
+  "description": "The react plugin for create-geofs-plugin.",
+  "author": "GeoFS Plugin System",
+  "contributors": [
+    "Nicolas Rodriguez (https://github.com/nicolas377)"
+  ],
+  "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git",
+    "directory": "packages/cgp-template-react"
+  },
+  "bugs": {
+    "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
+  }
+}

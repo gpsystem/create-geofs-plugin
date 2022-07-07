@@ -1,0 +1,36 @@
+{
+  "name": "@geps/cgp-eslint-config",
+  "version": "0.3.1",
+  "description": "ESLint configs used for maintainability of create-geofs-plugin templates.",
+  "author": "nicolas377 <programnicolas@gmail.com>",
+  "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14"
+  },
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git",
+    "directory": "packages/cgp-eslint-config"
+  },
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "bugs": {
+    "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
+  },
+  "dependencies": {
+    "lodash.merge": "~4.6.2"
+  }
+}

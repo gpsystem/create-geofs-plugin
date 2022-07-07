@@ -1,15 +1,18 @@
-# Create GeoFS Plugin
+# `create-geofs-plugin`
 
-`create-geofs-plugin` is a _command line interface_ (CLI) for Node.js that generates a new plugin compatible with GeoFS Plugin System.
+> `create-geofs-plugin` bootstraps new development environments for scripts for GeoFS, an online flight simulator.
 
-More specifically, this CLI allows you to select from our pre-defined blueprints to choose a basic working example to start from.
+This is the monorepo for `create-geofs-plugin`! We're using [lerna][] to manage this monorepo, but here's a directory of this repository:
 
-## Installation
+| Directory           | Description                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| ./                  | The top level, where global configurations and dependencies are stored.                                      |
+| .github             | All GitHub configuration is stored here, including issue and PR templates, and github actions configuration. |
+| .husky              | All the scripts [husky][] runs before commits, to ensure their quality before push.                          |
+| packages            | All the supplemental packages to create-geofs-plugin are stored here.                                        |
+| create-geofs-plugin | The create-geofs-plugin CLI. This is where the source for the CLI is stored.                                 |
+| docs                | All the documentation for this repository. This documentation is published to GitHub pages [here][].         |
 
-Make sure you have Node.js installed on your workstation, then open your terminal and type the following command:
-
-```sh
-npx create-geofs-plugin my-first-app
-```
-
-and follow the instructions printed on the terminal as you go. create-geofs-plugin will then take care of the heavy lifting required to setup a plugin development environment, with proper folder structure, and even installing all the basic plugin dependencies.
+[lerna]: https://lerna.js.org/
+[here]: https://gpsystem.github.io/create-geofs-plugin/
+[husky]: https://typicode.github.io/husky/

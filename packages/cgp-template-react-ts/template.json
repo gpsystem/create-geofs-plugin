@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "@geps/geofs-types@v1",
+    "@types/react@v18",
+    "@types/react-dom@v18",
+    "react@v18",
+    "react-dom@v18",
+    "ts-loader@v9",
+    "typescript@v4",
+    "webpack@v5",
+    "webpack-cli@v4"
+  ],
+  "eslintConfigTemplates": ["baseConfig", "tsBase", "reactBase"]
+}

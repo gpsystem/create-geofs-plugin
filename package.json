@@ -1,93 +1,55 @@
 {
-  "name": "create-geofs-plugin",
-  "version": "0.3.1",
-  "description": "Create a plugin for GeoFS Plugin System.",
-  "bin": "index.js",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "build": "rollup --config",
+    "build": "lerna run build",
     "check-format": "prettier --check --ignore-path=.gitignore .",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "lint": "eslint --ignore-path=.gitignore .",
     "prepare": "husky install",
     "prettier": "prettier --write --ignore-path=.gitignore .",
-    "release": "standard-version",
-    "release:prerelease": "standard-version --prerelease alpha",
-    "release:patch": "standard-version --release-as patch",
-    "release:minor": "standard-version --release-as minor",
-    "release:major": "standard-version --release-as major",
-    "test": "npm run lint"
-  },
-  "files": [
-    "bin",
-    "templates"
-  ],
-  "engines": {
-    "node": ">=14"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gpsystem/create-geofs-plugin.git"
-  },
-  "keywords": [],
-  "contributors": [
-    "Nicolas Rodriguez (https://github.com/nicolas377)"
-  ],
-  "author": "GeoFS Plugin System",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gpsystem/create-geofs-plugin/issues"
-  },
-  "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
-  "dependencies": {
-    "@colors/colors": "~1.5.0",
-    "commander": "~9.3.0",
-    "fs-extra": "~10.1.0",
-    "inquirer": "~8.2.4",
-    "klaw": "~4.0.1",
-    "lodash": "~4.17.21",
-    "simple-git": "~3.7.1",
-    "validate-npm-package-name": "~4.0.0"
+    "test": "npm run build && jest"
   },
   "devDependencies": {
-    "@commitlint/cli": "~17.0.2",
-    "@commitlint/config-conventional": "~17.0.2",
+    "@commitlint/cli": "~17.0.3",
+    "@commitlint/config-conventional": "~17.0.3",
+    "@geps/geofs-types": "~1.0.1",
     "@rollup/plugin-json": "~4.1.0",
-    "@rollup/plugin-typescript": "~8.3.2",
-    "@types/fs-extra": "~9.0.13",
-    "@types/inquirer": "~8.2.1",
-    "@types/klaw": "~3.0.3",
-    "@types/lodash": "~4.14.182",
-    "@types/node": "~17.0.40",
-    "@types/validate-npm-package-name": "~3.0.3",
-    "@typescript-eslint/eslint-plugin": "~5.27.0",
-    "cspell": "~6.1.1",
-    "eslint": "~8.17.0",
+    "@rollup/plugin-typescript": "~8.3.3",
+    "@types/js-yaml": "~4.0.5",
+    "@types/lodash.merge": "~4.6.7",
+    "@types/react": "~18.0.14",
+    "@types/react-dom": "~18.0.5",
+    "@types/tmp": "~0.2.3",
+    "@typescript-eslint/eslint-plugin": "~5.30.4",
+    "@typescript-eslint/parser": "~5.30.4",
+    "cspell": "~6.2.2",
+    "eslint": "~8.19.0",
     "eslint-config-prettier": "~8.5.0",
-    "eslint-plugin-react": "~7.30.0",
+    "eslint-define-config": "~1.5.1",
+    "eslint-import-resolver-typescript": "~3.2.1",
+    "eslint-plugin-import": "~2.26.0",
+    "eslint-plugin-jest": "~26.5.3",
+    "eslint-plugin-react": "~7.30.1",
     "husky": "~8.0.1",
-    "prettier": "~2.6.2",
-    "rollup": "~2.75.5",
-    "standard-version": "~9.5.0",
-    "typescript": "~4.7.3"
+    "jest": "~28.1.2",
+    "lerna": "~5.1.6",
+    "prettier": "~2.7.1",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "rollup": "~2.75.7",
+    "rollup-plugin-dts": "~4.2.2",
+    "rollup-plugin-node-externals": "~4.1.1",
+    "ts-jest": "~28.0.5",
+    "typescript": "~4.7.4",
+    "webpack": "~5.73.0"
   },
-  "standard-version": {
-    "scripts": {
-      "postchangelog": "npm run prettier",
-      "postbump": "npm i --packageJsonOnly"
-    },
-    "bumpFiles": [
-      {
-        "filename": "src/version.json",
-        "type": "json"
-      },
-      {
-        "filename": "package.json",
-        "type": "json"
-      },
-      {
-        "filename": "package-lock.json",
-        "type": "json"
-      }
-    ]
+  "dependencies": {
+    "@geps/cgp-eslint-config": "file:packages/cgp-eslint-config",
+    "@geps/cgp-template-default": "file:packages/cgp-template-default",
+    "@geps/cgp-template-react": "file:packages/cgp-template-react",
+    "@geps/cgp-template-react-ts": "file:packages/cgp-template-react-ts",
+    "@geps/cgp-template-typescript": "file:packages/cgp-template-typescript",
+    "create-geofs-plugin": "file:create-geofs-plugin"
   }
 }

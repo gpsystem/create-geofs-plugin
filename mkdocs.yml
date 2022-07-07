@@ -60,8 +60,7 @@ nav:
       - License: license.md
   - Contributing:
       - contributing/index.md
-      - Contributing guide:
-          - contributing/guide/index.md
+      - Contributing guide: contributing/guide.md
       - Style guides:
           - contributing/style/index.md
           - Repository: contributing/style/repo.md

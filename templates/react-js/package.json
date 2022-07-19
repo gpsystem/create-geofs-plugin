@@ -14,7 +14,7 @@
   "author": "{{ author }} (https://github.com/{{ user }})",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "~7.18.2",
+    "@babel/core": "~7.18.9",
     "@babel/preset-env": "~7.18.2",
     "@babel/preset-react": "~7.17.12",
     "@geps/geofs-types": "~1.0.1",

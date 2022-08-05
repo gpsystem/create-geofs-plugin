@@ -40,7 +40,7 @@
   "homepage": "https://github.com/gpsystem/create-geofs-plugin#readme",
   "dependencies": {
     "@colors/colors": "~1.5.0",
-    "commander": "~9.3.0",
+    "commander": "~9.4.0",
     "fs-extra": "~10.1.0",
     "inquirer": "~8.2.4",
     "klaw": "~4.0.1",

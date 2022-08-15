@@ -19,7 +19,7 @@
     "@babel/preset-react": "~7.17.12",
     "@geps/geofs-types": "~1.0.1",
     "babel-loader": "~8.2.5",
-    "eslint": "~8.17.0",
+    "eslint": "~8.22.0",
     "eslint-config-prettier": "~8.5.0",
     "eslint-plugin-react": "~7.30.0",
     "prettier": "~2.6.2",

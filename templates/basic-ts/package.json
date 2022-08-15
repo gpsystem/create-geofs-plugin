@@ -16,7 +16,7 @@
   "devDependencies": {
     "@geps/geofs-types": "~1.0.1",
     "@typescript-eslint/eslint-plugin": "~5.27.0",
-    "eslint": "~8.17.0",
+    "eslint": "~8.22.0",
     "eslint-config-prettier": "~8.5.0",
     "prettier": "~2.6.2",
     "ts-loader": "~9.3.0",

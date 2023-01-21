@@ -43,7 +43,7 @@
     "commander": "~9.3.0",
     "fs-extra": "~10.1.0",
     "inquirer": "~8.2.4",
-    "klaw": "~4.0.1",
+    "klaw": "~4.1.0",
     "lodash": "~4.17.21",
     "simple-git": "~3.7.1",
     "validate-npm-package-name": "~4.0.0"
